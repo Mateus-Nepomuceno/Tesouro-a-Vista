@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --cor-texto: #ffffff;
+    --cor-hover: #ffb217;
+    --font-primaria: "Pirata One", sans-serif;
+}
+
+.conteudo {
+    background-image: url(/game_assets/Fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.conteudo_cabecalho {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0 1rem 0;
+}
+
+.conteudo_cabecalho_logo {
+    width: 35%;
+}
+
+.conteudo_opcao {
+    width: 18%;
+    justify-self: center;
+}
+
+.conteudo_opcao:hover {
+    width: 19%;
+}
+
+.conteudo_opcao_imagem {
+    position: relative; 
+    margin-bottom: 2rem;
+}
+
+.conteudo_opcao_imagem img {
+    display: block;
+    width: 100%;
+}
+
+.conteudo_opcao_imagem_texto {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 3rem;
+    text-align: center;
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+
+.conteudo_opcao_imagem_texto:hover {
+    color: var(--cor-hover);
+}
