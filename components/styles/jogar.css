@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --cor-texto: #ffffff;
+    --cor-hover: #ffb217;
+    --font-primaria: "Pirata One", sans-serif;
+}
+
+.conteudo {
+    background-image: url(/game_assets/FundoEscuro.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.conteudo_cabecalho {
+    padding: 1.5rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+
+.conteudo_mapas { 
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0 5rem 0;
+}
+
+.conteudo_mapas_ilha,.conteudo_mapas_caverna,.conteudo_mapas_deserto {
+    justify-items: center;
+}
+
+.conteudo_mapas_ordem_texto {
+    font-size: 2.4rem;
+    font-family: var(--font-primaria);
+    color: var(--cor-texto);
+}
+
+.conteudo_mapas_ordem_imagem {
+    display: flex;
+    justify-content: center;
+}
+
+.conteudo_mapas_ordem_imagem_ilha,.conteudo_mapas_ordem_imagem_caverna,.conteudo_mapas_ordem_imagem_deserto {
+    width: 75%;
+}
+
+.conteudo_mapas_ilha:hover,.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto:hover {
+    transform: translateY(-10px);
+    transition: 0.3s;
+}
+
+.conteudo_mapas_ordem_imagem_ilha:hover {
+    background: linear-gradient(to bottom, #ff7300da, #660000d0); 
+    box-shadow: 0 0 15px #0f9e2ead, 0 0 20px #09db3686, 0 0 45px #b8ffaac9, 0 0 85px #beff6ace;
+}
+
+.conteudo_mapas_ordem_imagem_caverna:hover {
+    background: linear-gradient(to bottom, #635c57da, #660000d0); 
+    box-shadow: 0 0 15px #3a3a38, 0 0 20px #5f5f5c, 0 0 45px #706e6e, 0 0 85px #919291;
+}
+
+.conteudo_mapas_ordem_imagem_deserto:hover {
+    background: linear-gradient(to bottom, #ff7300da, #660000d0); 
+    box-shadow: 0 0 15px #b8a1208e, 0 0 20px #ffbe0da6, 0 0 45px #ffad3186, 0 0 85px #f5ab3b9f;
+}
+
+.conteudo_rodape {
+    width: 32%;
+    justify-self: center;
+}
+
+.conteudo_rodape:hover {
+    width: 33%;
+}
+
+.conteudo_rodape_imagem {
+    position: relative; 
+    margin-bottom: 2rem;
+}
+
+.conteudo_rodape_imagem img {
+    display: block;
+    width: 100%;
+}
+
+.conteudo_rodape_imagem_texto {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 2.4rem;
+    text-align: center;
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
+    white-space: nowrap;
+}
+
+.conteudo_rodape_imagem_texto:hover {
+    color: var(--cor-hover);
+}
+
