@@ -22,7 +22,7 @@
 .conteudo_principal {
     display: flex;
     justify-content: center;
-    padding: 12rem 0 4rem 0;
+    padding: 8rem 0 4rem 0;
 }
 
 .conteudo_principal_texto {

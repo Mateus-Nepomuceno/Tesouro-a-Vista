@@ -18,10 +18,10 @@
 }
 
 .conteudo_cabecalho {
-    padding: 2rem 0 0 0;
+    padding: 1.5rem 0 0 0;
     display: flex;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
     font-family: var(--font-primaria);
     text-decoration: none;
@@ -31,7 +31,7 @@
 .conteudo_mapas { 
     display: flex;
     justify-content: center;
-    padding: 2rem 0 7rem 0;
+    padding: 2rem 0 5rem 0;
 }
 
 .conteudo_mapas_ilha,.conteudo_mapas_caverna,.conteudo_mapas_deserto {
