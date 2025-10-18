@@ -14,7 +14,7 @@
 }
 
 .conteudo {
-    background-image: url(/game_assets/Creditos.png);
+    background-image: url(/game_assets/creditos.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -38,11 +38,12 @@
 
 .conteudo_rodape {
     width: 32%;
+    transition: transform 0.3s ease;
     justify-self: center;
 }
 
 .conteudo_rodape:hover {
-    width: 33%;
+    transform: scale(1.1);
 }
 
 .conteudo_rodape_imagem {

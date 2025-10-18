@@ -7,34 +7,28 @@
 }
 
 :root {
-    --cor-texto: #ffffff;
+    --cor-texto: #000000;
     --cor-hover: #ffb217;
     --font-primaria: "Pirata One", sans-serif;
 }
 
 .conteudo {
-    background-image: url(/game_assets/fundo.png);
+    background-image: url(/game_assets/fundoperguntas.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.conteudo_cabecalho {
+.conteudo_organizacao {
     display: flex;
-    justify-content: center;
 }
 
-.conteudo_cabecalho_logo {
-    width: 35%;
+.conteudo_organizacao_imagem {
+    width: 45%;
 }
 
 .conteudo_opcao {
-    width: 18%;
-    transition: transform 0.3s ease;
+    width: 65%;
     justify-self: center;
-}
-
-.conteudo_opcao:hover {
-    transform: scale(1.1);
 }
 
 .conteudo_opcao_imagem {
@@ -49,7 +43,7 @@
 
 .conteudo_opcao_imagem_texto {
     position: absolute;
-    top: 43%;
+    top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -60,6 +54,34 @@
     color: var(--cor-texto);
 }
 
-.conteudo_opcao_imagem_texto:hover {
-    color: var(--cor-hover);
+.conteudo_opcao2 {
+    width: 8%;
+    justify-self: center;
+}
+
+.conteudo_opcao2:hover {
+    transform: scale(1.1);
+}
+
+.conteudo_opcao_imagem_texto2 {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 3rem;
+    text-align: center;
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+
+.conteudo_organizacao_quiz {
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo_organizacao_quiz_opcoes {
+    display: flex;
+    gap: 2rem;
 }
