@@ -51,8 +51,9 @@ let perguntas = [
   }
 ];
 
-let indice = 7;
+let indice = 2;
 let moedas = 0;
+let vidas = 3;
 
 inicializarJogo();
 
@@ -97,9 +98,9 @@ function inicializarJogo(){
   let opcoes = document.getElementById("opcoes");
   opcoes.innerHTML = "";
 
-  for(i = 0; i < 4; i++) {
+  for(let i = 0; i < 4; i++) {
     opcoes.innerHTML +=`<div class="conteudo_organizacao_quiz_opcoes_resposta">
-                          <button>
+                          <button class="botao_opcao" onclick="verificarResposta(${i})">
                               <div class="conteudo_organizacao_quiz_opcoes_resposta_imagem">
                                   <img src="/game_assets/opções.png">
                                   <div class="conteudo_organizacao_quiz_opcoes_resposta_texto">
@@ -112,7 +113,35 @@ function inicializarJogo(){
 }
 
 function verificarResposta(num){
+  let mensagem = document.getElementById("conteudo_moedas");
   if(perguntas[indice].resposta == perguntas[indice].opcoes[num]){
-    
+    mensagem.classList.remove("conteudo_escondido");
+    moedas += 3;
+    console.log("Acertou");
   }
+  else {
+    let mensagem = document.getElementById("conteudo_vidas");
+    switch(vidas) {
+      case 3:
+        mensagem.innerHTML += `<img src="/game_assets/erro1.png" class="conteudo_escondido_texto">`;
+        break;
+      case 2:
+        mensagem.innerHTML += `<img src="/game_assets/erro2.png" class="conteudo_escondido_texto">`;
+    }
+    mensagem.classList.remove("conteudo_escondido");
+    vidas -= 1;
+    console.log("Errou");
+  }
+
+  let todosOsBotoes = document.querySelectorAll(".botao_opcao");
+  todosOsBotoes.forEach(botao => {
+    botao.disabled = true;
+    botao.style.pointerEvents = 'none';
+
+    let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
+
+    if (containerDaOpcao) {
+      containerDaOpcao.classList.add('desativado');
+    }
+  });
 }

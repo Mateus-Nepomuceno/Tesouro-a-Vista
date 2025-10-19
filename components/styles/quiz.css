@@ -9,7 +9,6 @@
 button {
     border: none;
     background: none;
-    cursor: pointer;
 }
 
 :root {
@@ -22,6 +21,54 @@ button {
     background-image: url(/game_assets/fundoperguntas.png);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#conteudo_moedas {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; 
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+#conteudo_moedas img {
+    width: 200%;
+    display: flex;
+    justify-self: center;
+}
+
+.conteudo_escondido {
+    display: none;
+    opacity: 0;
+}
+
+.conteudo_escondido_texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.conteudo_escondido_texto img {
+    width: 25vw;
+}
+
+#conteudo_vidas {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; 
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+#conteudo_vidas img {
+    width: 200%;
+    display: flex;
+    justify-self: center;
 }
 
 .conteudo_organizacao {
@@ -86,6 +133,14 @@ button {
     transform: scale(1.1);
 }
 
+.conteudo_organizacao_quiz_opcoes_resposta.desativado:hover {
+    transform: none;
+}
+
+.botao_opcao {
+    cursor: pointer;
+}
+
 .conteudo_organizacao_quiz_opcoes_resposta_imagem {
     position: relative; 
     margin-bottom: 2rem;
@@ -107,8 +162,4 @@ button {
     font-family: var(--font-primaria);
     text-decoration: none;
     color: var(--cor-texto);
-}
-
-.conteudo_organizacao_quiz_opcoes_resposta_texto:hover {
-    color: var(--cor-hover);
 }
