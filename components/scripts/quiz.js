@@ -51,12 +51,46 @@ let perguntas = [
   }
 ];
 
-let indice = 0;
+let indice = 7;
 let moedas = 0;
 
 inicializarJogo();
 
 function inicializarJogo(){
+  let monstro = document.getElementById("monstro");
+  switch(indice){
+    case 0:
+      monstro.innerHTML += `<img src="/game_assets/monstros/tartaruga.png" class="conteudo_organizacao_imagem">`;
+      break;
+    case 1:
+      monstro.innerHTML += `<img src="/game_assets/monstros/carangueijo.png" class="conteudo_organizacao_imagem">`;
+      break;
+    case 2:
+      monstro.innerHTML += `<img src="/game_assets/monstros/papagaio.png" class="conteudo_organizacao_imagem">`;
+      break;
+    case 3:
+      monstro.innerHTML += `<img src="/game_assets/monstros/macaco.png" class="conteudo_organizacao_imagem">`;
+      break;
+    case 4:
+      monstro.innerHTML += `<img src="/game_assets/monstros/tiki.png" class="conteudo_organizacao_imagem">`;
+      break;
+    case 5:
+      monstro.innerHTML += `<img src="/game_assets/monstros/sereia.png" class="conteudo_organizacao_imagem">`;
+      break; 
+    case 6:
+      monstro.innerHTML += `<img src="/game_assets/monstros/pirata zumbi.png" class="conteudo_organizacao_imagem">`;
+      break;
+    case 7:
+      monstro.innerHTML += `<img src="/game_assets/monstros/serpente marinha.png" class="conteudo_organizacao_imagem">`;
+      break;
+    case 8:
+      monstro.innerHTML += `<img src="/game_assets/monstros/titã.png" class="conteudo_organizacao_imagem">`;
+      break;  
+    case 9:
+      monstro.innerHTML += `<img src="/game_assets/monstros/fantasma pirata.png" class="conteudo_organizacao_imagem">`;
+      break; 
+  }
+
   let texto = document.getElementById("pergunta");
   texto.innerHTML = perguntas[indice].pergunta;
 

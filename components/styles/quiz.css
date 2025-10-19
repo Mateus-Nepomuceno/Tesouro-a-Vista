@@ -31,7 +31,7 @@ button {
 }
 
 .conteudo_organizacao_imagem {
-    width: 45%;
+    width: 50%;
 }
 
 
@@ -62,9 +62,9 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: 90%;
+    width: 80%;
 
-    font-size: 3rem;
+    font-size: 2.6rem;
     text-align: center;
     font-family: var(--font-primaria);
     text-decoration: none;
@@ -74,7 +74,7 @@ button {
 .conteudo_organizacao_quiz_opcoes {
     display: flex;
     justify-content: center;
-    gap: 4rem;
+    gap: 3.5rem;
 }
 
 .conteudo_organizacao_quiz_opcoes_resposta {
