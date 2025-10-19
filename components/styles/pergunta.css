@@ -26,62 +26,74 @@
     width: 45%;
 }
 
-.conteudo_opcao {
-    width: 65%;
-    justify-self: center;
-}
-
-.conteudo_opcao_imagem {
-    position: relative; 
-    margin-bottom: 2rem;
-}
-
-.conteudo_opcao_imagem img {
-    display: block;
-    width: 100%;
-}
-
-.conteudo_opcao_imagem_texto {
-    position: absolute;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    font-size: 3rem;
-    text-align: center;
-    font-family: var(--font-primaria);
-    text-decoration: none;
-    color: var(--cor-texto);
-}
-
-.conteudo_opcao2 {
-    width: 8%;
-    justify-self: center;
-}
-
-.conteudo_opcao2:hover {
-    transform: scale(1.1);
-}
-
-.conteudo_opcao_imagem_texto2 {
-    position: absolute;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    font-size: 3rem;
-    text-align: center;
-    font-family: var(--font-primaria);
-    text-decoration: none;
-    color: var(--cor-texto);
-}
 
 .conteudo_organizacao_quiz {
     display: flex;
     flex-direction: column;
 }
 
+.conteudo_organizacao_quiz_pergunta {
+    width: 65%;
+    justify-self: center;
+}
+
+.conteudo_organizacao_quiz_pergunta_imagem {
+    position: relative; 
+    margin-bottom: 2rem;
+}
+
+.conteudo_organizacao_quiz_pergunta_imagem img {
+    display: block;
+    width: 100%;
+}
+
+.conteudo_organizacao_quiz_pergunta_texto {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 3rem;
+    text-align: center;
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+
 .conteudo_organizacao_quiz_opcoes {
     display: flex;
     gap: 2rem;
+}
+
+.conteudo_organizacao_quiz_opcoes_resposta {
+    width: 8%;
+    transition: transform 0.3s ease;
+    justify-self: center;
+}
+
+.conteudo_organizacao_quiz_opcoes_resposta:hover {
+    transform: scale(1.1);
+}
+
+.conteudo_organizacao_quiz_opcoes_resposta_imagem {
+    position: relative; 
+    margin-bottom: 2rem;
+}
+
+.conteudo_organizacao_quiz_opcoes_resposta_imagem img {
+    display: block;
+    width: 100%;
+}
+
+.conteudo_organizacao_quiz_opcoes_resposta_texto {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 3rem;
+    text-align: center;
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
 }
