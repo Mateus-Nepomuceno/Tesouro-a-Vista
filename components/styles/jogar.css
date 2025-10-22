@@ -12,7 +12,7 @@
 }
 
 .conteudo {
-    background-image: url(/game_assets/FundoEscuro.png);
+    background-image: url(/game_assets/fundoescuro.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -36,6 +36,7 @@
 
 .conteudo_mapas_ilha,.conteudo_mapas_caverna,.conteudo_mapas_deserto {
     justify-items: center;
+    transition: transform 0.3s ease;
 }
 
 .conteudo_mapas_ordem_texto {
@@ -53,9 +54,8 @@
     width: 75%;
 }
 
-.conteudo_mapas_ilha:hover,.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto:hover {
+.conteudo_mapas_ilha:hover/*.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto*/:hover {
     transform: translateY(-10px);
-    transition: 0.3s;
 }
 
 .conteudo_mapas_ordem_imagem_ilha:hover {
@@ -63,6 +63,7 @@
     box-shadow: 0 0 15px #0f9e2ead, 0 0 20px #09db3686, 0 0 45px #b8ffaac9, 0 0 85px #beff6ace;
 }
 
+/*
 .conteudo_mapas_ordem_imagem_caverna:hover {
     background: linear-gradient(to bottom, #635c57da, #660000d0); 
     box-shadow: 0 0 15px #3a3a38, 0 0 20px #5f5f5c, 0 0 45px #706e6e, 0 0 85px #919291;
@@ -72,14 +73,16 @@
     background: linear-gradient(to bottom, #ff7300da, #660000d0); 
     box-shadow: 0 0 15px #b8a1208e, 0 0 20px #ffbe0da6, 0 0 45px #ffad3186, 0 0 85px #f5ab3b9f;
 }
+*/
 
 .conteudo_rodape {
-    width: 32%;
+    width: 25%;
+    transition: transform 0.3s ease;
     justify-self: center;
 }
 
 .conteudo_rodape:hover {
-    width: 33%;
+    transform: scale(1.1);
 }
 
 .conteudo_rodape_imagem {
@@ -94,7 +97,7 @@
 
 .conteudo_rodape_imagem_texto {
     position: absolute;
-    top: 43%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 
