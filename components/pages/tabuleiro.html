@@ -3,40 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A ilha</title>
-    <link rel="stylesheet" href="tabuleiro.css">
-    <script src="tabuleiro.js" defer></script>
+    <title>Ilha do Tesouro</title>
+    <link rel="stylesheet" href="/components/styles/quiz.css">
+    <link rel="stylesheet" href="/components/styles/tabuleiro.css">
+    <script src="/components/scripts/tabuleiro.js" defer></script>
 </head>
 <body>
+    <div id="quiz" class="escondido">
+        <div class="conteudo">
+            <div id="conteudo_moedas" class="conteudo_escondido">
+                <img src="/game_assets/quiz/fundoopcao.png">
+                <img src="/game_assets/quiz/acerto.png" class="conteudo_escondido_texto">
+            </div>
+            <div id="conteudo_vidas" class="conteudo_escondido">
+            </div>
+            <div class="conteudo_organizacao" id="monstro">
+            </div>
+        </div>
+    </div>
     <div id="tabuleiro">
-
         <div id="game-coluna-central">
             <div id="mapa-container">
                 <div id="mapa-content-wrapper">
                     
-                    <img src="mapa.png" alt="Mapa do Tesouro" id="mapa-base">
+                    <img src="/game_assets/tabuleiro/mapa.png" alt="Mapa do Tesouro" id="mapa-base">
 
                     <div class="conteudo_rodape">
                         <div class="conteudo_rodape_imagem">
-                            <img src="iconebarra.png" alt="Placa de informações">
+                            <img src="/game_assets/tabuleiro/iconebarra.png" alt="Placa de informações">
 
                             <div class="conteudo_rodape_imagem_texto">
-                                
-                                <div class="grupo-info">
-                                    <img src="iconevida.png" alt="Vida" class="icone-rodape">
-                                    <p class="texto_barra" id="valor-vida">03</p>
+                                <div class="grupo-info" id="valor-vida">
                                 </div>
-                                
-                                <div class="grupo-info">
-                                    <img src="iconemoeda.png" alt="Moeda" class="icone-rodape">
-                                    <p class="texto_barra" id="valor-moeda">80</p>
+                                <div class="grupo-info" id="valor-moeda">
                                 </div>
-
                             </div>
                         </div>
                     </div>
 
-                    <img src="pirata.png" alt="Pirata" id="pirata">
+                    <img src="/game_assets/tabuleiro/iconepirata.png" alt="Pirata" id="pirata">
                     
                     <div class="ponto-clicavel" data-casa="1"></div>
                     <div class="ponto-clicavel" data-casa="2"></div>
@@ -52,8 +57,7 @@
                     <div class="ponto-clicavel" data-casa="12"></div>
                 </div>
             </div>
-
         </div>
-        </div>
-    </body>
+    </div>
+</body>
 </html>

@@ -25,7 +25,7 @@
     "resposta": "7"
   },
   {
-    "pergunta": "Qual é o resultado de 5 × 2?",
+    "pergunta": "Marta tem 5 cestas, cada uma com 2 maçãs. Quantas maçãs ela tem?",
     "opcoes": ["7", "12", "10", "15"],
     "resposta": "10"
   },

@@ -3,22 +3,26 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-:root {
-    --cor-texto: #fff;
-    --cor-hover: #ffb217;
-    --cor-painel: #221a11;
-    --cor-borda: #4e3a24;
-    --font-primaria: "Pirata One", sans-serif;
+
+button {
+    border: none;
+    background: none;
 }
 
 body {
-    background-color: rgb(145, 77, 77); 
-    color: var(--cor-texto);
-    font-family: Arial, sans-serif;
     overflow: hidden; 
+}
+
+:root {
+    --cor-texto: #ffffff;
+    --cor-texto2: #000000;
+    --font-primaria: "Pirata One", sans-serif;
+}
+
+.escondido {
+    display: none;
 }
 
 #tabuleiro {
@@ -27,7 +31,6 @@ body {
     display: flex;
     flex-direction: row; 
     background-color: #1a140f; 
-    background-image: url('Fundo.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
@@ -42,62 +45,58 @@ body {
 }
 
 .conteudo_rodape {
-    width: 23%;
-    aspect-ratio: 3 / 1;
-    position: absolute;
-    top: 3%;
-    right: 9%;
-    min-width: 180px; 
-    max-width: 350px;
+    width: 25%;
     transition: transform 0.3s ease;
+    justify-self: center; 
+    position: absolute;
+    z-index: 10;
+    top: 1rem;
+    right: 6rem;
 }
 
 .conteudo_rodape_imagem {
     position: relative; 
-    width: 100%;
-    height: 100%;
+    margin-bottom: 2rem;
 }
 
-.conteudo_rodape_imagem > img {
+.conteudo_rodape_imagem img {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
+    width: 72%;
 }
 
 .conteudo_rodape_imagem_texto {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(10px, 2vw, 24px); 
-    width: 100%; 
+    transform: translate(-65%, -35%);
+
+    font-size: 2rem;
+    text-align: center;
     font-family: var(--font-primaria);
+    text-decoration: none;
     color: var(--cor-texto);
     white-space: nowrap;
+
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .grupo-info {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: clamp(4px, 0.5vw, 8px);
+    gap: 0.5rem;
 }
 
 .icone-rodape {
-    height: clamp(2.4rem, 4.5vw, 5.0rem);
-    width: auto; 
-    display: block;
+    height: 2.7rem;
+    width: auto;
 }
 
 .texto_barra {
-    font-size: clamp(1.4rem, 2.8vw, 3.6rem);
     margin: 0;
-    padding: 0;
-    line-height: 1;
 }
 
 #mapa-container {
@@ -134,23 +133,39 @@ body {
 
 .ponto-clicavel {
     position: absolute;
-    width: 7%;
+    width: 4%;
     aspect-ratio: 1 / 1;
-    cursor: pointer;
-    background-image: url('icone pergunta.png');
+    pointer-events: none;
+    background-image: url(/game_assets/tabuleiro/pergunta2.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     transform: translate(-50%, -50%);
     z-index: 1;
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+}
+
+.ponto-clicavel.proxima-casa {
+    pointer-events: auto;
+    cursor: pointer;  
+}
+
+.ponto-clicavel.proxima-casa:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.ponto-clicavel.proxima-casa.ponto-gradiente {
+    box-shadow: 0 0 15px #0f9e2ead, 0 0 20px #09db3686, 0 0 45px #b8ffaac9, 0 0 85px #beff6ace;
 }
 
 .ponto-clicavel[data-casa="1"] {
     opacity: 0;
     width: 7%;
+    pointer-events: none;
 }
 
 .ponto-clicavel[data-casa="12"] {
-    background-image: url('bau.png');
-    width: 12%;
+    background-image: url(/game_assets/tabuleiro/bau.png);
+    width: 10%;
 }
