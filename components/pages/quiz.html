@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/components/styles/quiz.css">
+    <title>Pergunta</title>
+</head>
+    <body class="conteudo">
+        <div id="conteudo_moedas" class="conteudo_escondido">
+            <img src="/game_assets/fundoopcao.png">
+            <img src="/game_assets/acerto.png" class="conteudo_escondido_texto">
+        </div>
+        <div id="conteudo_vidas" class="conteudo_escondido">
+            <img src="/game_assets/fundoopcao.png">
+        </div>
+        <main class="conteudo_organizacao" id="monstro">
+
+            <section class="conteudo_organizacao_quiz">
+                <div class="conteudo_organizacao_quiz_pergunta">
+                    <div class="conteudo_organizacao_quiz_pergunta_imagem">
+                        <img src="/game_assets/pergunta.png">
+                        <div class="conteudo_organizacao_quiz_pergunta_texto">
+                            <p id="pergunta"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <section id="opcoes" class="conteudo_organizacao_quiz_opcoes">
+                    
+                </section>
+            </section>
+        </main>
+        <script src="/components/scripts/quiz.js" defer></script>
+    </body>
+</html>
