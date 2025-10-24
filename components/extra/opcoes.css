@@ -25,7 +25,7 @@ body {
   height: 80vh;
   border: 2px solid;
   background-color: whitesmoke;
-  background: url("../imagensgame/Opções.png") no-repeat center;
+  background: url("/game_assets/fundoescuro.png") no-repeat center;
   background-size: 100% 100%;
   position: relative;
 }

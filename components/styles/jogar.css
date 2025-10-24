@@ -59,7 +59,6 @@
 }
 
 .conteudo_mapas_ordem_imagem_ilha:hover {
-    background: linear-gradient(to bottom, #ff7300da, #660000d0); 
     box-shadow: 0 0 15px #0f9e2ead, 0 0 20px #09db3686, 0 0 45px #b8ffaac9, 0 0 85px #beff6ace;
 }
 
