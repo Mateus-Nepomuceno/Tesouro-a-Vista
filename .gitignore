@@ -1,0 +1,25 @@
+# IDE and OS files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.cache/
+.temp/
+
+# Logs
+logs/
+*.log
+
+# Dependency caches
+*.tgz
+*.zip
+*.rar
+*.7z
+
+# Other temporary files
+*.tmp
+*.bak
+*.orig

@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+button {
+    border: none;
+    background: none;
+}
+
+body {
+    overflow: hidden; 
+}
+
+:root {
+    --cor-texto: #ffffff;
+    --cor-texto2: #000000;
+    --font-primaria: "Pirata One", sans-serif;
+}
+
+.escondido {
+    display: none;
+}
+
+#tabuleiro {
+    width: 100%;
+    height: 100dvh; 
+    display: flex;
+    flex-direction: row; 
+    background-color: #1a140f; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+
+#game-coluna-central {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column; 
+    height: 100dvh; 
+    background-color: transparent;
+}
+
+.conteudo_rodape {
+    width: 25%;
+    transition: transform 0.3s ease;
+    justify-self: center; 
+    position: absolute;
+    z-index: 10;
+    top: 1rem;
+    right: 6rem;
+}
+
+.conteudo_rodape_imagem {
+    position: relative; 
+    margin-bottom: 2rem;
+}
+
+.conteudo_rodape_imagem img {
+    display: block;
+    width: 72%;
+}
+
+.conteudo_rodape_imagem_texto {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-65%, -35%);
+
+    font-size: 2rem;
+    text-align: center;
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
+    white-space: nowrap;
+
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.grupo-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icone-rodape {
+    height: 2.7rem;
+    width: auto;
+}
+
+.texto_barra {
+    margin: 0;
+}
+
+#mapa-container {
+    flex: 1; 
+    min-height: 0; 
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px; 
+    background-color: transparent;
+}
+
+#mapa-content-wrapper {
+    position: relative; 
+    width: 100%;
+    height: 100%;
+}
+
+#mapa-base {
+    display: block; 
+    width: 100%;
+    height: 100%;
+}
+
+#pirata {
+    position: absolute;
+    width: 9%;
+    height: auto;
+    transform: translate(-50%, -70%);
+    transition: top 0.6s ease-in-out, left 0.6s ease-in-out;
+    z-index: 2;
+}
+
+.ponto-clicavel {
+    position: absolute;
+    width: 4%;
+    aspect-ratio: 1 / 1;
+    pointer-events: none;
+    background-image: url(/game_assets/tabuleiro/pergunta2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+}
+
+.ponto-clicavel.proxima-casa {
+    pointer-events: auto;
+    cursor: pointer;  
+}
+
+.ponto-clicavel.proxima-casa:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.ponto-clicavel.proxima-casa.ponto-gradiente {
+    box-shadow: 0 0 15px #0f9e2ead, 0 0 20px #09db3686, 0 0 45px #b8ffaac9, 0 0 85px #beff6ace;
+}
+
+.ponto-clicavel[data-casa="1"] {
+    opacity: 0;
+    width: 7%;
+    pointer-events: none;
+}
+
+.ponto-clicavel[data-casa="12"] {
+    background-image: url(/game_assets/tabuleiro/bau.png);
+    width: 10%;
+}
