@@ -12,7 +12,7 @@
 }
 
 .conteudo {
-    background-image: url(/game_assets/fundoescuro.png);
+    background-image: url(game_assets/fundoescuro.png);
     background-repeat: no-repeat;
     background-size: cover;
 }

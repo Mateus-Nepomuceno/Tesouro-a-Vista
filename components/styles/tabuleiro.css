@@ -136,7 +136,7 @@ body {
     width: 4%;
     aspect-ratio: 1 / 1;
     pointer-events: none;
-    background-image: url(/game_assets/tabuleiro/pergunta2.png);
+    background-image: url(game_assets/tabuleiro/pergunta2.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -166,6 +166,6 @@ body {
 }
 
 .ponto-clicavel[data-casa="12"] {
-    background-image: url(/game_assets/tabuleiro/bau.png);
+    background-image: url(game_assets/tabuleiro/bau.png);
     width: 10%;
 }

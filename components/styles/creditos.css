@@ -14,7 +14,7 @@
 }
 
 .conteudo {
-    background-image: url(/game_assets/creditos/creditos.png);
+    background-image: url(game_assets/creditos/creditos.png);
     background-repeat: no-repeat;
     background-size: cover;
 }

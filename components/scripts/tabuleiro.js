@@ -156,10 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function vidaMoedas(){
         let vidaLocal = document.getElementById("valor-vida");
-        vidaLocal.innerHTML = `<img src="/game_assets/tabuleiro/iconevida.png" alt="Vida" class="icone-rodape">
+        vidaLocal.innerHTML = `<img src="game_assets/tabuleiro/iconevida.png" alt="Vida" class="icone-rodape">
         <p class="texto_barra">0${vidas}</p>`;
         let moedaLocal = document.getElementById("valor-moeda");
-        moedaLocal.innerHTML = `<img src="/game_assets/tabuleiro/iconemoeda.png" alt="Moeda" class="icone-rodape">
+        moedaLocal.innerHTML = `<img src="game_assets/tabuleiro/iconemoeda.png" alt="Moeda" class="icone-rodape">
         <p class="texto_barra">${moedas}</p>`;
     }
 
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function carregarPerguntas() {
-        let response = await fetch("/components/data/perguntas.json"); 
+        let response = await fetch("components/data/perguntas.json"); 
         let dados = await response.json();
         return dados;
     }
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <section class="conteudo_organizacao_quiz">
                 <div class="conteudo_organizacao_quiz_pergunta">
                     <div class="conteudo_organizacao_quiz_pergunta_imagem">
-                        <img src="/game_assets/quiz/pergunta.png">
+                        <img src="game_assets/quiz/pergunta.png">
                         <div class="conteudo_organizacao_quiz_pergunta_texto">
                             <p id="pergunta"></p>
                         </div>
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                 </section>
             </section>
-            <img src="/game_assets/quiz/${nomeMonstro}" class="conteudo_organizacao_imagem">`;
+            <img src="game_assets/quiz/${nomeMonstro}" class="conteudo_organizacao_imagem">`;
 
         let texto = document.getElementById("pergunta");
         texto.innerHTML = perguntas[indice].pergunta;
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             opcoes.innerHTML +=`<div class="conteudo_organizacao_quiz_opcoes_resposta">
                                 <button class="botao_opcao" onclick="verificarResposta(${i})">
                                     <div class="conteudo_organizacao_quiz_opcoes_resposta_imagem">
-                                        <img src="/game_assets/quiz/opções.png">
+                                        <img src="game_assets/quiz/opções.png">
                                         <div class="conteudo_organizacao_quiz_opcoes_resposta_texto">
                                             <p>${perguntas[indice].opcoes[i]}</p>
                                         </div>
@@ -236,8 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
         else {
             let mensagem = document.getElementById("conteudo_vidas");
             let imagemErro = erros[vidas];
-            mensagem.innerHTML = `<img src="/game_assets/quiz/fundoopcao.png">
-            <img src="/game_assets/quiz/${imagemErro}" class="conteudo_escondido_texto">`;
+            mensagem.innerHTML = `<img src="game_assets/quiz/fundoopcao.png">
+            <img src="game_assets/quiz/${imagemErro}" class="conteudo_escondido_texto">`;
             mensagem.classList.remove("conteudo_escondido");
             vidas -= 1;
         }
