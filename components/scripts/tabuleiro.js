@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function vidaMoedas() {
         let vidaLocal = document.getElementById("valor-vida");
         vidaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconevida.png" alt="Vida" class="icone-rodape">
-        <p class="texto_barra">0${vidas}</p>`;
+        <p class="texto_barra">${vidas}</p>`;
         let moedaLocal = document.getElementById("valor-moeda");
         moedaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconemoeda.png" alt="Moeda" class="icone-rodape">
         <p class="texto_barra">${moedas}</p>`;
