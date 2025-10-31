@@ -12,7 +12,7 @@
 }
 
 .conteudo {
-    background-image: url(game_assets/fundoescuro.png);
+    background-image: url(../../game_assets/fundoescuro.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -28,13 +28,15 @@
     color: var(--cor-texto);
 }
 
-.conteudo_mapas { 
+.conteudo_mapas {
     display: flex;
     justify-content: center;
     padding: 2rem 0 5rem 0;
 }
 
-.conteudo_mapas_ilha,.conteudo_mapas_caverna,.conteudo_mapas_deserto {
+.conteudo_mapas_ilha,
+.conteudo_mapas_caverna,
+.conteudo_mapas_deserto {
     justify-items: center;
     transition: transform 0.3s ease;
 }
@@ -50,11 +52,16 @@
     justify-content: center;
 }
 
-.conteudo_mapas_ordem_imagem_ilha,.conteudo_mapas_ordem_imagem_caverna,.conteudo_mapas_ordem_imagem_deserto {
+.conteudo_mapas_ordem_imagem_ilha,
+.conteudo_mapas_ordem_imagem_caverna,
+.conteudo_mapas_ordem_imagem_deserto {
     width: 75%;
 }
 
-.conteudo_mapas_ilha:hover/*.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto*/:hover {
+.conteudo_mapas_ilha:hover
+
+/*.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto*/
+:hover {
     transform: translateY(-10px);
 }
 
@@ -85,7 +92,7 @@
 }
 
 .conteudo_rodape_imagem {
-    position: relative; 
+    position: relative;
     margin-bottom: 2rem;
 }
 
@@ -111,4 +118,3 @@
 .conteudo_rodape_imagem_texto:hover {
     color: var(--cor-hover);
 }
-

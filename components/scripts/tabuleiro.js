@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let vidas = 3;
     let indice = 0;
 
-    let perguntas; 
+    let perguntas;
     const monstros = [
         "tartaruga.png",
         "carangueijo.png",
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ponto.style.top = pos.top;
                 ponto.style.left = pos.left;
 
-                
+
                 ponto.addEventListener('click', async () => {
                     await tentarMoverPara(casaNumero);
                 });
@@ -69,31 +69,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function atualizarPontoAtivo() {
-    const proximaCasa = casaAtual + 1;
+        const proximaCasa = casaAtual + 1;
 
-    pontos.forEach(ponto => {
-        const casaNumero = parseInt(ponto.getAttribute('data-casa'));
+        pontos.forEach(ponto => {
+            const casaNumero = parseInt(ponto.getAttribute('data-casa'));
 
-        if (casaNumero === proximaCasa) {
-            ponto.classList.add('proxima-casa');
-            if(proximaCasa < 12)
-                ponto.classList.add('ponto-gradiente');
-        } else {
-            ponto.classList.remove('proxima-casa');
-        }});
+            if (casaNumero === proximaCasa) {
+                ponto.classList.add('proxima-casa');
+                if (proximaCasa < 12)
+                    ponto.classList.add('ponto-gradiente');
+            } else {
+                ponto.classList.remove('proxima-casa');
+            }
+        });
     }
 
     async function tentarMoverPara(casaNumero) {
         if (casaNumero !== casaAtual + 1) {
-            return; 
-        }       
+            return;
+        }
         await moverPirataPara(casaNumero);
         casaAtual = casaNumero;
 
         atualizarPontoAtivo();
 
-        indice = casaAtual - 2; 
-        mostrarPerguntas(); 
+        indice = casaAtual - 2;
+        mostrarPerguntas();
         mostrarQuiz();
     }
 
@@ -141,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             await moveParaPosicao(wp[i], 400);
         }
 
-        
+
         await moveParaPosicao(fim, 500);
     }
 
@@ -151,21 +152,21 @@ document.addEventListener('DOMContentLoaded', () => {
         pirata.style.top = pos1.top;
         pirata.style.left = pos1.left;
     }
-    
+
     // Perguntas e manipução de itens
 
-    function vidaMoedas(){
+    function vidaMoedas() {
         let vidaLocal = document.getElementById("valor-vida");
-        vidaLocal.innerHTML = `<img src="game_assets/tabuleiro/iconevida.png" alt="Vida" class="icone-rodape">
+        vidaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconevida.png" alt="Vida" class="icone-rodape">
         <p class="texto_barra">0${vidas}</p>`;
         let moedaLocal = document.getElementById("valor-moeda");
-        moedaLocal.innerHTML = `<img src="game_assets/tabuleiro/iconemoeda.png" alt="Moeda" class="icone-rodape">
+        moedaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconemoeda.png" alt="Moeda" class="icone-rodape">
         <p class="texto_barra">${moedas}</p>`;
     }
 
     vidaMoedas();
     atualizarPontoAtivo();
-    
+
     function mostrarQuiz() {
         let quiz = document.getElementById("quiz");
         quiz.classList.remove("escondido");
@@ -179,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function carregarPerguntas() {
-        let response = await fetch("components/data/perguntas.json"); 
+        let response = await fetch("../data/perguntas.json");
         let dados = await response.json();
         return dados;
     }
@@ -188,14 +189,14 @@ document.addEventListener('DOMContentLoaded', () => {
         perguntas = await carregarPerguntas();
     }
 
-    function mostrarPerguntas(){
+    function mostrarPerguntas() {
         let monstro = document.getElementById("monstro");
         let nomeMonstro = monstros[indice];
         monstro.innerHTML = `
             <section class="conteudo_organizacao_quiz">
                 <div class="conteudo_organizacao_quiz_pergunta">
                     <div class="conteudo_organizacao_quiz_pergunta_imagem">
-                        <img src="game_assets/quiz/pergunta.png">
+                        <img src="../../game_assets/quiz/pergunta.png">
                         <div class="conteudo_organizacao_quiz_pergunta_texto">
                             <p id="pergunta"></p>
                         </div>
@@ -205,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                 </section>
             </section>
-            <img src="game_assets/quiz/${nomeMonstro}" class="conteudo_organizacao_imagem">`;
+            <img src="../../game_assets/quiz/${nomeMonstro}" class="conteudo_organizacao_imagem">`;
 
         let texto = document.getElementById("pergunta");
         texto.innerHTML = perguntas[indice].pergunta;
@@ -213,11 +214,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let opcoes = document.getElementById("opcoes");
         opcoes.innerHTML = "";
 
-        for(let i = 0; i < 4; i++) {
-            opcoes.innerHTML +=`<div class="conteudo_organizacao_quiz_opcoes_resposta">
+        for (let i = 0; i < 4; i++) {
+            opcoes.innerHTML += `<div class="conteudo_organizacao_quiz_opcoes_resposta">
                                 <button class="botao_opcao" onclick="verificarResposta(${i})">
                                     <div class="conteudo_organizacao_quiz_opcoes_resposta_imagem">
-                                        <img src="game_assets/quiz/opções.png">
+                                        <img src="../../game_assets/quiz/opções.png">
                                         <div class="conteudo_organizacao_quiz_opcoes_resposta_texto">
                                             <p>${perguntas[indice].opcoes[i]}</p>
                                         </div>
@@ -227,17 +228,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    window.verificarResposta = function(num){
+    window.verificarResposta = function (num) {
         let mensagem = document.getElementById("conteudo_moedas");
-        if(perguntas[indice].resposta == perguntas[indice].opcoes[num]){
+        if (perguntas[indice].resposta == perguntas[indice].opcoes[num]) {
             mensagem.classList.remove("conteudo_escondido");
             moedas += 3;
         }
         else {
             let mensagem = document.getElementById("conteudo_vidas");
             let imagemErro = erros[vidas];
-            mensagem.innerHTML = `<img src="game_assets/quiz/fundoopcao.png">
-            <img src="game_assets/quiz/${imagemErro}" class="conteudo_escondido_texto">`;
+            mensagem.innerHTML = `<img src="../../game_assets/quiz/fundoopcao.png">
+            <img src="../../game_assets/quiz/${imagemErro}" class="conteudo_escondido_texto">`;
             mensagem.classList.remove("conteudo_escondido");
             vidas -= 1;
         }
@@ -249,9 +250,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
 
-        if (containerDaOpcao) {
-            containerDaOpcao.classList.add('desativado');
-        }});
+            if (containerDaOpcao) {
+                containerDaOpcao.classList.add('desativado');
+            }
+        });
         setTimeout(fecharQuiz, 2300);
         vidaMoedas();
     }
