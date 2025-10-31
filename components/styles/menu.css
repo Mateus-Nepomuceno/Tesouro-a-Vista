@@ -13,7 +13,7 @@
 }
 
 .conteudo {
-    background-image: url(/game_assets/index/fundo.png);
+    background-image: url(../../game_assets/index/fundo.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -30,7 +30,7 @@
 .conteudo_opcao {
     width: 18%;
     transition: transform 0.3s ease;
-    justify-self: center;   
+    justify-self: center;
 }
 
 .conteudo_opcao:hover {
@@ -38,7 +38,7 @@
 }
 
 .conteudo_opcao_imagem {
-    position: relative; 
+    position: relative;
     margin-bottom: 2rem;
 }
 

@@ -1,5 +1,5 @@
 .conteudo {
-    background-image: url(/game_assets/quiz/fundoperguntas.png);
+    background-image: url(../../game_assets/quiz/fundoperguntas.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -9,8 +9,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 100; 
-    display: flex; 
+    z-index: 100;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -20,7 +20,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 9999; 
+    z-index: 9999;
     transition: opacity 0.5s ease-in-out;
     pointer-events: none;
 }
@@ -52,7 +52,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 9999; 
+    z-index: 9999;
     transition: opacity 0.5s ease-in-out;
     pointer-events: none;
 }
@@ -86,7 +86,7 @@
 }
 
 .conteudo_organizacao_quiz_pergunta_imagem {
-    position: relative; 
+    position: relative;
     margin-bottom: 2rem;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .conteudo_organizacao_quiz_opcoes_resposta_imagem {
-    position: relative; 
+    position: relative;
     margin-bottom: 2rem;
 }
 

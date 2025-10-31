@@ -12,7 +12,7 @@ button {
 }
 
 body {
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 :root {
@@ -27,27 +27,27 @@ body {
 
 #tabuleiro {
     width: 100%;
-    height: 100dvh; 
+    height: 100dvh;
     display: flex;
-    flex-direction: row; 
-    background-color: #1a140f; 
+    flex-direction: row;
+    background-color: #1a140f;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
 }
 
 #game-coluna-central {
-    flex-grow: 1; 
+    flex-grow: 1;
     display: flex;
-    flex-direction: column; 
-    height: 100dvh; 
+    flex-direction: column;
+    height: 100dvh;
     background-color: transparent;
 }
 
 .conteudo_rodape {
     width: 25%;
     transition: transform 0.3s ease;
-    justify-self: center; 
+    justify-self: center;
     position: absolute;
     z-index: 10;
     top: 1rem;
@@ -55,7 +55,7 @@ body {
 }
 
 .conteudo_rodape_imagem {
-    position: relative; 
+    position: relative;
     margin-bottom: 2rem;
 }
 
@@ -100,24 +100,24 @@ body {
 }
 
 #mapa-container {
-    flex: 1; 
-    min-height: 0; 
-    overflow: hidden; 
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px; 
+    padding: 0px;
     background-color: transparent;
 }
 
 #mapa-content-wrapper {
-    position: relative; 
+    position: relative;
     width: 100%;
     height: 100%;
 }
 
 #mapa-base {
-    display: block; 
+    display: block;
     width: 100%;
     height: 100%;
 }
@@ -136,7 +136,7 @@ body {
     width: 4%;
     aspect-ratio: 1 / 1;
     pointer-events: none;
-    background-image: url(/game_assets/tabuleiro/pergunta2.png);
+    background-image: url(../../game_assets/tabuleiro/pergunta2.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -148,7 +148,7 @@ body {
 
 .ponto-clicavel.proxima-casa {
     pointer-events: auto;
-    cursor: pointer;  
+    cursor: pointer;
 }
 
 .ponto-clicavel.proxima-casa:hover {
@@ -166,6 +166,6 @@ body {
 }
 
 .ponto-clicavel[data-casa="12"] {
-    background-image: url(/game_assets/tabuleiro/bau.png);
+    background-image: url(../../game_assets/tabuleiro/bau.png);
     width: 10%;
 }
