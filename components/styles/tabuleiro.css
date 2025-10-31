@@ -18,6 +18,7 @@ body {
 :root {
     --cor-texto: #ffffff;
     --cor-texto2: #000000;
+    --cor-hover: #ffb217;
     --font-primaria: "Pirata One", sans-serif;
 }
 
@@ -42,6 +43,46 @@ body {
     flex-direction: column;
     height: 100dvh;
     background-color: transparent;
+}
+
+.voltar {
+    width: 12%;
+    transition: transform 0.3s ease;
+    position: absolute;
+    top: 2rem;
+    left: 14rem;
+    z-index: 10;
+}
+
+.voltar:hover {
+    transform: scale(1.1);
+}
+
+.voltar_imagem {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.voltar_imagem img {
+    display: block;
+    width: 100%;
+}
+
+.voltar_imagem_texto {
+    position: absolute;
+    top: 41%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 2.1rem;
+    text-align: center;
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+
+.voltar_imagem_texto:hover {
+    color: var(--cor-hover);
 }
 
 .conteudo_rodape {

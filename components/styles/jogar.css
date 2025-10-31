@@ -58,10 +58,7 @@
     width: 75%;
 }
 
-.conteudo_mapas_ilha:hover
-
-/*.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto*/
-:hover {
+.conteudo_mapas_ilha:hover/*.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto*/{
     transform: translateY(-10px);
 }
 
