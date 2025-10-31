@@ -2,6 +2,8 @@
 
 Um quiz educativo, onde os jogadores devem testar seus conhecimentos para avançar e vencer. Este projeto foi desenvolvido como componente curricular para a matéria WEB I na Universidade do Estado da Bahia (UNEB).
 
+-----
+
 ## :rocket: Acesso ao Jogo (Deploy)
 
 Você pode jogar a versão mais recente diretamente no seu navegador através do link do GitHub Pages:
@@ -9,6 +11,7 @@ Você pode jogar a versão mais recente diretamente no seu navegador através do
 ### [:arrow_right: Clique aqui para Jogar\!](https://mateus-nepomuceno.github.io/Tesouro-a-Vista/)
 
 
+-----
 
 ## :rocket: Prévia
 
