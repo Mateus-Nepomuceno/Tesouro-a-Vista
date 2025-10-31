@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Tabuleiro e posições
     const pirata = document.getElementById('pirata');
     const pontos = document.querySelectorAll('.ponto-clicavel');
+    const imagemMonstro = document.querySelector(".conteudo_organizacao_imagem");
     let casaAtual = 1;
     let moedas = 0;
     let vidas = 3;
@@ -91,6 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         await moverPirataPara(casaNumero);
         casaAtual = casaNumero;
 
+        if(casaAtual == 2){
+            removerVoltar();
+        }
+
         atualizarPontoAtivo();
 
         indice = casaAtual - 2;
@@ -146,6 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
         await moveParaPosicao(fim, 500);
     }
 
+    function removerVoltar(){
+        let quiz = document.getElementById("voltar");
+        quiz.classList.add("escondido");
+    }
+
     inicializarPontos();
     const pos1 = posicoesDasCasas[1];
     if (pos1) {
@@ -170,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function mostrarQuiz() {
         let quiz = document.getElementById("quiz");
         quiz.classList.remove("escondido");
+        
     }
 
     function fecharQuiz() {
@@ -190,23 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function mostrarPerguntas() {
-        let monstro = document.getElementById("monstro");
         let nomeMonstro = monstros[indice];
-        monstro.innerHTML = `
-            <section class="conteudo_organizacao_quiz">
-                <div class="conteudo_organizacao_quiz_pergunta">
-                    <div class="conteudo_organizacao_quiz_pergunta_imagem">
-                        <img src="../../game_assets/quiz/pergunta.webp">
-                        <div class="conteudo_organizacao_quiz_pergunta_texto">
-                            <p id="pergunta"></p>
-                        </div>
-                    </div>
-                </div>
-                <section id="opcoes" class="conteudo_organizacao_quiz_opcoes">
-                    
-                </section>
-            </section>
-            <img src="../../game_assets/quiz/${nomeMonstro}" class="conteudo_organizacao_imagem">`;
+        imagemMonstro.src = `../../game_assets/quiz/${nomeMonstro}`;
 
         let texto = document.getElementById("pergunta");
         texto.innerHTML = perguntas[indice].pergunta;

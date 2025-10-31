@@ -177,7 +177,7 @@ body {
     width: 4%;
     aspect-ratio: 1 / 1;
     pointer-events: none;
-    background-image: url(../../game_assets/tabuleiro/pergunta2.webp);
+    background-image: url(../../game_assets/tabuleiro/pergunta.webp);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

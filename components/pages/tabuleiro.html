@@ -7,6 +7,10 @@
     <title>Ilha do Tesouro</title>
     <link rel="stylesheet" href="../styles/quiz.css">
     <link rel="stylesheet" href="../styles/tabuleiro.css">
+    <link rel="preload" href="../../game_assets/quiz/fundoopcao.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/fundoperguntas.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/opções.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/acerto.webp" as="image">
     <script src="../scripts/tabuleiro.js" defer></script>
 </head>
 
@@ -20,7 +24,21 @@
             <div id="conteudo_vidas" class="conteudo_escondido">
             </div>
             <div class="conteudo_organizacao" id="monstro">
+                <section class="conteudo_organizacao_quiz">
+                    <div class="conteudo_organizacao_quiz_pergunta">
+                        <div class="conteudo_organizacao_quiz_pergunta_imagem">
+                            <img src="../../game_assets/quiz/pergunta.webp"> 
+                            <div class="conteudo_organizacao_quiz_pergunta_texto">
+                                <p id="pergunta"></p> 
+                            </div>
+                        </div>
+                    </div>
+                    <section id="opcoes" class="conteudo_organizacao_quiz_opcoes">
+                    </section>
+                </section>
+                <img src="" class="conteudo_organizacao_imagem"> 
             </div>
+            
         </div>
     </div>
     <div id="tabuleiro">
@@ -30,7 +48,7 @@
 
                     <img src="../../game_assets/tabuleiro/mapa.webp" alt="Mapa do Tesouro" id="mapa-base">
                     
-                    <div class="voltar">
+                    <div class="voltar" id="voltar">
                         <a href="../pages/jogar.html">
                             <div class="voltar_imagem">
                                 <img src="../../game_assets/tabuleiro/placa2.webp">
