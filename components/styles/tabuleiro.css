@@ -46,11 +46,11 @@ body {
 }
 
 .voltar {
-    width: 12%;
+    width: 14%;
     transition: transform 0.3s ease;
     position: absolute;
     top: 2rem;
-    left: 14rem;
+    left: 12.5rem;
     z-index: 10;
 }
 
@@ -86,13 +86,13 @@ body {
 }
 
 .conteudo_rodape {
-    width: 25%;
+    width: 23%;
     transition: transform 0.3s ease;
     justify-self: center;
     position: absolute;
     z-index: 10;
     top: 1rem;
-    right: 6rem;
+    right: 4.5rem;
 }
 
 .conteudo_rodape_imagem {
@@ -107,7 +107,7 @@ body {
 
 .conteudo_rodape_imagem_texto {
     position: absolute;
-    top: 40%;
+    top: 38%;
     left: 50%;
     transform: translate(-65%, -35%);
 
@@ -177,7 +177,7 @@ body {
     width: 4%;
     aspect-ratio: 1 / 1;
     pointer-events: none;
-    background-image: url(../../game_assets/tabuleiro/pergunta2.png);
+    background-image: url(../../game_assets/tabuleiro/pergunta2.webp);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -207,6 +207,6 @@ body {
 }
 
 .ponto-clicavel[data-casa="12"] {
-    background-image: url(../../game_assets/tabuleiro/bau.png);
+    background-image: url(../../game_assets/tabuleiro/bau.webp);
     width: 10%;
 }

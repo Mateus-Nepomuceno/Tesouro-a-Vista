@@ -9,21 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let perguntas;
     const monstros = [
-        "tartaruga.png",
-        "carangueijo.png",
-        "papagaio.png",
-        "macaco.png",
-        "tiki.png",
-        "sereia.png",
-        "pirata zumbi.png",
-        "serpente marinha.png",
-        "titã.png",
-        "fantasma pirata.png"
+        "tartaruga.webp",
+        "carangueijo.webp",
+        "papagaio.webp",
+        "macaco.webp",
+        "tiki.webp",
+        "sereia.webp",
+        "pirata zumbi.webp",
+        "serpente marinha.webp",
+        "titã.webp",
+        "fantasma pirata.webp"
     ];
 
     const erros = {
-        3: "erro1.png",
-        2: "erro2.png",
+        3: "erro1.webp",
+        2: "erro2.webp",
     };
 
     const posicoesDasCasas = {
@@ -157,10 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function vidaMoedas() {
         let vidaLocal = document.getElementById("valor-vida");
-        vidaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconevida.png" alt="Vida" class="icone-rodape">
+        vidaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconevida.webp" alt="Vida" class="icone-rodape">
         <p class="texto_barra">${vidas}</p>`;
         let moedaLocal = document.getElementById("valor-moeda");
-        moedaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconemoeda.png" alt="Moeda" class="icone-rodape">
+        moedaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconemoeda.webp" alt="Moeda" class="icone-rodape">
         <p class="texto_barra">${moedas}</p>`;
     }
 
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <section class="conteudo_organizacao_quiz">
                 <div class="conteudo_organizacao_quiz_pergunta">
                     <div class="conteudo_organizacao_quiz_pergunta_imagem">
-                        <img src="../../game_assets/quiz/pergunta.png">
+                        <img src="../../game_assets/quiz/pergunta.webp">
                         <div class="conteudo_organizacao_quiz_pergunta_texto">
                             <p id="pergunta"></p>
                         </div>
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             opcoes.innerHTML += `<div class="conteudo_organizacao_quiz_opcoes_resposta">
                                 <button class="botao_opcao" onclick="verificarResposta(${i})">
                                     <div class="conteudo_organizacao_quiz_opcoes_resposta_imagem">
-                                        <img src="../../game_assets/quiz/opções.png">
+                                        <img src="../../game_assets/quiz/opções.webp">
                                         <div class="conteudo_organizacao_quiz_opcoes_resposta_texto">
                                             <p>${perguntas[indice].opcoes[i]}</p>
                                         </div>
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else {
             let mensagem = document.getElementById("conteudo_vidas");
             let imagemErro = erros[vidas];
-            mensagem.innerHTML = `<img src="../../game_assets/quiz/fundoopcao.png">
+            mensagem.innerHTML = `<img src="../../game_assets/quiz/fundoopcao.webp">
             <img src="../../game_assets/quiz/${imagemErro}" class="conteudo_escondido_texto">`;
             mensagem.classList.remove("conteudo_escondido");
             vidas -= 1;
