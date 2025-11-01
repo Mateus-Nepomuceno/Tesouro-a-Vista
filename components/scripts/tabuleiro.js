@@ -190,6 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("conteudo_vidas").classList.add("conteudo_escondido");
     }
 
+    function fecharErro(){
+        document.getElementById("conteudo_vidas").classList.add("conteudo_escondido");
+    }
+
     async function carregarPerguntas() {
         let response = await fetch("../data/perguntas.json");
         let dados = await response.json();
@@ -225,10 +229,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.verificarResposta = function (num) {
+        let validar = false;
         let mensagem = document.getElementById("conteudo_moedas");
         if (perguntas[indice].resposta == perguntas[indice].opcoes[num]) {
             mensagem.classList.remove("conteudo_escondido");
             moedas += 3;
+            validar = true;
         }
         else {
             let mensagem = document.getElementById("conteudo_vidas");
@@ -237,20 +243,22 @@ document.addEventListener('DOMContentLoaded', () => {
             <img src="../../game_assets/quiz/${imagemErro}" class="conteudo_escondido_texto">`;
             mensagem.classList.remove("conteudo_escondido");
             vidas -= 1;
+            setTimeout(fecharErro, 2300);
         }
+        if(validar == true){
+            let todosOsBotoes = document.querySelectorAll(".botao_opcao");
+            todosOsBotoes.forEach(botao => {
+                botao.disabled = true;
+                botao.style.pointerEvents = 'none';
 
-        let todosOsBotoes = document.querySelectorAll(".botao_opcao");
-        todosOsBotoes.forEach(botao => {
-            botao.disabled = true;
-            botao.style.pointerEvents = 'none';
+                let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
 
-            let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
-
-            if (containerDaOpcao) {
-                containerDaOpcao.classList.add('desativado');
-            }
-        });
-        setTimeout(fecharQuiz, 2300);
+                if (containerDaOpcao) {
+                    containerDaOpcao.classList.add('desativado');
+                }
+            });
+            setTimeout(fecharQuiz, 2300);
+        }
         vidaMoedas();
     }
     iniciarJogo();
