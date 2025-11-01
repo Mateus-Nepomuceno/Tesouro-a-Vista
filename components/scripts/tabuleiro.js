@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Tabuleiro e posições
     const pirata = document.getElementById('pirata');
     const pontos = document.querySelectorAll('.ponto-clicavel');
+    const imagemMonstro = document.querySelector(".conteudo_organizacao_imagem");
     let casaAtual = 1;
     let moedas = 0;
     let vidas = 3;
@@ -9,21 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let perguntas;
     const monstros = [
-        "tartaruga.png",
-        "carangueijo.png",
-        "papagaio.png",
-        "macaco.png",
-        "tiki.png",
-        "sereia.png",
-        "pirata zumbi.png",
-        "serpente marinha.png",
-        "titã.png",
-        "fantasma pirata.png"
+        "tartaruga.webp",
+        "carangueijo.webp",
+        "papagaio.webp",
+        "macaco.webp",
+        "tiki.webp",
+        "sereia.webp",
+        "pirata zumbi.webp",
+        "serpente marinha.webp",
+        "titã.webp",
+        "fantasma pirata.webp"
     ];
 
     const erros = {
-        3: "erro1.png",
-        2: "erro2.png",
+        3: "erro1.webp",
+        2: "erro2.webp",
     };
 
     const posicoesDasCasas = {
@@ -91,6 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         await moverPirataPara(casaNumero);
         casaAtual = casaNumero;
 
+        if(casaAtual == 2){
+            removerVoltar();
+        }
+
         atualizarPontoAtivo();
 
         indice = casaAtual - 2;
@@ -146,6 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
         await moveParaPosicao(fim, 500);
     }
 
+    function removerVoltar(){
+        let quiz = document.getElementById("voltar");
+        quiz.classList.add("escondido");
+    }
+
     inicializarPontos();
     const pos1 = posicoesDasCasas[1];
     if (pos1) {
@@ -157,10 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function vidaMoedas() {
         let vidaLocal = document.getElementById("valor-vida");
-        vidaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconevida.png" alt="Vida" class="icone-rodape">
+        vidaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconevida.webp" alt="Vida" class="icone-rodape">
         <p class="texto_barra">${vidas}</p>`;
         let moedaLocal = document.getElementById("valor-moeda");
-        moedaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconemoeda.png" alt="Moeda" class="icone-rodape">
+        moedaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconemoeda.webp" alt="Moeda" class="icone-rodape">
         <p class="texto_barra">${moedas}</p>`;
     }
 
@@ -170,12 +180,17 @@ document.addEventListener('DOMContentLoaded', () => {
     function mostrarQuiz() {
         let quiz = document.getElementById("quiz");
         quiz.classList.remove("escondido");
+        
     }
 
     function fecharQuiz() {
         let quiz = document.getElementById("quiz");
         quiz.classList.add("escondido");
         document.getElementById("conteudo_moedas").classList.add("conteudo_escondido");
+        document.getElementById("conteudo_vidas").classList.add("conteudo_escondido");
+    }
+
+    function fecharErro(){
         document.getElementById("conteudo_vidas").classList.add("conteudo_escondido");
     }
 
@@ -190,23 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function mostrarPerguntas() {
-        let monstro = document.getElementById("monstro");
         let nomeMonstro = monstros[indice];
-        monstro.innerHTML = `
-            <section class="conteudo_organizacao_quiz">
-                <div class="conteudo_organizacao_quiz_pergunta">
-                    <div class="conteudo_organizacao_quiz_pergunta_imagem">
-                        <img src="../../game_assets/quiz/pergunta.png">
-                        <div class="conteudo_organizacao_quiz_pergunta_texto">
-                            <p id="pergunta"></p>
-                        </div>
-                    </div>
-                </div>
-                <section id="opcoes" class="conteudo_organizacao_quiz_opcoes">
-                    
-                </section>
-            </section>
-            <img src="../../game_assets/quiz/${nomeMonstro}" class="conteudo_organizacao_imagem">`;
+        imagemMonstro.src = `../../game_assets/quiz/${nomeMonstro}`;
 
         let texto = document.getElementById("pergunta");
         texto.innerHTML = perguntas[indice].pergunta;
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             opcoes.innerHTML += `<div class="conteudo_organizacao_quiz_opcoes_resposta">
                                 <button class="botao_opcao" onclick="verificarResposta(${i})">
                                     <div class="conteudo_organizacao_quiz_opcoes_resposta_imagem">
-                                        <img src="../../game_assets/quiz/opções.png">
+                                        <img src="../../game_assets/quiz/opções.webp">
                                         <div class="conteudo_organizacao_quiz_opcoes_resposta_texto">
                                             <p>${perguntas[indice].opcoes[i]}</p>
                                         </div>
@@ -229,32 +229,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.verificarResposta = function (num) {
+        let validar = false;
         let mensagem = document.getElementById("conteudo_moedas");
         if (perguntas[indice].resposta == perguntas[indice].opcoes[num]) {
             mensagem.classList.remove("conteudo_escondido");
             moedas += 3;
+            validar = true;
         }
         else {
             let mensagem = document.getElementById("conteudo_vidas");
             let imagemErro = erros[vidas];
-            mensagem.innerHTML = `<img src="../../game_assets/quiz/fundoopcao.png">
+            mensagem.innerHTML = `<img src="../../game_assets/quiz/fundoopcao.webp">
             <img src="../../game_assets/quiz/${imagemErro}" class="conteudo_escondido_texto">`;
             mensagem.classList.remove("conteudo_escondido");
             vidas -= 1;
+            setTimeout(fecharErro, 2300);
         }
+        if(validar == true){
+            let todosOsBotoes = document.querySelectorAll(".botao_opcao");
+            todosOsBotoes.forEach(botao => {
+                botao.disabled = true;
+                botao.style.pointerEvents = 'none';
 
-        let todosOsBotoes = document.querySelectorAll(".botao_opcao");
-        todosOsBotoes.forEach(botao => {
-            botao.disabled = true;
-            botao.style.pointerEvents = 'none';
+                let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
 
-            let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
-
-            if (containerDaOpcao) {
-                containerDaOpcao.classList.add('desativado');
-            }
-        });
-        setTimeout(fecharQuiz, 2300);
+                if (containerDaOpcao) {
+                    containerDaOpcao.classList.add('desativado');
+                }
+            });
+            setTimeout(fecharQuiz, 2300);
+        }
         vidaMoedas();
     }
     iniciarJogo();

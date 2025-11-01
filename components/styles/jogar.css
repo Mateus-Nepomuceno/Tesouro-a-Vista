@@ -12,7 +12,7 @@
 }
 
 .conteudo {
-    background-image: url(../../game_assets/fundoescuro.png);
+    background-image: url(../../game_assets/fundoescuro.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -58,10 +58,7 @@
     width: 75%;
 }
 
-.conteudo_mapas_ilha:hover
-
-/*.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto*/
-:hover {
+.conteudo_mapas_ilha:hover/*.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto*/{
     transform: translateY(-10px);
 }
 
