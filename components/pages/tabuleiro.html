@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ilha do Tesouro</title>
-    <link rel="stylesheet" href="/components/styles/quiz.css">
-    <link rel="stylesheet" href="/components/styles/tabuleiro.css">
-    <script src="/components/scripts/tabuleiro.js" defer></script>
+    <link rel="stylesheet" href="../styles/quiz.css">
+    <link rel="stylesheet" href="../styles/tabuleiro.css">
+    <script src="../scripts/tabuleiro.js" defer></script>
+    <link rel="preload" href="../../game_assets/quiz/fundoopcao.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/fundoperguntas.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/opções.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/acerto.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/tartaruga.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/erro1.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/erro2.webp" as="image">
 </head>
+
 <body>
     <div id="quiz" class="escondido">
         <div class="conteudo">
             <div id="conteudo_moedas" class="conteudo_escondido">
-                <img src="/game_assets/quiz/fundoopcao.png">
-                <img src="/game_assets/quiz/acerto.png" class="conteudo_escondido_texto">
+                <img src="../../game_assets/quiz/fundoopcao.webp">
+                <img src="../../game_assets/quiz/acerto.webp" class="conteudo_escondido_texto">
             </div>
             <div id="conteudo_vidas" class="conteudo_escondido">
             </div>
             <div class="conteudo_organizacao" id="monstro">
+                <section class="conteudo_organizacao_quiz">
+                    <div class="conteudo_organizacao_quiz_pergunta">
+                        <div class="conteudo_organizacao_quiz_pergunta_imagem">
+                            <img src="../../game_assets/quiz/pergunta.webp"> 
+                            <div class="conteudo_organizacao_quiz_pergunta_texto">
+                                <p id="pergunta"></p> 
+                            </div>
+                        </div>
+                    </div>
+                    <section id="opcoes" class="conteudo_organizacao_quiz_opcoes">
+                    </section>
+                </section>
+                <img src="" class="conteudo_organizacao_imagem"> 
             </div>
+            
         </div>
     </div>
     <div id="tabuleiro">
         <div id="game-coluna-central">
             <div id="mapa-container">
                 <div id="mapa-content-wrapper">
+
+                    <img src="../../game_assets/tabuleiro/mapa.webp" alt="Mapa do Tesouro" id="mapa-base">
                     
-                    <img src="/game_assets/tabuleiro/mapa.png" alt="Mapa do Tesouro" id="mapa-base">
+                    <div class="voltar" id="voltar">
+                        <a href="../pages/jogar.html">
+                            <div class="voltar_imagem">
+                                <img src="../../game_assets/tabuleiro/placa2.webp">
+                                <div class="voltar_imagem_texto">
+                                    <p>Voltar</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
 
                     <div class="conteudo_rodape">
                         <div class="conteudo_rodape_imagem">
-                            <img src="/game_assets/tabuleiro/iconebarra.png" alt="Placa de informações">
+                            <img src="../../game_assets/tabuleiro/iconebarra.webp" alt="Placa de informações">
 
                             <div class="conteudo_rodape_imagem_texto">
                                 <div class="grupo-info" id="valor-vida">
@@ -41,8 +75,8 @@
                         </div>
                     </div>
 
-                    <img src="/game_assets/tabuleiro/iconepirata.png" alt="Pirata" id="pirata">
-                    
+                    <img src="../../game_assets/tabuleiro/iconepirata.webp" alt="Pirata" id="pirata">
+
                     <div class="ponto-clicavel" data-casa="1"></div>
                     <div class="ponto-clicavel" data-casa="2"></div>
                     <div class="ponto-clicavel" data-casa="3"></div>
@@ -60,4 +94,5 @@
         </div>
     </div>
 </body>
+
 </html>
