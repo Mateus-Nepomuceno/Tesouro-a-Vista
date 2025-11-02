@@ -210,3 +210,79 @@ body {
     background-image: url(../../game_assets/tabuleiro/bau.webp);
     width: 10%;
 }
+
+
+
+.escondido {
+    display: none;
+}
+
+.tela_final_imagem {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+
+.tela_final_imagem img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: fill;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.tela_final_imagem.mostrar {
+    display: flex; 
+}
+
+.vitoria_conteudo, .derrota_conteudo {
+    z-index: 1;
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 20px;
+    position: absolute; /* posição livre dentro do contêiner */
+    top: 50%;           /* 20% do topo da tela */
+    left: 50%;          /* 10% da esquerda */
+}
+
+.derrota_conteudo button, .vitoria_conteudo button{
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 3rem;
+    color: var(--cor-texto2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease;
+}
+.derrota_conteudo button:hover, .vitoria_conteudo button:hover{
+    color: var(--cor-hover);
+    transform: scale(1.1);
+}
+.derrota_conteudo, .vitoria_conteudo{
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    color: var(--cor-texto2);
+}
+
+.derrota_txt, .vitoria_txt {
+    font-size: 10rem;
+    margin-bottom: 10px;
+}
+
+.derrota_txt {
+    color: rgb(155, 29, 29);
+}

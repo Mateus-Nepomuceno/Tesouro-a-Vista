@@ -86,22 +86,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function tentarMoverPara(casaNumero) {
-        if (casaNumero !== casaAtual + 1) {
-            return;
-        }
-        await moverPirataPara(casaNumero);
-        casaAtual = casaNumero;
-
-        if(casaAtual == 2){
-            removerVoltar();
-        }
-
-        atualizarPontoAtivo();
-
-        indice = casaAtual - 2;
-        mostrarPerguntas();
-        mostrarQuiz();
+    if (casaNumero !== casaAtual + 1) {
+        return;
     }
+
+    await moverPirataPara(casaNumero);
+    casaAtual = casaNumero;
+
+    if (casaAtual >= 12) {
+        mostrarTelaVitoria();
+        return; 
+    }
+
+    if (casaAtual == 2) {
+        removerVoltar();
+    }
+
+    atualizarPontoAtivo();
+
+    indice = casaAtual - 2;
+    mostrarPerguntas();
+    mostrarQuiz();
+}
 
     function esperarTransicao(element, timeout = 800) {
         return new Promise(resolve => {
@@ -228,6 +234,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function mostrarTelaVitoria() {
+        const tela = document.getElementById("tela_vitoria_container");
+        tela.classList.remove("escondido");
+        tela.classList.add("mostrar");
+    }
+
+    function mostrarTelaDerrota() {
+        const tela = document.getElementById("tela_derrota_container");
+        tela.classList.remove("escondido");
+        tela.classList.add("mostrar");
+    }
+
     window.verificarResposta = function (num) {
         let validar = false;
         let mensagem = document.getElementById("conteudo_moedas");
@@ -260,6 +278,12 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(fecharQuiz, 2300);
         }
         vidaMoedas();
-    }
+
+        if (vidas <= 0) {
+            mostrarTelaDerrota();
+        }
+    };
+
+// inicia o jogo depois de definir a função
     iniciarJogo();
 });
