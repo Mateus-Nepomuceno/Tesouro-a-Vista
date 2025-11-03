@@ -236,14 +236,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function mostrarTelaVitoria() {
         const tela = document.getElementById("tela_vitoria_container");
+        mostrarMoedasFinal()
         tela.classList.remove("escondido");
         tela.classList.add("mostrar");
     }
 
     function mostrarTelaDerrota() {
         const tela = document.getElementById("tela_derrota_container");
+        mostrarMoedasFinal()
         tela.classList.remove("escondido");
         tela.classList.add("mostrar");
+    }
+
+    function mostrarMoedasFinal() {
+    const vitoriaMoeda = document.getElementById("moedas_vitoria");
+    const derrotaMoeda = document.getElementById("moedas_derrota");
+
+    const conteudo = `
+        <span class="moedas_final_conteudo">
+            <span class="texto_barra">Moedas conquistadas: x${moedas}</span>
+        </span>
+    `;
+
+    if (vitoriaMoeda) vitoriaMoeda.innerHTML = conteudo;
+    if (derrotaMoeda) derrotaMoeda.innerHTML = conteudo;
     }
 
     window.verificarResposta = function (num) {
@@ -284,6 +300,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-// inicia o jogo depois de definir a função
     iniciarJogo();
 });

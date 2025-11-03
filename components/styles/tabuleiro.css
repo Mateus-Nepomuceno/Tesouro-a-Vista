@@ -211,12 +211,6 @@ body {
     width: 10%;
 }
 
-
-
-.escondido {
-    display: none;
-}
-
 .tela_final_imagem {
     display: none;
     position: fixed;
@@ -238,51 +232,91 @@ body {
 }
 
 .tela_final_imagem.mostrar {
-    display: flex; 
+    display: flex;
 }
 
 .vitoria_conteudo, .derrota_conteudo {
+    position: absolute;
+    top: 40vh;
+    left: 59.8vw;
+    transform: translate(-50%, 0);
     z-index: 1;
-    color: #fff;
-    font-size: 2rem;
     text-align: center;
-    margin-top: 20px;
-    position: absolute; /* posição livre dentro do contêiner */
-    top: 50%;           /* 20% do topo da tela */
-    left: 50%;          /* 10% da esquerda */
+    font-family: var(--font-primaria);
+    color: var(--cor-texto2);
+    padding: 2vh 3vw;
 }
 
-.derrota_conteudo button, .vitoria_conteudo button{
+.vitoria_conteudo{
+    top: 46.7vh;
+    margin-left: -1vw;
+}
+
+.derrota_conteudo button, .vitoria_conteudo button {
     font-family: var(--font-primaria);
-    text-decoration: none;
-    color: var(--cor-texto);
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 3rem;
-    color: var(--cor-texto2);
+    margin-top: 1vh;
+    margin-left: -2vw; /* desloca levemente para a esquerda de forma proporcional à largura da tela */
+    padding: 1vh 4vw;
+    font-size: clamp(1rem, 5vw, 5rem);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: rgba(0, 0, 0, 0.849);
+    position: relative;
+    background: none;
+    border: none;
+    transform: rotate(-1deg);
     transition: transform 0.3s ease;
 }
-.derrota_conteudo button:hover, .vitoria_conteudo button:hover{
-    color: var(--cor-hover);
-    transform: scale(1.1);
-}
-.derrota_conteudo, .vitoria_conteudo{
-    font-family: var(--font-primaria);
-    text-decoration: none;
-    color: var(--cor-texto);
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1.5rem;
-    color: var(--cor-texto2);
+
+.vitoria_conteudo button{
+    margin-left: -0.3vw;
+    margin-top: 3vh;
+    font-size: clamp(1rem, 3.5vw, 3.5rem);
 }
 
-.derrota_txt, .vitoria_txt {
-    font-size: 10rem;
-    margin-bottom: 10px;
+/* Efeito hover: brilho passando da esquerda para a direita */
+.derrota_conteudo button:hover, .vitoria_conteudo button:hover {
+   
+    background: linear-gradient(
+        140deg,
+        #c7ae1f9c 0%,
+        #000000 50%,
+        #c7ae1f9c 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 1.5s forwards;
+   
 }
 
-.derrota_txt {
-    color: rgb(155, 29, 29);
+/* Animação do brilho */
+@keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.moedas_final {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+    color: rgba(0, 0, 0, 0.849); /* Transparencia para parecer que faz parte do papel */
+}
+
+.moedas_final_conteudo {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw; 
+    font-size: clamp(1.2rem, 2vw, 2rem);
+
+}
+
+.vitoria_conteudo, .derrota_conteudo {
+    position: relative;
+    z-index: 10;
 }
