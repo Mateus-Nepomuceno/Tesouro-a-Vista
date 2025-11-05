@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pirata+One&family=Reggae+One&display=swap');
 
 * {
     margin: 0;
@@ -20,6 +21,7 @@ body {
     --cor-texto2: #000000;
     --cor-hover: #ffb217;
     --font-primaria: "Pirata One", sans-serif;
+    --font-secundaria: 'Reggae One', sans-serif;
 }
 
 .escondido {
@@ -138,6 +140,8 @@ body {
 
 .texto_barra {
     margin: 0;
+    font-family: var(--font-primaria);
+    font-size: 2rem;
 }
 
 #mapa-container {
@@ -211,112 +215,105 @@ body {
     width: 10%;
 }
 
+/* Tela final */
 .tela_final_imagem {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     z-index: 1000;
 }
 
-.tela_final_imagem img {
-    width: 100vw;
-    height: 100vh;
-    object-fit: fill;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
 .tela_final_imagem.mostrar {
-    display: flex;
+    display: block;
 }
 
-.vitoria_conteudo, .derrota_conteudo {
+/* Fundo */
+.tela_final_imagem .fundo_derrota, .tela_final_imagem .fundo_vitoria {
     position: absolute;
-    top: 40vh;
-    left: 59.8vw;
-    transform: translate(-50%, 0);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
     z-index: 1;
-    text-align: center;
-    font-family: var(--font-primaria);
-    color: var(--cor-texto2);
-    padding: 2vh 3vw;
 }
 
-.vitoria_conteudo{
-    top: 46.7vh;
-    margin-left: -1vw;
+/* Conteúdo (moedas + botão) */
+.derrota_conteudo, .vitoria_conteudo {
+    position: absolute;
+    top: 60vh;   
+    left: 59vw; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    gap: 2vh; 
+    transform: translate(-50%, -50%); 
+    z-index: 10;
 }
 
-.derrota_conteudo button, .vitoria_conteudo button {
-    font-family: var(--font-primaria);
-    margin-top: 1vh;
-    margin-left: -2vw; /* desloca levemente para a esquerda de forma proporcional à largura da tela */
-    padding: 1vh 4vw;
-    font-size: clamp(1rem, 5vw, 5rem);
-    cursor: pointer;
-    color: rgba(0, 0, 0, 0.849);
-    position: relative;
-    background: none;
-    border: none;
-    transform: rotate(-1deg);
-    transition: transform 0.3s ease;
-}
 
-.vitoria_conteudo button{
-    margin-left: -0.3vw;
-    margin-top: 3vh;
-    font-size: clamp(1rem, 3.5vw, 3.5rem);
-}
-
-/* Efeito hover: brilho passando da esquerda para a direita */
-.derrota_conteudo button:hover, .vitoria_conteudo button:hover {
-   
-    background: linear-gradient(
-        140deg,
-        #c7ae1f9c 0%,
-        #000000 50%,
-        #c7ae1f9c 100%
-    );
-    background-size: 200% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 1.5s forwards;
-   
-}
-
-/* Animação do brilho */
-@keyframes shimmer {
-    0% {
-        background-position: -100% 0;
-    }
-    100% {
-        background-position: 100% 0;
-    }
-}
-
+/* Moedas */
 .moedas_final {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 2vh;
-    color: rgba(0, 0, 0, 0.849); /* Transparencia para parecer que faz parte do papel */
+    gap: 0.5rem;
 }
 
 .moedas_final_conteudo {
     display: flex;
     align-items: center;
-    gap: 0.5vw; 
-    font-size: clamp(1.2rem, 2vw, 2rem);
-
+    gap: 0.5rem;
 }
 
-.vitoria_conteudo, .derrota_conteudo {
+.moedas_final_conteudo img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+}
+
+.texto_barra {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    font-family: var(--font-secundaria);
+}
+
+/* Botão reiniciar */
+.reiniciar_jogo {
+    width: 20vw;
+    max-width: 300px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.reiniciar_jogo:hover {
+    transform: scale(1.1);
+}
+
+.reiniciar_imagem {
     position: relative;
-    z-index: 10;
+    width: 100%;
+    aspect-ratio: 3/1; /* isso é pra manter a proporção da placa */
 }
+
+.reiniciar_imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.reiniciar_imagem_texto {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    font-family: var(--font-primaria);
+    color: var(--cor-texto);
+    pointer-events: none;
+}
+
+.reiniciar_jogo:hover .reiniciar_imagem_texto {
+    color: var(--cor-hover);
+}
+

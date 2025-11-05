@@ -91,30 +91,50 @@
                     <div class="ponto-clicavel" data-casa="12"></div>
 
 
-                    <div id="tela_final">
-                        <!-- TELA DE VITÓRIA -->
-                        <div id="tela_vitoria_container" class="tela_final_imagem escondido">
-                            <img src="../../game_assets/vitoria_e_derrota/Fundo_vitoria.webp" alt="Vitória">
-                            <div class="vitoria_conteudo">
-                                <div id="moedas_vitoria" class="moedas_final"></div>
-                                <a href="../pages/jogar.html">
-                                    <button>Voltar ao Menu</button>
-                                </a>
-                            </div>
-                        </div>
+            <div id="tela_final">
+            <!-- TELA DE VITÓRIA -->
+                <div id="tela_vitoria_container" class="tela_final_imagem escondido">
+                    <div class="fundo_wrapper">
+                        <img src="../../game_assets/vitoria_e_derrota/Fundo_vitoria.webp" alt="Vitória" class="fundo_vitoria">
+                        <div class="vitoria_conteudo">
+                            <!-- Moedas -->
+                            <div id="moedas_vitoria" class="moedas_final"></div>
 
-                        <!-- TELA DE DERROTA -->
-                        <div id="tela_derrota_container" class="tela_final_imagem escondido">
-                            <img src="../../game_assets/vitoria_e_derrota/Fundo_derrota.webp" alt="Derrota">
-                            <div class="derrota_conteudo">
-                                <div id="moedas_derrota" class="moedas_final"></div>
-                                <a href="../pages/tabuleiro.html">
-                                    <button>Reiniciar</button>                  
-                                </a>
-                            </div>
+                            <!-- Botão "Voltar ao Menu" -->
+                            <a href="../pages/jogar.html" class="reiniciar_jogo">
+                                <div class="reiniciar_imagem">
+                                    <img src="../../game_assets/tabuleiro/iconebarra.webp" alt="Voltar ao Menu placa">
+                                    <div class="reiniciar_imagem_texto">
+                                        Voltar ao Menu
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
+                </div>
 
+                <!-- TELA DE DERROTA -->
+                <div id="tela_derrota_container" class="tela_final_imagem escondido">
+                    <div class="fundo_wrapper">
+                        <img class="fundo_derrota" src="../../game_assets/vitoria_e_derrota/Fundo_derrota.webp" alt="Derrota">
+                        <div class="derrota_conteudo">
+                            <!-- Moedas -->
+                            <div id="moedas_derrota" class="moedas_final"></div>
+
+                            <!-- Botão reiniciar -->
+                            <a href="../pages/tabuleiro.html" class="reiniciar_jogo" id="reiniciar_jogo">
+                                <div class="reiniciar_imagem">
+                                    <img src="../../game_assets/tabuleiro/iconebarra.webp" alt="Reiniciar Jogo placa">
+                                    <div class="reiniciar_imagem_texto">
+                                        reiniciar
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
 
                 </div>
             </div>

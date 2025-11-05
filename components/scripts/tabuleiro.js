@@ -252,10 +252,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const vitoriaMoeda = document.getElementById("moedas_vitoria");
     const derrotaMoeda = document.getElementById("moedas_derrota");
 
-    const conteudo = `
-        <span class="moedas_final_conteudo">
-            <span class="texto_barra">Moedas conquistadas: x${moedas}</span>
-        </span>
+     const conteudo = `
+         <div class="moedas_final_conteudo">
+            <img src="../../game_assets/tabuleiro/iconemoeda.webp" alt="Moeda">
+            <span class="texto_barra">x${moedas}</span>
+        </div>
     `;
 
     if (vitoriaMoeda) vitoriaMoeda.innerHTML = conteudo;
