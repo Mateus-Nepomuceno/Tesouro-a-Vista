@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Pirata+One&display=swap');
 
 * {
     margin: 0;
@@ -20,6 +20,7 @@ body {
     --cor-texto2: #000000;
     --cor-hover: #ffb217;
     --font-primaria: "Pirata One", sans-serif;
+    --font-secundaria: "Germania One", sans-serif;
 }
 
 .escondido {
@@ -74,7 +75,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    font-size: 2.1rem;
+    font-size: 2.4rem;
     text-align: center;
     font-family: var(--font-primaria);
     text-decoration: none;
@@ -113,7 +114,6 @@ body {
 
     font-size: 2rem;
     text-align: center;
-    font-family: var(--font-primaria);
     text-decoration: none;
     color: var(--cor-texto);
     white-space: nowrap;
@@ -138,6 +138,9 @@ body {
 
 .texto_barra {
     margin: 0;
+    font-family: var(--font-primaria);
+    font-size: 2rem;
+    font-weight: 100;
 }
 
 #mapa-container {
@@ -187,9 +190,14 @@ body {
     border-radius: 50%;
 }
 
+.ponto-clicavel.casa-completa {
+    background-image: url(../../game_assets/tabuleiro/certo.webp);
+}
+
 .ponto-clicavel.proxima-casa {
     pointer-events: auto;
     cursor: pointer;
+    background-image: url(../../game_assets/tabuleiro/proxima.webp);
 }
 
 .ponto-clicavel.proxima-casa:hover {
@@ -210,3 +218,122 @@ body {
     background-image: url(../../game_assets/tabuleiro/bau.webp);
     width: 10%;
 }
+
+/* Tela final */
+.tela_final_imagem {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+}
+
+.tela_final_imagem.mostrar {
+    display: block;
+}
+
+/* Fundo */
+.tela_final_imagem .fundo_derrota, .tela_final_imagem .fundo_vitoria {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: 1;
+}
+
+/* Conteúdo (moedas + botão) */
+.derrota_conteudo, .vitoria_conteudo {
+    position: absolute;
+    top: 60vh;   
+    left: 59vw; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    gap: 2vh; 
+    transform: translate(-50%, -50%); 
+    z-index: 10;
+}
+
+
+/* Moedas */
+.moedas_final {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.moedas_final_conteudo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.moedas_final_conteudo img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+}
+
+.texto_barra {
+    font-size: 2.3rem;
+    font-family: var(--font-secundaria);
+}
+
+/* Botão reiniciar */
+.reiniciar_jogo {
+    width: 20vw;
+    max-width: 300px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.reiniciar_jogo:hover {
+    transform: scale(1.1);
+}
+
+.reiniciar_imagem {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/1; /* isso é pra manter a proporção da placa */
+}
+
+.reiniciar_imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.reiniciar_imagem_texto {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-family: var(--font-primaria);
+    color: var(--cor-texto);
+    pointer-events: none;
+}
+
+.menu_imagem_texto {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-family: var(--font-primaria);
+    color: var(--cor-texto);
+    pointer-events: none;
+}
+
+.reiniciar_jogo:hover .reiniciar_imagem_texto {
+    color: var(--cor-hover);
+}
+
+.reiniciar_jogo:hover .menu_imagem_texto {
+    color: var(--cor-hover);
+}
+

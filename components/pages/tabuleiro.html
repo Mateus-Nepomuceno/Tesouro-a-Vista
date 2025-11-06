@@ -13,6 +13,17 @@
     <link rel="preload" href="../../game_assets/quiz/opções.webp" as="image">
     <link rel="preload" href="../../game_assets/quiz/acerto.webp" as="image">
     <link rel="preload" href="../../game_assets/quiz/tartaruga.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/carangueijo.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/fantasma pirata.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/macaco.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/papagaio.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/pergunta.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/pirata zumbi.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/sereia.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/serpente marinha.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/tartaruga.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/tiki.webp" as="image">
+    <link rel="preload" href="../../game_assets/quiz/titã.webp" as="image">
     <link rel="preload" href="../../game_assets/quiz/erro1.webp" as="image">
     <link rel="preload" href="../../game_assets/quiz/erro2.webp" as="image">
 </head>
@@ -89,6 +100,53 @@
                     <div class="ponto-clicavel" data-casa="10"></div>
                     <div class="ponto-clicavel" data-casa="11"></div>
                     <div class="ponto-clicavel" data-casa="12"></div>
+
+
+            <div id="tela_final">
+            <!-- TELA DE VITÓRIA -->
+                <div id="tela_vitoria_container" class="tela_final_imagem escondido">
+                    <div class="fundo_wrapper">
+                        <img src="../../game_assets/vitoria_e_derrota/Fundo_vitoria.webp" alt="Vitória" class="fundo_vitoria">
+                        <div class="vitoria_conteudo">
+                            <!-- Moedas -->
+                            <div id="moedas_vitoria" class="moedas_final"></div>
+
+                            <!-- Botão "Voltar ao Menu" -->
+                            <a href="../pages/jogar.html" class="reiniciar_jogo">
+                                <div class="reiniciar_imagem">
+                                    <img src="../../game_assets/tabuleiro/iconebarra.webp" alt="Voltar ao Menu placa">
+                                    <div class="menu_imagem_texto">
+                                        Voltar ao Menu
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TELA DE DERROTA -->
+                <div id="tela_derrota_container" class="tela_final_imagem escondido">
+                    <div class="fundo_wrapper">
+                        <img class="fundo_derrota" src="../../game_assets/vitoria_e_derrota/Fundo_derrota.webp" alt="Derrota">
+                        <div class="derrota_conteudo">
+                            <!-- Moedas -->
+                            <div id="moedas_derrota" class="moedas_final"></div>
+
+                            <!-- Botão reiniciar -->
+                            <a href="../pages/tabuleiro.html" class="reiniciar_jogo" id="reiniciar_jogo">
+                                <div class="reiniciar_imagem">
+                                    <img src="../../game_assets/tabuleiro/iconebarra.webp" alt="Reiniciar Jogo placa">
+                                    <div class="reiniciar_imagem_texto">
+                                        Reiniciar
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
                 </div>
             </div>
         </div>

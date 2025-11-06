@@ -81,27 +81,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     ponto.classList.add('ponto-gradiente');
             } else {
                 ponto.classList.remove('proxima-casa');
+                if(casaNumero == proximaCasa-1){
+                    ponto.classList.add('casa-completa')
+                }
             }
         });
     }
 
     async function tentarMoverPara(casaNumero) {
-        if (casaNumero !== casaAtual + 1) {
-            return;
-        }
-        await moverPirataPara(casaNumero);
-        casaAtual = casaNumero;
-
-        if(casaAtual == 2){
-            removerVoltar();
-        }
-
-        atualizarPontoAtivo();
-
-        indice = casaAtual - 2;
-        mostrarPerguntas();
-        mostrarQuiz();
+    if (casaNumero !== casaAtual + 1) {
+        return;
     }
+
+    await moverPirataPara(casaNumero);
+    casaAtual = casaNumero;
+
+    if (casaAtual >= 12) {
+        mostrarTelaVitoria();
+        return; 
+    }
+
+    if (casaAtual == 2) {
+        removerVoltar();
+    }
+
+    atualizarPontoAtivo();
+
+    indice = casaAtual - 2;
+    mostrarPerguntas();
+    mostrarQuiz();
+}
 
     function esperarTransicao(element, timeout = 800) {
         return new Promise(resolve => {
@@ -228,6 +237,63 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function mostrarTelaVitoria() {
+        const tela = document.getElementById("tela_vitoria_container");
+        mostrarMoedasFinal()
+        tela.classList.remove("escondido");
+        tela.classList.add("mostrar");
+    }
+
+    function mostrarTelaDerrota() {
+        const tela = document.getElementById("tela_derrota_container");
+        mostrarMoedasFinal()
+        tela.classList.remove("escondido");
+        tela.classList.add("mostrar");
+    }
+
+    function desativarBotoes(){
+        let todosOsBotoes = document.querySelectorAll(".botao_opcao");
+            todosOsBotoes.forEach(botao => {
+                botao.disabled = true;
+                botao.style.pointerEvents = 'none';
+
+                let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
+
+                if (containerDaOpcao) {
+                    containerDaOpcao.classList.add('desativado');
+                }
+            });
+    }
+
+    function ativarBotoes(){
+        let todosOsBotoes = document.querySelectorAll(".botao_opcao");
+            todosOsBotoes.forEach(botao => {
+                botao.disabled = false;
+                botao.style.pointerEvents = 'auto';
+
+                let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
+
+                if (containerDaOpcao) {
+                    containerDaOpcao.classList.remove('desativado');
+                }
+            });
+    }
+
+    function mostrarMoedasFinal() {
+    const vitoriaMoeda = document.getElementById("moedas_vitoria");
+    const derrotaMoeda = document.getElementById("moedas_derrota");
+
+     const conteudo = `
+         <div class="moedas_final_conteudo">
+            <img src="../../game_assets/tabuleiro/iconemoeda.webp" alt="Moeda">
+            <span class="texto_barra">x${moedas}</span>
+        </div>
+    `;
+
+    if (vitoriaMoeda) vitoriaMoeda.innerHTML = conteudo;
+    if (derrotaMoeda) derrotaMoeda.innerHTML = conteudo;
+    }
+
     window.verificarResposta = function (num) {
         let validar = false;
         let mensagem = document.getElementById("conteudo_moedas");
@@ -243,23 +309,23 @@ document.addEventListener('DOMContentLoaded', () => {
             <img src="../../game_assets/quiz/${imagemErro}" class="conteudo_escondido_texto">`;
             mensagem.classList.remove("conteudo_escondido");
             vidas -= 1;
-            setTimeout(fecharErro, 2300);
+            desativarBotoes();
+
+            setTimeout(() => {
+                fecharErro();
+                ativarBotoes();
+            }, 2300);
         }
         if(validar == true){
-            let todosOsBotoes = document.querySelectorAll(".botao_opcao");
-            todosOsBotoes.forEach(botao => {
-                botao.disabled = true;
-                botao.style.pointerEvents = 'none';
-
-                let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
-
-                if (containerDaOpcao) {
-                    containerDaOpcao.classList.add('desativado');
-                }
-            });
+            desativarBotoes();
             setTimeout(fecharQuiz, 2300);
         }
         vidaMoedas();
-    }
+
+        if (vidas <= 0) {
+            mostrarTelaDerrota();
+        }
+    };
+
     iniciarJogo();
 });
