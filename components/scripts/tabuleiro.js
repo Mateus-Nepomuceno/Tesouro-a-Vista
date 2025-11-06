@@ -81,6 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     ponto.classList.add('ponto-gradiente');
             } else {
                 ponto.classList.remove('proxima-casa');
+                if(casaNumero == proximaCasa-1){
+                    ponto.classList.add('casa-completa')
+                }
             }
         });
     }
@@ -248,6 +251,34 @@ document.addEventListener('DOMContentLoaded', () => {
         tela.classList.add("mostrar");
     }
 
+    function desativarBotoes(){
+        let todosOsBotoes = document.querySelectorAll(".botao_opcao");
+            todosOsBotoes.forEach(botao => {
+                botao.disabled = true;
+                botao.style.pointerEvents = 'none';
+
+                let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
+
+                if (containerDaOpcao) {
+                    containerDaOpcao.classList.add('desativado');
+                }
+            });
+    }
+
+    function ativarBotoes(){
+        let todosOsBotoes = document.querySelectorAll(".botao_opcao");
+            todosOsBotoes.forEach(botao => {
+                botao.disabled = false;
+                botao.style.pointerEvents = 'auto';
+
+                let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
+
+                if (containerDaOpcao) {
+                    containerDaOpcao.classList.remove('desativado');
+                }
+            });
+    }
+
     function mostrarMoedasFinal() {
     const vitoriaMoeda = document.getElementById("moedas_vitoria");
     const derrotaMoeda = document.getElementById("moedas_derrota");
@@ -278,20 +309,15 @@ document.addEventListener('DOMContentLoaded', () => {
             <img src="../../game_assets/quiz/${imagemErro}" class="conteudo_escondido_texto">`;
             mensagem.classList.remove("conteudo_escondido");
             vidas -= 1;
-            setTimeout(fecharErro, 2300);
+            desativarBotoes();
+
+            setTimeout(() => {
+                fecharErro();
+                ativarBotoes();
+            }, 2300);
         }
         if(validar == true){
-            let todosOsBotoes = document.querySelectorAll(".botao_opcao");
-            todosOsBotoes.forEach(botao => {
-                botao.disabled = true;
-                botao.style.pointerEvents = 'none';
-
-                let containerDaOpcao = botao.closest('.conteudo_organizacao_quiz_opcoes_resposta');
-
-                if (containerDaOpcao) {
-                    containerDaOpcao.classList.add('desativado');
-                }
-            });
+            desativarBotoes();
             setTimeout(fecharQuiz, 2300);
         }
         vidaMoedas();
