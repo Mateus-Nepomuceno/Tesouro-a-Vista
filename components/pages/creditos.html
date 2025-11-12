@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créditos</title>
     <link rel="stylesheet" href="../styles/creditos.css">
+    <script src="../scripts/tabuleiro.js" defer></script>
 </head>
 
 <body class="conteudo">
     <main class="conteudo_principal">
+        <audio id="musicaCreditos" src="../../game_assets/index/tesouro à vista!.mp3" loop preload="auto"></audio>
+        <audio id="somClique" src="../../game_assets/tabuleiro/clique.mp3" preload="auto"></audio>
         <ul class="conteudo_principal_texto">
             <li>Marta Gisele Barreto - Gestor</li>
             <li>Luiza Bittencourt - Designer</li>
@@ -20,7 +23,7 @@
     </main>
     <footer>
         <div class="conteudo_rodape">
-            <a href="../../index.html">
+            <a href="../../index.html" id="VoltarSomCreditos">
                 <div class="conteudo_rodape_imagem">
                     <img src="../../game_assets/PlacaMaior.webp">
                     <div class="conteudo_rodape_imagem_texto">

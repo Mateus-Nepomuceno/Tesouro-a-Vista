@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="components/styles/menu.css">
     <title>Tesouro à Vista</title>
+    <script src="components/scripts/tabuleiro.js" defer></script>
 </head>
 
 <body class="conteudo">
     <header class="conteudo_cabecalho">
         <img class="conteudo_cabecalho_logo" src="game_assets/index/logo.webp">
+        <audio id="musicaMenu" src="game_assets/index/tesouro à vista!.mp3" loop preload="auto"></audio>
     </header>
     <main>
+        <audio id="somClique" src="game_assets/tabuleiro/clique.mp3" preload="auto"></audio>
         <div class="conteudo_opcao">
-            <a href="components/pages/jogar.html">
+            <a href="components/pages/jogar.html" id="jogarSomClique">
                 <div class="conteudo_opcao_imagem">
                     <img src="game_assets/index/placa.webp">
                     <div class="conteudo_opcao_imagem_texto">
@@ -25,7 +28,7 @@
         </div>
 
         <div class="conteudo_opcao">
-            <a href="#">
+            <a href="#" id="opcoesSomClique">
                 <div class="conteudo_opcao_imagem">
                     <img src="game_assets/index/placa2.webp">
                     <div class="conteudo_opcao_imagem_texto">
@@ -37,7 +40,7 @@
 
 
         <div class="conteudo_opcao">
-            <a href="components/pages/creditos.html">
+            <a href="components/pages/creditos.html" id="creditosSomClique">
                 <div class="conteudo_opcao_imagem">
                     <img src="game_assets/index/placa.webp">
                     <div class="conteudo_opcao_imagem_texto">

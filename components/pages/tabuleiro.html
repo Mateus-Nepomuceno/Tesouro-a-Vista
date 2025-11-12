@@ -29,6 +29,7 @@
 </head>
 
 <body>
+    <audio id="musicaTabuleiro" src="../../game_assets/tabuleiro/ilha.mp3" loop preload="auto"></audio>
     <audio id="somClique" src="../../game_assets/tabuleiro/clique.mp3" preload="auto"></audio>
     <audio id="somQuiz" src="../../game_assets/tabuleiro/abrirPergunta.mp3" preload="auto"></audio>
     <div id="quiz" class="escondido">
@@ -65,7 +66,7 @@
                     <img src="../../game_assets/tabuleiro/mapa.webp" alt="Mapa do Tesouro" id="mapa-base">
                     
                     <div class="voltar" id="voltar">
-                        <a href="../pages/jogar.html">
+                        <a href="../pages/jogar.html" id="BotaoComSom">
                             <div class="voltar_imagem">
                                 <img src="../../game_assets/tabuleiro/placa2.webp">
                                 <div class="voltar_imagem_texto">
@@ -117,7 +118,7 @@
                             <div id="moedas_vitoria" class="moedas_final"></div>
 
                             <!-- Botão "Voltar ao Menu" -->
-                            <a href="../pages/jogar.html" class="reiniciar_jogo">
+                            <a href="../pages/jogar.html" class="reiniciar_jogo" id="reiniciar_jogo_vitoria">
                                 <div class="reiniciar_imagem">
                                     <img src="../../game_assets/tabuleiro/iconebarra.webp" alt="Voltar ao Menu placa">
                                     <div class="menu_imagem_texto">
@@ -139,7 +140,7 @@
                             <div id="moedas_derrota" class="moedas_final"></div>
 
                             <!-- Botão reiniciar -->
-                            <a href="../pages/tabuleiro.html" class="reiniciar_jogo" id="reiniciar_jogo">
+                            <a href="../pages/tabuleiro.html" class="reiniciar_jogo" id="reiniciar_jogo_derrota">
                                 <div class="reiniciar_imagem">
                                     <img src="../../game_assets/tabuleiro/iconebarra.webp" alt="Reiniciar Jogo placa">
                                     <div class="reiniciar_imagem_texto">

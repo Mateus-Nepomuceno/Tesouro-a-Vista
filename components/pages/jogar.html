@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seleção de Mapas</title>
     <link rel="stylesheet" href="../styles/jogar.css">
+    <script src="../scripts/tabuleiro.js" defer></script>
 </head>
 
 <body class="conteudo">
@@ -13,9 +14,11 @@
         <h1>Escolha o Mapa</h1>
     </header>
     <main class="conteudo_mapas">
+        <audio id="musicaSelecao" src="../../game_assets/index/tesouro à vista!.mp3" loop preload="auto"></audio>
+        <audio id="somClique" src="../../game_assets/tabuleiro/clique.mp3" preload="auto"></audio>
         <div class="conteudo_mapas_ilha">
             <h2 class="conteudo_mapas_ordem_texto">Ilha do Tesouro</h2>
-            <a class="conteudo_mapas_ordem_imagem" href="../pages/tabuleiro.html">
+            <a class="conteudo_mapas_ordem_imagem" href="../pages/tabuleiro.html" id="ilhaComSom">
                 <img class="conteudo_mapas_ordem_imagem_ilha" src="../../game_assets/jogar/Ilha.webp">
             </a>
         </div>
@@ -34,7 +37,7 @@
     </main>
     <footer>
         <div class="conteudo_rodape">
-            <a href="../../index.html">
+            <a href="../../index.html" id="VoltarilhaComSom">
                 <div class="conteudo_rodape_imagem">
                     <img src="../../game_assets/PlacaMaior.webp">
                     <div class="conteudo_rodape_imagem_texto">
