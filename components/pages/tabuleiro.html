@@ -29,6 +29,8 @@
 </head>
 
 <body>
+    <audio id="somClique" src="../../game_assets/tabuleiro/clique.mp3" preload="auto"></audio>
+    <audio id="somQuiz" src="../../game_assets/tabuleiro/abrirPergunta.mp3" preload="auto"></audio>
     <div id="quiz" class="escondido">
         <div class="conteudo">
             <div id="conteudo_moedas" class="conteudo_escondido">
@@ -43,7 +45,7 @@
                         <div class="conteudo_organizacao_quiz_pergunta_imagem">
                             <img src="../../game_assets/quiz/pergunta.webp"> 
                             <div class="conteudo_organizacao_quiz_pergunta_texto">
-                                <p id="pergunta"></p> 
+                                <p id="pergunta"></p>
                             </div>
                         </div>
                     </div>
@@ -78,8 +80,10 @@
                             <img src="../../game_assets/tabuleiro/iconebarra.webp" alt="Placa de informações">
 
                             <div class="conteudo_rodape_imagem_texto">
+                                <audio id="somErro" src="../../game_assets/tabuleiro/perderVidas.mp3" preload="auto"></audio>
                                 <div class="grupo-info" id="valor-vida">
                                 </div>
+                                <audio id="somMoeda" src="../../game_assets/tabuleiro/moedasSom.mp3" preload="auto"></audio>
                                 <div class="grupo-info" id="valor-moeda">
                                 </div>
                             </div>
@@ -103,7 +107,8 @@
 
 
             <div id="tela_final">
-            <!-- TELA DE VITÓRIA -->
+                <!-- TELA DE VITÓRIA -->
+                <audio id="somVitoria" src="../../game_assets/vitoria_e_derrota/vitoria.mp3" preload="auto"></audio>
                 <div id="tela_vitoria_container" class="tela_final_imagem escondido">
                     <div class="fundo_wrapper">
                         <img src="../../game_assets/vitoria_e_derrota/Fundo_vitoria.webp" alt="Vitória" class="fundo_vitoria">
@@ -125,6 +130,7 @@
                 </div>
 
                 <!-- TELA DE DERROTA -->
+                <audio id="somDerrota" src="../../game_assets/vitoria_e_derrota/derrota.mp3" preload="auto"></audio>
                 <div id="tela_derrota_container" class="tela_final_imagem escondido">
                     <div class="fundo_wrapper">
                         <img class="fundo_derrota" src="../../game_assets/vitoria_e_derrota/Fundo_derrota.webp" alt="Derrota">
@@ -151,6 +157,7 @@
             </div>
         </div>
     </div>
+    
 </body>
 
 </html>

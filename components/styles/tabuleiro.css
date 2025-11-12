@@ -221,6 +221,7 @@ body {
 
 /* Tela final */
 .tela_final_imagem {
+    transition: opacity 1.5s ease-in-out;
     display: none;
     position: fixed;
     inset: 0;

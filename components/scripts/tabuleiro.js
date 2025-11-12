@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let vidas = 3;
     let indice = 0;
 
+ // Sons do jogo
+    const somDerrota = document.getElementById('somDerrota');
+    const somVitoria = document.getElementById('somVitoria');
+    const somMoeda = document.getElementById('somMoeda');
+    const somErro = document.getElementById('somErro');
+    const somQuiz = document.getElementById('somQuiz');
+    const somClique = document.getElementById('somClique');
+
     let perguntas;
     const monstros = [
         "tartaruga.webp",
@@ -172,7 +180,28 @@ document.addEventListener('DOMContentLoaded', () => {
         pirata.style.left = pos1.left;
     }
 
-    // Perguntas e manipução de itens
+    // INICIO DAS CONFIGURAÇOES DE SOM DE CLIQUE
+    
+    function tocarSomClique() {
+        if (somClique) {
+            somClique.currentTime = 0; 
+            somClique.play().catch(e => {
+                console.warn("Falha ao reproduzir somClique:", e);
+            });
+        }
+    }
+
+    document.addEventListener('click', (e) => {
+    if (e.target.closest('.ponto-clicavel, .voltar_imagem_texto, .menu_imagem_texto, .reiniciar_imagem_texto, a')) {
+        tocarSomClique();
+    }
+    });
+
+    window.addEventListener('click', () => {
+        somClique.play().catch(() => {});
+    }, { once: true });
+
+    //FIM DAS CONFIGURAÇOES DE SOM DE CLIQUE
 
     function vidaMoedas() {
         let vidaLocal = document.getElementById("valor-vida");
@@ -189,7 +218,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function mostrarQuiz() {
         let quiz = document.getElementById("quiz");
         quiz.classList.remove("escondido");
-        
+        if (somQuiz) {
+            somQuiz.currentTime = 0;
+            somQuiz.play().catch(e => console.warn("Erro ao tocar somQuiz:", e));
+        }
     }
 
     function fecharQuiz() {
@@ -238,6 +270,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function mostrarTelaVitoria() {
+         if (somVitoria) {
+            somVitoria.currentTime = 0;
+            somVitoria.play();
+        }
         const tela = document.getElementById("tela_vitoria_container");
         mostrarMoedasFinal()
         tela.classList.remove("escondido");
@@ -245,6 +281,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function mostrarTelaDerrota() {
+        if (somDerrota) { 
+            somDerrota.currentTime = 0;
+            somDerrota.play();
+        }
         const tela = document.getElementById("tela_derrota_container");
         mostrarMoedasFinal()
         tela.classList.remove("escondido");
@@ -280,18 +320,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function mostrarMoedasFinal() {
-    const vitoriaMoeda = document.getElementById("moedas_vitoria");
-    const derrotaMoeda = document.getElementById("moedas_derrota");
+        const vitoriaMoeda = document.getElementById("moedas_vitoria");
+        const derrotaMoeda = document.getElementById("moedas_derrota");
 
-     const conteudo = `
-         <div class="moedas_final_conteudo">
-            <img src="../../game_assets/tabuleiro/iconemoeda.webp" alt="Moeda">
-            <span class="texto_barra">x${moedas}</span>
-        </div>
-    `;
+        const conteudo = `
+            <div class="moedas_final_conteudo">
+                <img src="../../game_assets/tabuleiro/iconemoeda.webp" alt="Moeda">
+                <span class="texto_barra">x${moedas}</span>
+            </div>
+        `;
 
-    if (vitoriaMoeda) vitoriaMoeda.innerHTML = conteudo;
-    if (derrotaMoeda) derrotaMoeda.innerHTML = conteudo;
+        if (vitoriaMoeda) vitoriaMoeda.innerHTML = conteudo;
+        if (derrotaMoeda) derrotaMoeda.innerHTML = conteudo;
     }
 
     window.verificarResposta = function (num) {
@@ -299,6 +339,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let mensagem = document.getElementById("conteudo_moedas");
         if (perguntas[indice].resposta == perguntas[indice].opcoes[num]) {
             mensagem.classList.remove("conteudo_escondido");
+            if (somMoeda) {
+                somMoeda.currentTime = 0;
+                somMoeda.play().catch(e => console.warn("Erro ao tocar somMoeda:", e));
+            }
             moedas += 3;
             validar = true;
         }
@@ -308,6 +352,10 @@ document.addEventListener('DOMContentLoaded', () => {
             mensagem.innerHTML = `<img src="../../game_assets/quiz/fundoopcao.webp">
             <img src="../../game_assets/quiz/${imagemErro}" class="conteudo_escondido_texto">`;
             mensagem.classList.remove("conteudo_escondido");
+            if ((somErro) && (vidas >= 2)) {
+                somErro.currentTime = 0;
+                somErro.play().catch(e => console.warn("Erro ao tocar somVida:", e));
+            }
             vidas -= 1;
             desativarBotoes();
 
