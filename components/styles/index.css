@@ -8,9 +8,20 @@
 
 :root {
     --cor-texto: #ffffff;
+    --cor-texto-secundario: #000000;
     --cor-hover: #ffb217;
     --font-primaria: "Pirata One", sans-serif;
 }
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.esconder {
+    display: none;
+} 
 
 .conteudo {
     background-image: url(../../game_assets/index/fundo.webp);

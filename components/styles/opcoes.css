@@ -1,0 +1,101 @@
+.opcoes_conteudo {
+    background-image: url(../../game_assets/fundoescuro.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.opcoes_conteudo_cabecalho {
+    padding: 0 0 3rem 0;
+    font-size: 2.5rem;
+    font-family: var(--font-primaria);
+    color: var(--cor-texto);
+    align-self: center;
+}
+
+.opcoes_conteudo_principal {
+    display: flex;
+    justify-content: center;
+    padding: 0rem 18rem 0 18rem;
+}
+
+.opcoes_conteudo_principal_texto {
+    list-style-type: none;
+    font-family: var(--font-primaria);
+    color: var(--cor-texto);
+    font-size: 4rem;
+}
+
+.opcoes_conteudo_principal_texto li {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start;
+    gap: 1.5rem;
+}
+
+.opcoes_conteudo_principal_texto button {
+    display: flex; 
+    align-items: center;
+}
+
+.opcoes_conteudo_principal_texto_imagem {
+    width: 25%;
+    transition: transform 0.3s ease;
+}
+
+.opcoes_conteudo_principal_texto_imagem:hover {
+    transform: scale(1.1);
+}
+
+.opcoes_conteudo_espacamento {
+    padding: 2rem 3rem 0 3rem;
+}
+
+.opcoes_conteudo_espacamento_cabecalho {
+    width: 40%;
+    transition: transform 0.3s ease;
+    justify-self: left;
+}
+
+.opcoes_conteudo_espacamento_cabecalho:hover {
+    transform: scale(1.1);
+}
+
+.opcoes_conteudo_espacamento_cabecalho_imagem {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.opcoes_conteudo_espacamento_cabecalho_imagem img {
+    display: block;
+    width: 100%;
+}
+
+.opcoes_conteudo_espacamento_cabecalho_imagem_texto {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 2.4rem;
+    text-align: center;
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
+    white-space: nowrap;
+}
+
+.opcoes_conteudo_espacamento_cabecalho_imagem_texto:hover {
+    color: var(--cor-hover);
+}
