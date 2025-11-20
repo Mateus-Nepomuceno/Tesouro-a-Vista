@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Pirata+One&display=swap');
 
 
 * {
@@ -11,6 +11,7 @@
     --cor-texto-secundario: #000000;
     --cor-hover: #ffb217;
     --font-primaria: "Pirata One", sans-serif;
+    --font-secundaria: "Germania One", sans-serif;
 }
 
 button {

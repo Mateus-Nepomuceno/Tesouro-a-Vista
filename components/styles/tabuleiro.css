@@ -1,77 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Pirata+One&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-
-button {
-    border: none;
-    background: none;
-}
-
-body {
-    overflow: hidden;
-}
-
-:root {
-    --cor-texto: #ffffff;
-    --cor-texto2: #000000;
-    --cor-hover: #ffb217;
-    --font-primaria: "Pirata One", sans-serif;
-    --font-secundaria: "Germania One", sans-serif;
-}
-
 .escondido {
     display: none;
 }
 
-#tabuleiro {
-    width: 100%;
-    height: 100dvh;
-    display: flex;
-    flex-direction: row;
-    background-color: #1a140f;
+.tabuleiro_conteudo {
+    background-image: url(../../game_assets/tabuleiro/mapa.webp);
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-}
 
-#game-coluna-central {
-    flex-grow: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
-    height: 100dvh;
-    background-color: transparent;
 }
 
-.voltar {
-    width: 14%;
+.tabuleiro_conteudo_espacamento {
+    padding: 2rem 3rem 0 3rem;
+    display: flex; 
+    gap: 55rem;
+}
+
+.tabuleiro_conteudo_espacamento_cabecalho {
+    width: 23%;
     transition: transform 0.3s ease;
-    position: absolute;
-    top: 2rem;
-    left: 12.5rem;
-    z-index: 10;
 }
 
-.voltar:hover {
+.tabuleiro_conteudo_espacamento_pontuacao {
+    width: 25%;
+}
+
+.tabuleiro_conteudo_espacamento_cabecalho:hover {
     transform: scale(1.1);
 }
 
-.voltar_imagem {
+.tabuleiro_conteudo_espacamento_cabecalho_imagem {
     position: relative;
     margin-bottom: 2rem;
 }
 
-.voltar_imagem img {
+.tabuleiro_conteudo_espacamento_cabecalho_imagem img {
     display: block;
     width: 100%;
 }
 
-.voltar_imagem_texto {
+.tabuleiro_conteudo_espacamento_cabecalho_imagem_texto,
+.tabuleiro_conteudo_espacamento_cabecalho_imagem_pontuacao {
     position: absolute;
-    top: 41%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -80,13 +61,14 @@ body {
     font-family: var(--font-primaria);
     text-decoration: none;
     color: var(--cor-texto);
+    white-space: nowrap;
 }
 
-.voltar_imagem_texto:hover {
+.tabuleiro_conteudo_espacamento_cabecalho_imagem_texto:hover {
     color: var(--cor-hover);
 }
 
-.conteudo_rodape {
+.tabuleiro_pontuacao {
     width: 23%;
     transition: transform 0.3s ease;
     justify-self: center;
@@ -96,17 +78,17 @@ body {
     right: 4.5rem;
 }
 
-.conteudo_rodape_imagem {
+.tabuleiro_pontuacao_placa {
     position: relative;
     margin-bottom: 2rem;
 }
 
-.conteudo_rodape_imagem img {
+.tabuleiro_pontuacao_placa img {
     display: block;
     width: 72%;
 }
 
-.conteudo_rodape_imagem_texto {
+.tabuleiro_pontuacao_placa_texto {
     position: absolute;
     top: 38%;
     left: 50%;
@@ -125,7 +107,7 @@ body {
     width: 100%;
 }
 
-.grupo-info {
+.tabuleiro_pontuacao_placa_texto_info {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -175,7 +157,7 @@ body {
     z-index: 2;
 }
 
-.ponto-clicavel {
+.ponto_clicavel {
     position: absolute;
     width: 4%;
     aspect-ratio: 1 / 1;
@@ -190,31 +172,31 @@ body {
     border-radius: 50%;
 }
 
-.ponto-clicavel.casa-completa {
+.ponto_clicavel.casa-completa {
     background-image: url(../../game_assets/tabuleiro/certo.webp);
 }
 
-.ponto-clicavel.proxima-casa {
+.ponto_clicavel.proxima-casa {
     pointer-events: auto;
     cursor: pointer;
     background-image: url(../../game_assets/tabuleiro/proxima.webp);
 }
 
-.ponto-clicavel.proxima-casa:hover {
+.ponto_clicavel.proxima-casa:hover {
     transform: translate(-50%, -50%) scale(1.2);
 }
 
-.ponto-clicavel.proxima-casa.ponto-gradiente {
+.ponto_clicavel.proxima-casa.ponto-gradiente {
     box-shadow: 0 0 15px #0f9e2ead, 0 0 20px #09db3686, 0 0 45px #b8ffaac9, 0 0 85px #beff6ace;
 }
 
-.ponto-clicavel[data-casa="1"] {
+.ponto_clicavel[data-casa="1"] {
     opacity: 0;
     width: 7%;
     pointer-events: none;
 }
 
-.ponto-clicavel[data-casa="12"] {
+.ponto_clicavel[data-casa="12"] {
     background-image: url(../../game_assets/tabuleiro/bau.webp);
     width: 10%;
 }
@@ -337,4 +319,3 @@ body {
 .reiniciar_jogo:hover .menu_imagem_texto {
     color: var(--cor-hover);
 }
-
