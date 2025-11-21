@@ -1,104 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-:root {
-    --cor-texto: #ffffff;
-    --cor-hover: #ffb217;
-    --font-primaria: "Pirata One", sans-serif;
-}
-
-.conteudo {
+.jogar_conteudo {
     background-image: url(../../game_assets/fundoescuro.webp);
     background-repeat: no-repeat;
     background-size: cover;
-}
+    background-position: center;
 
-.conteudo_cabecalho {
-    padding: 1.5rem 0 0 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.jogar_conteudo_cabecalho {
+    padding: 1.5rem 0 0 0;
     font-size: 2.5rem;
-    text-align: center;
     font-family: var(--font-primaria);
-    text-decoration: none;
     color: var(--cor-texto);
 }
 
-.conteudo_mapas {
+.jogar_conteudo_mapas {
     display: flex;
     justify-content: center;
     padding: 2rem 0 5rem 0;
 }
 
-.conteudo_mapas_ilha,
-.conteudo_mapas_caverna,
-.conteudo_mapas_deserto {
+.jogar_conteudo_mapas_ilha,
+.jogar_conteudo_mapas_caverna,
+.jogar_conteudo_mapas_deserto {
     justify-items: center;
     transition: transform 0.3s ease;
 }
 
-.conteudo_mapas_ordem_texto {
+.jogar_conteudo_mapas_ordem_texto {
     font-size: 2.4rem;
     font-family: var(--font-primaria);
     color: var(--cor-texto);
 }
 
-.conteudo_mapas_ordem_imagem {
+.jogar_conteudo_mapas_ordem_imagem {
     display: flex;
     justify-content: center;
 }
 
-.conteudo_mapas_ordem_imagem_ilha,
-.conteudo_mapas_ordem_imagem_caverna,
-.conteudo_mapas_ordem_imagem_deserto {
+.jogar_conteudo_mapas_ordem_imagem_ilha,
+.jogar_conteudo_mapas_ordem_imagem_caverna,
+.jogar_conteudo_mapas_ordem_imagem_deserto {
     width: 75%;
 }
 
-.conteudo_mapas_ilha:hover/*.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto*/{
+.jogar_conteudo_mapas_ilha:hover/*.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto*/{
     transform: translateY(-10px);
 }
 
-.conteudo_mapas_ordem_imagem_ilha:hover {
+.jogar_conteudo_mapas_ordem_imagem_ilha:hover {
     box-shadow: 0 0 15px #0f9e2ead, 0 0 20px #09db3686, 0 0 45px #b8ffaac9, 0 0 85px #beff6ace;
 }
 
 /*
-.conteudo_mapas_ordem_imagem_caverna:hover {
+.jogar_conteudo_mapas_ordem_imagem_caverna:hover {
     background: linear-gradient(to bottom, #635c57da, #660000d0); 
     box-shadow: 0 0 15px #3a3a38, 0 0 20px #5f5f5c, 0 0 45px #706e6e, 0 0 85px #919291;
 }
 
-.conteudo_mapas_ordem_imagem_deserto:hover {
+.jogar_conteudo_mapas_ordem_imagem_deserto:hover {
     background: linear-gradient(to bottom, #ff7300da, #660000d0); 
     box-shadow: 0 0 15px #b8a1208e, 0 0 20px #ffbe0da6, 0 0 45px #ffad3186, 0 0 85px #f5ab3b9f;
 }
 */
 
-.conteudo_rodape {
+.jogar_conteudo_rodape {
     width: 25%;
     transition: transform 0.3s ease;
     justify-self: center;
 }
 
-.conteudo_rodape:hover {
+.jogar_conteudo_rodape:hover {
     transform: scale(1.1);
 }
 
-.conteudo_rodape_imagem {
+.jogar_conteudo_rodape_imagem {
     position: relative;
     margin-bottom: 2rem;
 }
 
-.conteudo_rodape_imagem img {
+.jogar_conteudo_rodape_imagem img {
     display: block;
     width: 100%;
 }
 
-.conteudo_rodape_imagem_texto {
+.jogar_conteudo_rodape_imagem_texto {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -112,6 +107,6 @@
     white-space: nowrap;
 }
 
-.conteudo_rodape_imagem_texto:hover {
+.jogar_conteudo_rodape_imagem_texto:hover {
     color: var(--cor-hover);
 }
