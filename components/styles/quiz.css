@@ -82,12 +82,12 @@
 }
 
 .quiz_conteudo_organizacao_quiz_pergunta {
-    width: 65%;
+    width: 70%;
 }
 
 .quiz_conteudo_organizacao_quiz_pergunta_imagem {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     
     display: flex;
     align-items: center;

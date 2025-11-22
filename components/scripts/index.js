@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const somVida = document.getElementById('som_vida');
 
     const som = [
-        "../../game_assets/opcoes/som.webp",
-        "../../game_assets/opcoes/som_desligado.webp"
+        "game_assets/opcoes/som.webp",
+        "game_assets/opcoes/som_desligado.webp"
     ]
     const musica = [
-        "../../game_assets/opcoes/musica.webp",
-        "../../game_assets/opcoes/musica_desligada.webp"
+        "game_assets/opcoes/musica.webp",
+        "game_assets/opcoes/musica_desligada.webp"
     ]
 
     let somAtivo = true;
@@ -575,7 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function mostrarPerguntas() {
         tocarSomPergunta();
         let nomeMonstro = monstros[indice];
-        imagemMonstro.src = `../../game_assets/quiz/${nomeMonstro}`;
+        imagemMonstro.src = `game_assets/quiz/${nomeMonstro}`;
 
         let texto = document.getElementById("pergunta");
         texto.innerHTML = perguntas[indice].pergunta;

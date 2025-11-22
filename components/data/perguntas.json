@@ -73,7 +73,7 @@
       "resposta": "12"
     },
     {
-      "pergunta": "Um ônibus tem 20 lugares. Se 12 pessoas já estão sentadas, quantos lugares ainda estão livres?",
+      "pergunta": "O ônibus tem 20 lugares e 12 estão ocupados. Quantos lugares estão livres?",
       "opcoes": [
         "7",
         "9",
@@ -82,7 +82,7 @@
       "resposta": "8"
     },
     {
-      "pergunta": "Luiza tem 12 balas e quer dividir igualmente entre 4 amigos. Quantas balas cada um recebe?",
+      "pergunta": "Luiza divide 12 balas para 4 amigos. Quantas para cada?",
       "opcoes": [
         "3",
         "4",
