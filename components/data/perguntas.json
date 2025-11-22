@@ -182,5 +182,57 @@
       ],
       "resposta": "Brasília"
     }
+  ],
+  "deserto": [
+    {
+      "pergunta": "Quem faz parte da nossa família?",
+      "opcoes": ["Árvores", "Pessoas queridas", "Casas"],
+      "resposta": "Pessoas queridas"
+    },
+    {
+      "pergunta": "Qual desses é um brinquedo antigo?",
+      "opcoes": ["Pião", "Videogame", "Tablet"],
+      "resposta": "Pião"
+    },
+    {
+      "pergunta": "Qual é a profissão de quem cuida da nossa saúde?",
+      "opcoes": ["Professor", "Cozinheiro", "Médico"],
+      "resposta": "Médico"
+    },
+    {
+      "pergunta": "O que usamos para saber as horas?",
+      "opcoes": ["Espelho", "Relógio", "Bola"],
+      "resposta": "Relógio"
+    },
+    {
+      "pergunta": "Qual é o nome do país onde vivemos?",
+      "opcoes": ["Argentina", "Portugal", "Brasil"],
+      "resposta": "Brasil"
+    },
+    {
+      "pergunta": "Antes das lâmpadas, o que se usava para iluminar?",
+      "opcoes": ["Vela", "Fósforo", "Lanterna"],
+      "resposta": "Vela"
+    },
+    {
+      "pergunta": "Quem governa a cidade?",
+      "opcoes": ["Prefeito", "Médico", "Juiz"],
+      "resposta": "Prefeito"
+    },
+    {
+      "pergunta": "Quem eram os primeiros habitantes do Brasil?",
+      "opcoes": ["Portugueses", "Povos indígenas", "Africanos"],
+      "resposta": "Povos indígenas"
+    },
+    {
+      "pergunta": "Quem foi o navegador português que chegou ao Brasil?",
+      "opcoes": ["Cristóvão Colombo", "Vasco da Gama", "Pedro Álvares Cabral"],
+      "resposta": "Pedro Álvares Cabral"
+    },
+    {
+      "pergunta": "O que representa a bandeira do Brasil?",
+      "opcoes": ["Frutas", "Riquezas naturais", "Animais"],
+      "resposta": "Riquezas naturais"
+    }
   ]
 }

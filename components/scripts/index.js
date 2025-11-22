@@ -244,11 +244,49 @@ document.addEventListener('DOMContentLoaded', () => {
             personagem: 'game_assets/tabuleiro/caverna/iconeexplorador.webp',
             imagemBau: 'game_assets/tabuleiro/caverna/bau.webp',
             chavePerguntas: 'caverna'
+        },
+        'deserto': {
+            imagemFundo: 'game_assets/tabuleiro/deserto/deserto.webp',
+            posicoesCasas: {
+                '1': { top: '92%', left: '46%' },
+                '2': { top: '91%', left: '21%' },
+                '3': { top: '77%', left: '30%' },
+                '4': { top: '67%', left: '42%' },
+                '5': { top: '57%', left: '32%' },
+                '6': { top: '50%', left: '20%' },
+                '7': { top: '30%', left: '23%' },
+                '8': { top: '19%', left: '31%' },
+                '9': { top: '12%', left: '40%' },
+                '10': { top: '21%', left: '52%' },
+                '11': { top: '27%', left: '62%' },
+                '12': { top: '13%', left: '79%' },
+            },
+            waypoints: {
+                '2-3': [{ top: '80%', left: '22%' },],
+            },
+            monstros: [
+                "deserto/besouro.webp",
+                "deserto/gato.webp",
+                "deserto/dromedario.webp",
+                "deserto/cobra.webp",
+                "deserto/mumia.webp",
+                "deserto/esfinge.webp",
+                "deserto/leao.webp",
+                "deserto/passaro.webp",
+                "deserto/leaodepe.webp",
+                "deserto/anubis.webp"
+            ],
+            pergunta: 'game_assets/quiz/deserto/pergunta.webp',
+            fundoPergunta: 'game_assets/quiz/deserto/fundoperguntas.webp',
+            opcoes: 'deserto/opcoes.webp',
+            personagem: 'game_assets/tabuleiro/deserto/iconeegito.webp',
+            imagemBau: 'game_assets/tabuleiro/deserto/bau.webp',
+            chavePerguntas: 'deserto'
         }
     };
 
     window.reiniciarJogo = function () {
-        casaAtual = 7;
+        casaAtual = 1;
         moedas = 0;
         vidas = 3;
         indice = 0;
@@ -308,10 +346,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const quizContainer = document.getElementById('texto_quiz');
 
         if (quizContainer) {
-            quizContainer.classList.remove('quiz_tema_branco');
+            quizContainer.classList.remove('quiz_tema_branco', 'quiz_tamanho_opcao');
 
             if (idMapa === 'caverna') {
                 quizContainer.classList.add('quiz_tema_branco');
+            }
+
+            if (idMapa === 'caverna' || idMapa === 'deserto') {
+                quizContainer.classList.add('quiz_tamanho_opcao');
             }
         }
 

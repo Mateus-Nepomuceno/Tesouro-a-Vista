@@ -100,7 +100,6 @@
     align-items: center;
     justify-content: center;
     gap: 8%;
-    padding-top: 0;
     color: var(--cor-texto);
 }
 
@@ -112,7 +111,7 @@
 
 .icone-rodape {
     height: 1.8rem;
-    max-height: 40px;
+    max-height: 35px;
     min-height: 15px;
     width: auto;
 }
