@@ -1,5 +1,5 @@
 .jogar_conteudo {
-    background-image: url(../../game_assets/fundoescuro.webp);
+    background-image: url(../../game_assets/jogar/fundoescuro.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -11,22 +11,64 @@
     height: 100%;
     z-index: 100;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
 }
 
 .jogar_conteudo_cabecalho {
-    padding: 1.5rem 0 0 0;
     font-size: 2.5rem;
     font-family: var(--font-primaria);
     color: var(--cor-texto);
+    align-self: center;
+}
+
+.jogar_conteudo_espacamento {
+    padding: 2rem 3rem 0 3rem;
+}
+
+.jogar_conteudo_espacamento_cabecalho {
+    width: 40%;
+    transition: transform 0.3s ease;
+    justify-self: left;
+}
+
+.jogar_conteudo_espacamento_cabecalho:hover {
+    transform: scale(1.1);
+}
+
+.jogar_conteudo_espacamento_cabecalho_imagem {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.jogar_conteudo_espacamento_cabecalho_imagem img {
+    display: block;
+    width: 100%;
+}
+
+.jogar_conteudo_espacamento_cabecalho_imagem_texto {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 2.4rem;
+    text-align: center;
+    font-family: var(--font-primaria);
+    text-decoration: none;
+    color: var(--cor-texto);
+    white-space: nowrap;
+}
+
+.jogar_conteudo_espacamento_cabecalho_imagem_texto:hover {
+    color: var(--cor-hover);
 }
 
 .jogar_conteudo_mapas {
     display: flex;
     justify-content: center;
-    padding: 2rem 0 5rem 0;
+    padding: 2rem 0 2rem 0;
 }
 
 .jogar_conteudo_mapas_ilha,
@@ -53,7 +95,9 @@
     width: 75%;
 }
 
-.jogar_conteudo_mapas_ilha:hover/*.conteudo_mapas_caverna:hover,.conteudo_mapas_deserto*/{
+.jogar_conteudo_mapas_ilha:hover,
+.jogar_conteudo_mapas_caverna:hover,
+.jogar_conteudo_mapas_deserto:hover {
     transform: translateY(-10px);
 }
 
@@ -61,52 +105,12 @@
     box-shadow: 0 0 15px #0f9e2ead, 0 0 20px #09db3686, 0 0 45px #b8ffaac9, 0 0 85px #beff6ace;
 }
 
-/*
 .jogar_conteudo_mapas_ordem_imagem_caverna:hover {
-    background: linear-gradient(to bottom, #635c57da, #660000d0); 
+    background: linear-gradient(to bottom, #635c57da, #660000d0);
     box-shadow: 0 0 15px #3a3a38, 0 0 20px #5f5f5c, 0 0 45px #706e6e, 0 0 85px #919291;
 }
 
 .jogar_conteudo_mapas_ordem_imagem_deserto:hover {
-    background: linear-gradient(to bottom, #ff7300da, #660000d0); 
+    background: linear-gradient(to bottom, #ff7300da, #660000d0);
     box-shadow: 0 0 15px #b8a1208e, 0 0 20px #ffbe0da6, 0 0 45px #ffad3186, 0 0 85px #f5ab3b9f;
-}
-*/
-
-.jogar_conteudo_rodape {
-    width: 25%;
-    transition: transform 0.3s ease;
-    justify-self: center;
-}
-
-.jogar_conteudo_rodape:hover {
-    transform: scale(1.1);
-}
-
-.jogar_conteudo_rodape_imagem {
-    position: relative;
-    margin-bottom: 2rem;
-}
-
-.jogar_conteudo_rodape_imagem img {
-    display: block;
-    width: 100%;
-}
-
-.jogar_conteudo_rodape_imagem_texto {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    font-size: 2.4rem;
-    text-align: center;
-    font-family: var(--font-primaria);
-    text-decoration: none;
-    color: var(--cor-texto);
-    white-space: nowrap;
-}
-
-.jogar_conteudo_rodape_imagem_texto:hover {
-    color: var(--cor-hover);
 }
