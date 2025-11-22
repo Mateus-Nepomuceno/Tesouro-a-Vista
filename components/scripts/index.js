@@ -534,10 +534,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function vidaMoedas() {
         let vidaLocal = document.getElementById("valor_vida");
-        vidaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconevida.webp" class="icone-rodape">
+        vidaLocal.innerHTML = `<img src="game_assets/tabuleiro/iconevida.webp" class="icone-rodape">
         <p class="texto_barra">${vidas}</p>`;
         let moedaLocal = document.getElementById("valor_moeda");
-        moedaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconemoeda.webp" class="icone-rodape">
+        moedaLocal.innerHTML = `<img src="game_assets/tabuleiro/iconemoeda.webp" class="icone-rodape">
         <p class="texto_barra">${moedas}</p>`;
     }
 
@@ -587,7 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
             opcoes.innerHTML += `<div class="quiz_conteudo_organizacao_quiz_opcoes_resposta">
                                 <button class="quiz_botao_opcao" onclick="verificarResposta(${i})">
                                     <div class="quiz_conteudo_organizacao_quiz_opcoes_resposta_imagem">
-                                        <img src="../../game_assets/quiz/${imagemOpcao}">
+                                        <img src="game_assets/quiz/${imagemOpcao}">
                                         <div class="quiz_conteudo_organizacao_quiz_opcoes_resposta_texto">
                                             <p>${perguntas[indice].opcoes[i]}</p>
                                         </div>
@@ -657,7 +657,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const conteudo = `
          <div class="moedas_final_conteudo">
-            <img src="../../game_assets/tabuleiro/iconemoeda.webp">
+            <img src="game_assets/tabuleiro/iconemoeda.webp">
             <span class="texto_barra">x${moedas}</span>
         </div>
     `;
