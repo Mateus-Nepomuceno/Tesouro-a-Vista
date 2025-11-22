@@ -38,22 +38,19 @@ A organização do projeto segue a seguinte estrutura:
 ├── README.md           
 ├── LICENSE             
 ├── game_assets/
-|   └── assets.png        
+|   └── assets.webp        
 └── components/
     ├── data/
     │   └── perguntas.json 
-    ├── pages/
-    │   ├── creditos.html
-    │   ├── jogar.html
-    │   └── tabuleiro.html
     ├── scripts/
-    │   └── tabuleiro.js
+    │   └── index.js
     └── styles/
         ├── creditos.css
         ├── jogar.css
         ├── menu.css
         ├── quiz.css
-        └── tabuleiro.css
+        ├── tabuleiro.css
+        └── opcoes.css
 ```
 
 -----
