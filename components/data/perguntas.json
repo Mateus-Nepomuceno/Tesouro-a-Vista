@@ -286,5 +286,57 @@
       "opcoes": ["Rotação", "Translação", "Iluminação"],
       "resposta": "Rotação"
     }
+  ],
+  "floresta": [
+    {
+      "pergunta": "Qual é a primeira letra da palavra “cachorro”?",
+      "opcoes": ["a", "c", "j"],
+      "resposta": "c"
+    },
+    {
+      "pergunta": "Qual dessas palavras é um nome de pessoa?",
+      "opcoes": ["bola", "Ana", "casa"],
+      "resposta": "Ana"
+    },
+    {
+      "pergunta": "Quantas sílabas tem a palavra “banana”?",
+      "opcoes": ["4", "5", "3"],
+      "resposta": "3"
+    },
+    {
+      "pergunta": "Qual dessas palavras rima com “pato”?",
+      "opcoes": ["gato", "mesa", "flor"],
+      "resposta": "gato"
+    },
+    {
+      "pergunta": "Qual palavra está escrita corretamente?",
+      "opcoes": ["Caza", "Kaza", "Casa"],
+      "resposta": "Casa"
+    },
+    {
+      "pergunta": "Qual é o antônimo (palavra contrária) de “feliz”?",
+      "opcoes": ["Contente", "Triste", "Alegre"],
+      "resposta": "Triste"
+    },
+    {
+      "pergunta": "Qual é o plural de “flor”?",
+      "opcoes": ["Flores", "Florzes", "Flors"],
+      "resposta": "Flores"
+    },
+    {
+      "pergunta": "Qual é o diminutivo de “casa”?",
+      "opcoes": ["Casinha", "Casão", "Casudo"],
+      "resposta": "Casinha"
+    },
+    {
+      "pergunta": "Qual é o coletivo de “peixe”?",
+      "opcoes": ["Enxame", "Rebanho", "Cardume"],
+      "resposta": "Cardume"
+    },
+    {
+      "pergunta": "Qual dessas palavras é um adjetivo?",
+      "opcoes": ["Pular", "Bonito", "Menino"],
+      "resposta": "Bonito"
+    }
   ]
 }

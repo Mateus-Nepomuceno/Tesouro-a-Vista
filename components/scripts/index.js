@@ -321,6 +321,48 @@ document.addEventListener('DOMContentLoaded', () => {
             personagem: 'game_assets/tabuleiro/oceano/iconeoceano.webp',
             imagemBau: 'game_assets/tabuleiro/oceano/bau.webp',
             chavePerguntas: 'oceano'
+        },
+        'floresta': {
+            imagemFundo: 'game_assets/tabuleiro/floresta/floresta.webp',
+            posicoesCasas: {
+                '1': { top: '76%', left: '28%' },
+                '2': { top: '88%', left: '20%' },
+                '3': { top: '70%', left: '24%' },
+                '4': { top: '60%', left: '36%' },
+                '5': { top: '46%', left: '29%' },
+                '6': { top: '32%', left: '19%' },
+                '7': { top: '20%', left: '30%' },
+                '8': { top: '28%', left: '40%' },
+                '9': { top: '45%', left: '47%' },
+                '10': { top: '45%', left: '60%' },
+                '11': { top: '33%', left: '70%' },
+                '12': { top: '12%', left: '78%' },
+            },
+            waypoints: {
+                '1-2': [{ top: '83%', left: '32%' },],
+                '2-3': [{ top: '76%', left: '19%' },],
+                '4-5': [{ top: '50%', left: '35%' },],
+                '6-7': [{ top: '26%', left: '19%' },],
+                '11-12': [{ top: '14%', left: '74%' },]
+            },
+            monstros: [
+                "floresta/sapo.webp",
+                "floresta/arara.webp",
+                "floresta/tamandua.webp",
+                "floresta/onca.webp",
+                "floresta/saci.webp",
+                "floresta/caipora.webp",
+                "floresta/mulasemcabeca.webp",
+                "floresta/cuca.webp",
+                "floresta/boitata.webp",
+                "floresta/manpinguari.webp"
+            ],
+            pergunta: 'game_assets/quiz/floresta/pergunta.webp',
+            fundoPergunta: 'game_assets/quiz/floresta/fundoperguntas.webp',
+            opcoes: 'floresta/opcoes.webp',
+            personagem: 'game_assets/tabuleiro/floresta/iconefloresta.webp',
+            imagemBau: 'game_assets/tabuleiro/floresta/bau.webp',
+            chavePerguntas: 'floresta'
         }
     };
 
@@ -386,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (quizContainer) {
             quizContainer.classList.remove('quiz_tema_branco', 'quiz_tamanho_opcao');
 
-            if (idMapa === 'caverna') {
+            if (idMapa === 'caverna' || idMapa === 'floresta') {
                 quizContainer.classList.add('quiz_tema_branco');
             }
 
