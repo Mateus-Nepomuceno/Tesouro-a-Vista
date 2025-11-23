@@ -234,5 +234,57 @@
       "opcoes": ["Frutas", "Riquezas naturais", "Animais"],
       "resposta": "Riquezas naturais"
     }
+  ],
+  "oceano": [
+    {
+      "pergunta": "O que todos os seres vivos precisam para viver?",
+      "opcoes": ["Brinquedos", "Água, ar e alimento", "Roupas novas"],
+      "resposta": "Água, ar e alimento"
+    },
+    {
+      "pergunta": "Qual desses é um ser vivo?",
+      "opcoes": ["Pedra", "Árvore", "Bola"],
+      "resposta": "Árvore"
+    },
+    {
+      "pergunta": "O que as plantas precisam para crescer?",
+      "opcoes": ["Água, luz do sol e terra", "Refrigerante e doce", "Som alto"],
+      "resposta": "Água, luz do sol e terra"
+    },
+    {
+      "pergunta": "Qual parte da planta fica debaixo da terra?",
+      "opcoes": ["Folha", "Raiz", "Fruto"],
+      "resposta": "Raiz"
+    },
+    {
+      "pergunta": "Qual desses animais vive na água?",
+      "opcoes": ["Leão", "Passarinho", "Peixe"],
+      "resposta": "Peixe"
+    },
+    {
+      "pergunta": "Qual é o órgão que usamos para respirar?",
+      "opcoes": ["Coração", "Estômago", "Pulmão"],
+      "resposta": "Pulmão"
+    },
+    {
+      "pergunta": "Qual é a função do coração?",
+      "opcoes": ["Fazer a digestão", "Bombear o sangue", "Ajudar a ver"],
+      "resposta": "Bombear o sangue"
+    },
+    {
+      "pergunta": "Qual é o sentido usado para sentir o cheiro das coisas?",
+      "opcoes": ["Visão", "Audição", "Olfato"],
+      "resposta": "Olfato"
+    },
+    {
+      "pergunta": "Como chamamos o conjunto de planetas que giram ao redor do Sol?",
+      "opcoes": ["Sistema Solar", "Universo Estelar", "Via Láctea"],
+      "resposta": "Sistema Solar"
+    },
+    {
+      "pergunta": "Qual é o movimento da Terra que faz o dia e a noite?",
+      "opcoes": ["Rotação", "Translação", "Iluminação"],
+      "resposta": "Rotação"
+    }
   ]
 }

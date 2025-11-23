@@ -282,6 +282,45 @@ document.addEventListener('DOMContentLoaded', () => {
             personagem: 'game_assets/tabuleiro/deserto/iconeegito.webp',
             imagemBau: 'game_assets/tabuleiro/deserto/bau.webp',
             chavePerguntas: 'deserto'
+        },
+        'oceano': {
+            imagemFundo: 'game_assets/tabuleiro/oceano/oceano.webp',
+            posicoesCasas: {
+                '1': { top: '92%', left: '50%' },
+                '2': { top: '85%', left: '40%' },
+                '3': { top: '86%', left: '28%' },
+                '4': { top: '73%', left: '18%' },
+                '5': { top: '52%', left: '25%' },
+                '6': { top: '25%', left: '30%' },
+                '7': { top: '16%', left: '45%' },
+                '8': { top: '28%', left: '59%' },
+                '9': { top: '17%', left: '72%' },
+                '10': { top: '42%', left: '76%' },
+                '11': { top: '65%', left: '70%' },
+                '12': { top: '90%', left: '79%' },
+            },
+            waypoints: {
+                '5-6': [{ top: '23%', left: '25%' },],
+                '9-10': [{ top: '23%', left: '82%' },]
+            },
+            monstros: [
+                "oceano/nemo.webp",
+                "oceano/cobrinha.webp",
+                "oceano/arraia.webp",
+                "oceano/tubarao.webp",
+                "oceano/cavalomarinho.webp",
+                "oceano/peixedepe.webp",
+                "oceano/cobrona.webp",
+                "oceano/peixedoido.webp",
+                "oceano/polvo.webp",
+                "oceano/cthulhu.webp"
+            ],
+            pergunta: 'game_assets/quiz/oceano/pergunta.webp',
+            fundoPergunta: 'game_assets/quiz/oceano/fundoperguntas.webp',
+            opcoes: 'oceano/opcoes.webp',
+            personagem: 'game_assets/tabuleiro/oceano/iconeoceano.webp',
+            imagemBau: 'game_assets/tabuleiro/oceano/bau.webp',
+            chavePerguntas: 'oceano'
         }
     };
 
@@ -298,7 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         resetarCasas();
-        adicionarVoltar();
         vidaMoedas();
         atualizarPontoAtivo();
         fecharQuiz();
@@ -352,7 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 quizContainer.classList.add('quiz_tema_branco');
             }
 
-            if (idMapa === 'caverna' || idMapa === 'deserto') {
+            if (idMapa != 'ilha') {
                 quizContainer.classList.add('quiz_tamanho_opcao');
             }
         }
@@ -454,10 +492,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (casaAtual == 2) {
-            removerVoltar();
-        }
-
         atualizarPontoAtivo();
 
         indice = casaAtual - 2;
@@ -511,16 +545,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         await moveParaPosicao(fim, 500);
-    }
-
-    function removerVoltar() {
-        let quiz = document.querySelector(".tabuleiro_conteudo_espacamento_cabecalho");
-        quiz.classList.add("escondido");
-    }
-
-    function adicionarVoltar() {
-        let quiz = document.querySelector(".tabuleiro_conteudo_espacamento_cabecalho");
-        quiz.classList.remove("escondido");
     }
 
     inicializarPontos();

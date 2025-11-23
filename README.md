@@ -47,7 +47,7 @@ A organização do projeto segue a seguinte estrutura:
     └── styles/
         ├── creditos.css
         ├── jogar.css
-        ├── menu.css
+        ├── index.css
         ├── quiz.css
         ├── tabuleiro.css
         └── opcoes.css
