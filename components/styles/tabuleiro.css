@@ -3,7 +3,7 @@
 }
 
 .tabuleiro_conteudo {
-    background-image: url(../../game_assets/tabuleiro/mapa.webp);
+    background-image: url(../../game_assets/tabuleiro/ilha/mapa.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -21,18 +21,23 @@
 }
 
 .tabuleiro_conteudo_espacamento {
-    padding: 2rem 3rem 0 3rem;
+    padding: 2rem 2rem 0 2rem;
     display: flex; 
-    gap: 55rem;
+    width: 100%; 
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .tabuleiro_conteudo_espacamento_cabecalho {
-    width: 23%;
+    width: 15%;
     transition: transform 0.3s ease;
 }
 
 .tabuleiro_conteudo_espacamento_pontuacao {
-    width: 25%;
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .tabuleiro_conteudo_espacamento_cabecalho:hover {
@@ -49,8 +54,7 @@
     width: 100%;
 }
 
-.tabuleiro_conteudo_espacamento_cabecalho_imagem_texto,
-.tabuleiro_conteudo_espacamento_cabecalho_imagem_pontuacao {
+.tabuleiro_conteudo_espacamento_cabecalho_imagem_texto {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -69,59 +73,53 @@
 }
 
 .tabuleiro_pontuacao {
-    width: 23%;
-    transition: transform 0.3s ease;
-    justify-self: center;
-    position: absolute;
-    z-index: 10;
-    top: 1rem;
-    right: 4.5rem;
+    width: 100%;
+    max-width: 200px;
 }
 
 .tabuleiro_pontuacao_placa {
     position: relative;
-    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .tabuleiro_pontuacao_placa img {
     display: block;
-    width: 72%;
+    width: 100%;
+    height: auto;
 }
 
 .tabuleiro_pontuacao_placa_texto {
     position: absolute;
-    top: 38%;
-    left: 50%;
-    transform: translate(-65%, -35%);
-
-    font-size: 2rem;
-    text-align: center;
-    text-decoration: none;
-    color: var(--cor-texto);
-    white-space: nowrap;
-
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    gap: 1.5rem;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    gap: 8%;
+    color: var(--cor-texto);
 }
 
 .tabuleiro_pontuacao_placa_texto_info {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.3rem;
 }
 
 .icone-rodape {
-    height: 2.7rem;
+    height: 1.8rem;
+    max-height: 35px;
+    min-height: 15px;
     width: auto;
 }
 
 .texto_barra {
     margin: 0;
     font-family: var(--font-primaria);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 100;
 }
 
@@ -148,7 +146,7 @@
     height: 100%;
 }
 
-#pirata {
+#protagonista {
     position: absolute;
     width: 9%;
     height: auto;
@@ -197,11 +195,10 @@
 }
 
 .ponto_clicavel[data-casa="12"] {
-    background-image: url(../../game_assets/tabuleiro/bau.webp);
+    background-image: url(../../game_assets/tabuleiro/ilha/bau.webp);
     width: 10%;
 }
 
-/* Tela final */
 .tela_final_imagem {
     transition: opacity 1.5s ease-in-out;
     display: none;
@@ -214,7 +211,6 @@
     display: block;
 }
 
-/* Fundo */
 .tela_final_imagem .fundo_derrota, .tela_final_imagem .fundo_vitoria {
     position: absolute;
     inset: 0;
@@ -224,7 +220,6 @@
     z-index: 1;
 }
 
-/* Conteúdo (moedas + botão) */
 .derrota_conteudo, .vitoria_conteudo {
     position: absolute;
     top: 60vh;   
@@ -238,8 +233,6 @@
     z-index: 10;
 }
 
-
-/* Moedas */
 .moedas_final {
     display: flex;
     align-items: center;
@@ -263,7 +256,6 @@
     font-family: var(--font-secundaria);
 }
 
-/* Botão reiniciar */
 .reiniciar_jogo {
     width: 20vw;
     max-width: 300px;
@@ -278,7 +270,7 @@
 .reiniciar_imagem {
     position: relative;
     width: 100%;
-    aspect-ratio: 3/1; /* isso é pra manter a proporção da placa */
+    aspect-ratio: 3/1;
 }
 
 .reiniciar_imagem img {

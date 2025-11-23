@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const somVida = document.getElementById('som_vida');
 
     const som = [
-        "../../game_assets/opcoes/som.webp",
-        "../../game_assets/opcoes/som_desligado.webp"
+        "game_assets/opcoes/som.webp",
+        "game_assets/opcoes/som_desligado.webp"
     ]
     const musica = [
-        "../../game_assets/opcoes/musica.webp",
-        "../../game_assets/opcoes/musica_desligada.webp"
+        "game_assets/opcoes/musica.webp",
+        "game_assets/opcoes/musica_desligada.webp"
     ]
 
     let somAtivo = true;
@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Iniciar a música
     function tocarMusica() {
         if (musicaFundo && musicaFundo.paused) {
-             musicaFundo.muted = false; 
-             musicaFundo.play().catch(error => {
-                 console.log("A reprodução automática ainda está bloqueada.");
-             });
-             document.removeEventListener('click', tocarMusica); 
+            musicaFundo.muted = false;
+            musicaFundo.play().catch(error => {
+                console.log("A reprodução automática ainda está bloqueada.");
+            });
+            document.removeEventListener('click', tocarMusica);
         }
     }
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Manipulação do som e opções de sons
-    
+
     window.tocarSomClique = function () {
         if (somAtivo && somClique) {
             try {
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-    
+
     function tocarSomVitoria() {
         if (somAtivo && somVitoria) {
             try {
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function alterarSom() {
-        somAtivo = !somAtivo; 
+        somAtivo = !somAtivo;
         if (somAtivo) {
             tocarSomClique();
         }
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.manipularSomClique = function (elemento) {
         const imgElement = elemento.querySelector('img');
-        alterarSom(); 
+        alterarSom();
 
         if (somAtivo) {
             imgElement.src = som[0];
@@ -153,61 +153,302 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- TABULEIRO E QUIZ ---
+    // --- CONFIGURAÇÕES DE MAPAS ---
 
-    const pirata = document.getElementById('pirata');
-    const pontos = document.querySelectorAll('.ponto_clicavel');
-    const imagemMonstro = document.querySelector(".quiz_conteudo_organizacao_imagem");
-    let casaAtual = 1;
-    let moedas = 0;
-    let vidas = 3;
-    let indice = 0;
-
-    let perguntas;
-    const monstros = [
-        "tartaruga.webp",
-        "carangueijo.webp",
-        "papagaio.webp",
-        "macaco.webp",
-        "tiki.webp",
-        "sereia.webp",
-        "pirata zumbi.webp",
-        "serpente marinha.webp",
-        "titã.webp",
-        "fantasma pirata.webp"
-    ];
-
-    const erros = {
-        3: "erro1.webp",
-        2: "erro2.webp",
+    const CONFIG_MAPAS = {
+        'ilha': {
+            imagemFundo: 'game_assets/tabuleiro/ilha/mapa.webp',
+            posicoesCasas: {
+                '1': { top: '75%', left: '25%' },
+                '2': { top: '77%', left: '35%' },
+                '3': { top: '68%', left: '45%' },
+                '4': { top: '48%', left: '46%' },
+                '5': { top: '40%', left: '30%' },
+                '6': { top: '23%', left: '29%' },
+                '7': { top: '19%', left: '40%' },
+                '8': { top: '28%', left: '51%' },
+                '9': { top: '23%', left: '71%' },
+                '10': { top: '44%', left: '74%' },
+                '11': { top: '76%', left: '67%' },
+                '12': { top: '64%', left: '74%' },
+            },
+            waypoints: {
+                '3-4': [{ top: '60%', left: '44%' },],
+                '6-7': [{ top: '23%', left: '35%' },],
+                '7-8': [{ top: '22%', left: '49%' },],
+                '8-9': [{ top: '31%', left: '62%' },],
+                '9-10': [{ top: '26%', left: '78%' },],
+                '10-11': [{ top: '71%', left: '62%' },],
+                '11-12': [{ top: '71%', left: '73%' },],
+            },
+            monstros: [
+                "ilha/tartaruga.webp",
+                "ilha/carangueijo.webp",
+                "ilha/papagaio.webp",
+                "ilha/macaco.webp",
+                "ilha/tiki.webp",
+                "ilha/sereia.webp",
+                "ilha/pirata zumbi.webp",
+                "ilha/serpente marinha.webp",
+                "ilha/titã.webp",
+                "ilha/fantasma pirata.webp"
+            ],
+            pergunta: 'game_assets/quiz/ilha/pergunta.webp',
+            fundoPergunta: 'game_assets/quiz/ilha/fundoperguntas.webp',
+            opcoes: 'ilha/opcoes.webp',
+            personagem: 'game_assets/tabuleiro/ilha/iconepirata.webp',
+            imagemBau: 'game_assets/tabuleiro/ilha/bau.webp',
+            chavePerguntas: 'ilha'
+        },
+        'caverna': {
+            imagemFundo: 'game_assets/tabuleiro/caverna/caverna.webp',
+            posicoesCasas: {
+                '1': { top: '78%', left: '28%' },
+                '2': { top: '91%', left: '23%' },
+                '3': { top: '60%', left: '35%' },
+                '4': { top: '43%', left: '28%' },
+                '5': { top: '24%', left: '22%' },
+                '6': { top: '26%', left: '40%' },
+                '7': { top: '47%', left: '55%' },
+                '8': { top: '28%', left: '70%' },
+                '9': { top: '43%', left: '73%' },
+                '10': { top: '74%', left: '74%' },
+                '11': { top: '85%', left: '62%' },
+                '12': { top: '74%', left: '45%' },
+            },
+            waypoints: {
+                '1-2': [{ top: '85%', left: '30%' },],
+                '2-3': [{ top: '83%', left: '20%' },],
+                '3-4': [{ top: '50%', left: '37%' },],
+                '4-5': [{ top: '35%', left: '18%' },],
+                '5-6': [{ top: '18%', left: '29%' },],
+                '8-9': [{ top: '13%', left: '80%' },],
+                '9-10': [{ top: '54%', left: '68%' },],
+                '10-11': [{ top: '90%', left: '78%' },],
+            },
+            monstros: [
+                "caverna/barata.webp",
+                "caverna/centopeia.webp",
+                "caverna/aranha.webp",
+                "caverna/morcego.webp",
+                "caverna/goblin.webp",
+                "caverna/dragaobebe.webp",
+                "caverna/goblinpai.webp",
+                "caverna/fantasma.webp",
+                "caverna/alien.webp",
+                "caverna/dragao.webp"
+            ],
+            pergunta: 'game_assets/quiz/caverna/pergunta.webp',
+            fundoPergunta: 'game_assets/quiz/caverna/fundoperguntas.webp',
+            opcoes: 'caverna/opcoes.webp',
+            personagem: 'game_assets/tabuleiro/caverna/iconeexplorador.webp',
+            imagemBau: 'game_assets/tabuleiro/caverna/bau.webp',
+            chavePerguntas: 'caverna'
+        },
+        'deserto': {
+            imagemFundo: 'game_assets/tabuleiro/deserto/deserto.webp',
+            posicoesCasas: {
+                '1': { top: '92%', left: '46%' },
+                '2': { top: '91%', left: '21%' },
+                '3': { top: '77%', left: '30%' },
+                '4': { top: '67%', left: '42%' },
+                '5': { top: '57%', left: '32%' },
+                '6': { top: '50%', left: '20%' },
+                '7': { top: '30%', left: '23%' },
+                '8': { top: '19%', left: '31%' },
+                '9': { top: '12%', left: '40%' },
+                '10': { top: '21%', left: '52%' },
+                '11': { top: '27%', left: '62%' },
+                '12': { top: '13%', left: '79%' },
+            },
+            waypoints: {
+                '2-3': [{ top: '80%', left: '22%' },],
+            },
+            monstros: [
+                "deserto/besouro.webp",
+                "deserto/gato.webp",
+                "deserto/dromedario.webp",
+                "deserto/cobra.webp",
+                "deserto/mumia.webp",
+                "deserto/esfinge.webp",
+                "deserto/leao.webp",
+                "deserto/passaro.webp",
+                "deserto/leaodepe.webp",
+                "deserto/anubis.webp"
+            ],
+            pergunta: 'game_assets/quiz/deserto/pergunta.webp',
+            fundoPergunta: 'game_assets/quiz/deserto/fundoperguntas.webp',
+            opcoes: 'deserto/opcoes.webp',
+            personagem: 'game_assets/tabuleiro/deserto/iconeegito.webp',
+            imagemBau: 'game_assets/tabuleiro/deserto/bau.webp',
+            chavePerguntas: 'deserto'
+        },
+        'oceano': {
+            imagemFundo: 'game_assets/tabuleiro/oceano/oceano.webp',
+            posicoesCasas: {
+                '1': { top: '92%', left: '50%' },
+                '2': { top: '85%', left: '40%' },
+                '3': { top: '86%', left: '28%' },
+                '4': { top: '73%', left: '18%' },
+                '5': { top: '52%', left: '25%' },
+                '6': { top: '25%', left: '30%' },
+                '7': { top: '16%', left: '45%' },
+                '8': { top: '28%', left: '59%' },
+                '9': { top: '17%', left: '72%' },
+                '10': { top: '42%', left: '76%' },
+                '11': { top: '65%', left: '70%' },
+                '12': { top: '90%', left: '79%' },
+            },
+            waypoints: {
+                '5-6': [{ top: '23%', left: '25%' },],
+                '9-10': [{ top: '23%', left: '82%' },]
+            },
+            monstros: [
+                "oceano/nemo.webp",
+                "oceano/cobrinha.webp",
+                "oceano/arraia.webp",
+                "oceano/tubarao.webp",
+                "oceano/cavalomarinho.webp",
+                "oceano/peixedepe.webp",
+                "oceano/cobrona.webp",
+                "oceano/peixedoido.webp",
+                "oceano/polvo.webp",
+                "oceano/cthulhu.webp"
+            ],
+            pergunta: 'game_assets/quiz/oceano/pergunta.webp',
+            fundoPergunta: 'game_assets/quiz/oceano/fundoperguntas.webp',
+            opcoes: 'oceano/opcoes.webp',
+            personagem: 'game_assets/tabuleiro/oceano/iconeoceano.webp',
+            imagemBau: 'game_assets/tabuleiro/oceano/bau.webp',
+            chavePerguntas: 'oceano'
+        },
+        'floresta': {
+            imagemFundo: 'game_assets/tabuleiro/floresta/floresta.webp',
+            posicoesCasas: {
+                '1': { top: '76%', left: '28%' },
+                '2': { top: '88%', left: '20%' },
+                '3': { top: '70%', left: '24%' },
+                '4': { top: '60%', left: '36%' },
+                '5': { top: '46%', left: '29%' },
+                '6': { top: '32%', left: '19%' },
+                '7': { top: '20%', left: '30%' },
+                '8': { top: '28%', left: '40%' },
+                '9': { top: '45%', left: '47%' },
+                '10': { top: '45%', left: '60%' },
+                '11': { top: '33%', left: '70%' },
+                '12': { top: '12%', left: '78%' },
+            },
+            waypoints: {
+                '1-2': [{ top: '83%', left: '32%' },],
+                '2-3': [{ top: '76%', left: '19%' },],
+                '4-5': [{ top: '50%', left: '35%' },],
+                '6-7': [{ top: '26%', left: '19%' },],
+                '11-12': [{ top: '14%', left: '74%' },]
+            },
+            monstros: [
+                "floresta/sapo.webp",
+                "floresta/arara.webp",
+                "floresta/tamandua.webp",
+                "floresta/onca.webp",
+                "floresta/saci.webp",
+                "floresta/caipora.webp",
+                "floresta/mulasemcabeca.webp",
+                "floresta/cuca.webp",
+                "floresta/boitata.webp",
+                "floresta/manpinguari.webp"
+            ],
+            pergunta: 'game_assets/quiz/floresta/pergunta.webp',
+            fundoPergunta: 'game_assets/quiz/floresta/fundoperguntas.webp',
+            opcoes: 'floresta/opcoes.webp',
+            personagem: 'game_assets/tabuleiro/floresta/iconefloresta.webp',
+            imagemBau: 'game_assets/tabuleiro/floresta/bau.webp',
+            chavePerguntas: 'floresta'
+        }
     };
 
-    const posicoesDasCasas = {
-        '1': { top: '72%', left: '26%' },
-        '2': { top: '74%', left: '35%' },
-        '3': { top: '68%', left: '45%' },
-        '4': { top: '48%', left: '46%' },
-        '5': { top: '40%', left: '31%' },
-        '6': { top: '26%', left: '29%' },
-        '7': { top: '19%', left: '40%' },
-        '8': { top: '28%', left: '51%' },
-        '9': { top: '23%', left: '71%' },
-        '10': { top: '44%', left: '74%' },
-        '11': { top: '76%', left: '67%' },
-        '12': { top: '64%', left: '74%' },
+    window.reiniciarJogo = function () {
+        casaAtual = 1;
+        moedas = 0;
+        vidas = 3;
+        indice = 0;
+
+        const posInicial = posicoesDasCasas[1];
+        if (posInicial) {
+            protagonista.style.top = posInicial.top;
+            protagonista.style.left = posInicial.left;
+        }
+
+        resetarCasas();
+        vidaMoedas();
+        atualizarPontoAtivo();
+        fecharQuiz();
+        ativarBotoes();
+    }
+
+    window.carregarMapa = function (idMapa) {
+        const config = CONFIG_MAPAS[idMapa];
+
+        if (!config) {
+            console.error("Configuração de mapa não encontrada para:", idMapa);
+            return;
+        }
+
+        posicoesDasCasas = config.posicoesCasas;
+        waypoints = config.waypoints || {};
+        monstros = config.monstros;
+        chavePerguntasAtual = config.chavePerguntas;
+        imagemOpcao = config.opcoes;
+
+        const mapaTabuleiro = document.querySelector('.tabuleiro_conteudo');
+        if (mapaTabuleiro) {
+            mapaTabuleiro.style.backgroundImage = `url(${config.imagemFundo})`;
+        }
+
+        if (protagonista && config.personagem) {
+            protagonista.src = config.personagem;
+        }
+
+        const bau = document.querySelector('.ponto_clicavel[data-casa="12"]');
+        if (bau) {
+            bau.style.backgroundImage = `url(${config.imagemBau})`;
+        }
+
+        const fundoDasPerguntas = document.querySelector('.quiz_conteudo');
+        if (fundoDasPerguntas) {
+            fundoDasPerguntas.style.backgroundImage = `url(${config.fundoPergunta})`;
+        }
+
+        const localPerguntas = document.getElementById('imagem_pergunta');
+        if (localPerguntas) {
+            localPerguntas.src = config.pergunta;
+        }
+
+        const quizContainer = document.getElementById('texto_quiz');
+
+        if (quizContainer) {
+            quizContainer.classList.remove('quiz_tema_branco', 'quiz_tamanho_opcao');
+
+            if (idMapa === 'caverna' || idMapa === 'floresta') {
+                quizContainer.classList.add('quiz_tema_branco');
+            }
+
+            if (idMapa != 'ilha') {
+                quizContainer.classList.add('quiz_tamanho_opcao');
+            }
+        }
+
+        atualizarPosicoesVisuais();
+
+        if (typeof window.reiniciarJogo === 'function') {
+            window.reiniciarJogo();
+        }
+
+        fecharAba('aba_mapas');
+        mostrarAba('tabuleiro');
+        iniciarJogo();
     };
 
-    const waypoints = {
-        '3-4': [{ top: '60%', left: '44%' },],
-        '6-7': [{ top: '23%', left: '35%' },],
-        '7-8': [{ top: '22%', left: '49%' },],
-        '8-9': [{ top: '31%', left: '62%' },],
-        '9-10': [{ top: '26%', left: '78%' },],
-        '10-11': [{ top: '71%', left: '62%' },],
-        '11-12': [{ top: '71%', left: '73%' },],
-    };
-
-    function inicializarPontos() {
+    function atualizarPosicoesVisuais() {
         pontos.forEach(ponto => {
             const casaNumero = parseInt(ponto.getAttribute('data-casa'));
             const pos = posicoesDasCasas[casaNumero];
@@ -215,13 +456,43 @@ document.addEventListener('DOMContentLoaded', () => {
             if (pos) {
                 ponto.style.top = pos.top;
                 ponto.style.left = pos.left;
-
-
-                ponto.addEventListener('click', async () => {
-                    await tentarMoverPara(casaNumero);
-                });
+                ponto.style.display = 'block';
+            } else {
+                ponto.style.display = 'none';
             }
         });
+    }
+
+    // --- TABULEIRO E QUIZ ---
+
+    const protagonista = document.getElementById('protagonista');
+    const pontos = document.querySelectorAll('.ponto_clicavel');
+    const imagemMonstro = document.querySelector(".quiz_conteudo_organizacao_imagem");
+    let casaAtual = 1;
+    let moedas = 0;
+    let vidas = 3;
+    let indice = 0;
+
+    let monstros = CONFIG_MAPAS['ilha'].monstros;
+    let posicoesDasCasas = CONFIG_MAPAS['ilha'].posicoesCasas;
+    let waypoints = CONFIG_MAPAS['ilha'].waypoints;
+    let chavePerguntasAtual = 'ilha';
+    let imagemOpcao = CONFIG_MAPAS['ilha'].opcoes;
+    let perguntas;
+
+    const erros = {
+        3: "erro1.webp",
+        2: "erro2.webp",
+    };
+
+    function inicializarPontos() {
+        pontos.forEach(ponto => {
+            const casaNumero = parseInt(ponto.getAttribute('data-casa'));
+            ponto.addEventListener('click', async () => {
+                await tentarMoverPara(casaNumero);
+            });
+        });
+        atualizarPosicoesVisuais();
     }
 
     function atualizarPontoAtivo() {
@@ -236,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ponto.classList.add('ponto-gradiente');
             } else {
                 ponto.classList.remove('proxima-casa');
-                if(casaNumero == proximaCasa-1){
+                if (casaNumero == proximaCasa - 1) {
                     ponto.classList.add('casa-completa')
                 }
             }
@@ -250,28 +521,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function tentarMoverPara(casaNumero) {
-    if (casaNumero !== casaAtual + 1) {
-        return;
-    }
+        if (casaNumero !== casaAtual + 1) {
+            return;
+        }
 
-    await moverPirataPara(casaNumero);
-    casaAtual = casaNumero;
+        await moverPirataPara(casaNumero);
+        casaAtual = casaNumero;
 
-    if (casaAtual >= 12) {
-        mostrarTelaVitoria();
-        tocarSomVitoria()
-        return; 
-    }
+        if (casaAtual >= 12) {
+            mostrarTelaVitoria();
+            tocarSomVitoria()
+            return;
+        }
 
-    if (casaAtual == 2) {
-        removerVoltar();
-    }
+        atualizarPontoAtivo();
 
-    atualizarPontoAtivo();
-
-    indice = casaAtual - 2;
-    mostrarPerguntas();
-    mostrarQuiz();
+        indice = casaAtual - 2;
+        mostrarPerguntas();
+        mostrarQuiz();
     }
 
     function esperarTransicao(element, timeout = 800) {
@@ -300,9 +567,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function moveParaPosicao(pos, tempoEspera = 500) {
         if (!pos) return;
-        pirata.style.top = pos.top;
-        pirata.style.left = pos.left;
-        await esperarTransicao(pirata, tempoEspera + 300);
+        protagonista.style.top = pos.top;
+        protagonista.style.left = pos.left;
+        await esperarTransicao(protagonista, tempoEspera + 300);
         await new Promise(r => setTimeout(r, 50));
     }
 
@@ -322,31 +589,21 @@ document.addEventListener('DOMContentLoaded', () => {
         await moveParaPosicao(fim, 500);
     }
 
-    function removerVoltar(){
-        let quiz = document.querySelector(".tabuleiro_conteudo_espacamento_cabecalho");
-        quiz.classList.add("escondido");
-    }
-
-    function adicionarVoltar(){
-        let quiz = document.querySelector(".tabuleiro_conteudo_espacamento_cabecalho");
-        quiz.classList.remove("escondido");
-    }
-
     inicializarPontos();
     const pos1 = posicoesDasCasas[1];
     if (pos1) {
-        pirata.style.top = pos1.top;
-        pirata.style.left = pos1.left;
+        protagonista.style.top = pos1.top;
+        protagonista.style.left = pos1.left;
     }
 
     // Perguntas e manipução de itens
 
     function vidaMoedas() {
         let vidaLocal = document.getElementById("valor_vida");
-        vidaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconevida.webp" class="icone-rodape">
+        vidaLocal.innerHTML = `<img src="game_assets/tabuleiro/iconevida.webp" class="icone-rodape">
         <p class="texto_barra">${vidas}</p>`;
         let moedaLocal = document.getElementById("valor_moeda");
-        moedaLocal.innerHTML = `<img src="../../game_assets/tabuleiro/iconemoeda.webp" class="icone-rodape">
+        moedaLocal.innerHTML = `<img src="game_assets/tabuleiro/iconemoeda.webp" class="icone-rodape">
         <p class="texto_barra">${moedas}</p>`;
     }
 
@@ -356,7 +613,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function mostrarQuiz() {
         let quiz = document.getElementById("quiz");
         quiz.classList.remove("escondido");
-        
+
     }
 
     function fecharQuiz() {
@@ -366,7 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("quiz_conteudo_vidas").classList.add("quiz_conteudo_escondido");
     }
 
-    function fecharErro(){
+    function fecharErro() {
         document.getElementById("quiz_conteudo_vidas").classList.add("quiz_conteudo_escondido");
     }
 
@@ -377,13 +634,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function iniciarJogo() {
-        perguntas = await carregarPerguntas();
+        let dadosCompletos = await carregarPerguntas();
+        perguntas = dadosCompletos[chavePerguntasAtual];
     }
 
     function mostrarPerguntas() {
         tocarSomPergunta();
         let nomeMonstro = monstros[indice];
-        imagemMonstro.src = `../../game_assets/quiz/${nomeMonstro}`;
+        imagemMonstro.src = `game_assets/quiz/${nomeMonstro}`;
 
         let texto = document.getElementById("pergunta");
         texto.innerHTML = perguntas[indice].pergunta;
@@ -391,11 +649,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let opcoes = document.getElementById("opcoes");
         opcoes.innerHTML = "";
 
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 3; i++) {
             opcoes.innerHTML += `<div class="quiz_conteudo_organizacao_quiz_opcoes_resposta">
-                                <button class="quiz_botao_opcao" onclick="tocarSomClique(); verificarResposta(${i})">
+                                <button class="quiz_botao_opcao" onclick="verificarResposta(${i})">
                                     <div class="quiz_conteudo_organizacao_quiz_opcoes_resposta_imagem">
-                                        <img src="../../game_assets/quiz/opções.webp">
+                                        <img src="game_assets/quiz/${imagemOpcao}">
                                         <div class="quiz_conteudo_organizacao_quiz_opcoes_resposta_texto">
                                             <p>${perguntas[indice].opcoes[i]}</p>
                                         </div>
@@ -431,47 +689,47 @@ document.addEventListener('DOMContentLoaded', () => {
         tela.classList.add("escondido");
     }
 
-    function desativarBotoes(){
+    function desativarBotoes() {
         let todosOsBotoes = document.querySelectorAll(".quiz_botao_opcao");
-            todosOsBotoes.forEach(botao => {
-                botao.disabled = true;
-                botao.style.pointerEvents = 'none';
+        todosOsBotoes.forEach(botao => {
+            botao.disabled = true;
+            botao.style.pointerEvents = 'none';
 
-                let containerDaOpcao = botao.closest('.quiz_conteudo_organizacao_quiz_opcoes_resposta');
+            let containerDaOpcao = botao.closest('.quiz_conteudo_organizacao_quiz_opcoes_resposta');
 
-                if (containerDaOpcao) {
-                    containerDaOpcao.classList.add('desativado');
-                }
-            });
+            if (containerDaOpcao) {
+                containerDaOpcao.classList.add('desativado');
+            }
+        });
     }
 
-    function ativarBotoes(){
+    function ativarBotoes() {
         let todosOsBotoes = document.querySelectorAll(".quiz_botao_opcao");
-            todosOsBotoes.forEach(botao => {
-                botao.disabled = false;
-                botao.style.pointerEvents = 'auto';
+        todosOsBotoes.forEach(botao => {
+            botao.disabled = false;
+            botao.style.pointerEvents = 'auto';
 
-                let containerDaOpcao = botao.closest('.quiz_conteudo_organizacao_quiz_opcoes_resposta');
+            let containerDaOpcao = botao.closest('.quiz_conteudo_organizacao_quiz_opcoes_resposta');
 
-                if (containerDaOpcao) {
-                    containerDaOpcao.classList.remove('desativado');
-                }
-            });
+            if (containerDaOpcao) {
+                containerDaOpcao.classList.remove('desativado');
+            }
+        });
     }
 
     function mostrarMoedasFinal() {
-    const vitoriaMoeda = document.getElementById("moedas_vitoria");
-    const derrotaMoeda = document.getElementById("moedas_derrota");
+        const vitoriaMoeda = document.getElementById("moedas_vitoria");
+        const derrotaMoeda = document.getElementById("moedas_derrota");
 
-     const conteudo = `
+        const conteudo = `
          <div class="moedas_final_conteudo">
-            <img src="../../game_assets/tabuleiro/iconemoeda.webp">
+            <img src="game_assets/tabuleiro/iconemoeda.webp">
             <span class="texto_barra">x${moedas}</span>
         </div>
     `;
 
-    if (vitoriaMoeda) vitoriaMoeda.innerHTML = conteudo;
-    if (derrotaMoeda) derrotaMoeda.innerHTML = conteudo;
+        if (vitoriaMoeda) vitoriaMoeda.innerHTML = conteudo;
+        if (derrotaMoeda) derrotaMoeda.innerHTML = conteudo;
     }
 
     window.verificarResposta = function (num) {
@@ -483,7 +741,7 @@ document.addEventListener('DOMContentLoaded', () => {
             moedas += 3;
             desativarBotoes();
             setTimeout(fecharQuiz, 2300);
-        } 
+        }
         else {
             let imagemErro = erros[vidas] || erros[2];
 
@@ -496,9 +754,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 tocarSomDerrota()
             } else {
                 let mensagemVidas = document.getElementById("quiz_conteudo_vidas");
-                
-                mensagemVidas.innerHTML = `<img src="../../game_assets/quiz/fundoopcao.webp">
-                <img src="../../game_assets/quiz/${imagemErro}" class="quiz_conteudo_escondido_texto">`;
+
+                mensagemVidas.innerHTML = `<img src="game_assets/quiz/fundoopcao.webp">
+                <img src="game_assets/quiz/${imagemErro}" class="quiz_conteudo_escondido_texto">`;
 
                 mensagemVidas.classList.remove("quiz_conteudo_escondido");
                 desativarBotoes();
@@ -512,25 +770,5 @@ document.addEventListener('DOMContentLoaded', () => {
         vidaMoedas();
     };
 
-    window.reiniciarJogo = function () {
-        casaAtual = 1;
-        moedas = 0;
-        vidas = 3;
-        indice = 0;
-
-        const posInicial = posicoesDasCasas[1];
-        if (posInicial) {
-            pirata.style.top = posInicial.top;
-            pirata.style.left = posInicial.left;
-        }
-
-        resetarCasas();
-        adicionarVoltar();
-        vidaMoedas();
-        atualizarPontoAtivo();
-        fecharQuiz();
-        ativarBotoes();
-    }
-    
     iniciarJogo();
 });
