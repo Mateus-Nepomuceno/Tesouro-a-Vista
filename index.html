@@ -184,35 +184,35 @@
                 <!-- Mapas disponíveis -->
                 <section class="jogar_conteudo_mapas">
                     <div class="jogar_conteudo_mapas_ilha">
-                        <h2 class="jogar_conteudo_mapas_ordem_texto">Ilha do Tesouro</h2>
+                        <h2 class="jogar_conteudo_mapas_ordem_texto">Ilha dos números</h2>
                         <button onclick="tocarSomClique(); carregarMapa('ilha')"
                             class="jogar_conteudo_mapas_ordem_imagem">
                             <img class="jogar_conteudo_mapas_ordem_imagem_ilha" src="game_assets/jogar/Ilha.webp">
                         </button>
                     </div>
                     <div class="jogar_conteudo_mapas_caverna">
-                        <h2 class="jogar_conteudo_mapas_ordem_texto">Caverna</h2>
+                        <h2 class="jogar_conteudo_mapas_ordem_texto">Gruta da Geografia</h2>
                         <button onclick="tocarSomClique(); carregarMapa('caverna')"
                             class="jogar_conteudo_mapas_ordem_imagem" href="#">
                             <img class="jogar_conteudo_mapas_ordem_imagem_caverna" src="game_assets/jogar/caverna.webp">
                         </button>
                     </div>
                     <div class="jogar_conteudo_mapas_deserto">
-                        <h2 class="jogar_conteudo_mapas_ordem_texto">Deserto</h2>
+                        <h2 class="jogar_conteudo_mapas_ordem_texto">Deserto dos fatos</h2>
                         <button onclick="tocarSomClique(); carregarMapa('deserto')"
                             class="jogar_conteudo_mapas_ordem_imagem" href="#">
                             <img class="jogar_conteudo_mapas_ordem_imagem_deserto" src="game_assets/jogar/deserto.webp">
                         </button>
                     </div>
                     <div class="jogar_conteudo_mapas_oceano">
-                        <h2 class="jogar_conteudo_mapas_ordem_texto">Oceano</h2>
+                        <h2 class="jogar_conteudo_mapas_ordem_texto">Oceano da ciência</h2>
                         <button onclick="tocarSomClique(); carregarMapa('oceano')"
                             class="jogar_conteudo_mapas_ordem_imagem">
                             <img class="jogar_conteudo_mapas_ordem_imagem_oceano" src="game_assets/jogar/oceano.webp">
                         </button>
                     </div>
                     <div class="jogar_conteudo_mapas_floresta">
-                        <h2 class="jogar_conteudo_mapas_ordem_texto">Floresta</h2>
+                        <h2 class="jogar_conteudo_mapas_ordem_texto">Floresta das letras</h2>
                         <button onclick="tocarSomClique(); carregarMapa('floresta')"
                             class="jogar_conteudo_mapas_ordem_imagem">
                             <img class="jogar_conteudo_mapas_ordem_imagem_floresta" src="game_assets/jogar/floresta.webp">
@@ -262,19 +262,16 @@
         <!-- Aba de créditos -->
         <div class="esconder" id="aba_creditos">
             <section class="creditos_conteudo">
-                <section class="creditos_conteudo_espacamento">
-                    <div class="creditos_conteudo_espacamento_cabecalho">
-                        <button onclick="tocarSomClique(); fecharAba('aba_creditos')">
-                            <div class="creditos_conteudo_espacamento_cabecalho_imagem">
-                                <img src="game_assets/creditos/placa2.webp">
-                                <div class="creditos_conteudo_espacamento_cabecalho_imagem_texto">
-                                    <p>Voltar</p>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                </section>
-                <!-- Lista de créditos -->
+            <section class="creditos_conteudo_espacamento">
+                <div class="creditos_conteudo_espacamento_cabecalho">
+                    <button class="botao_voltar" onclick="tocarSomClique(); fecharAba('aba_creditos')">
+                        <img src="game_assets/creditos/placa2.webp" alt="Voltar">
+                        <span>Voltar</span>
+                    </button>
+                </div>
+            </section>
+
+        <!-- Lista de créditos -->
                 <div class="creditos_conteudo_principal">
                     <ul class="creditos_conteudo_principal_texto">
                         <li>Marta Gisele Barreto - Gestor</li>
@@ -286,7 +283,6 @@
                 </div>
             </section>
         </div>
-
         <!-- Opções de jogo -->
         <div class="conteudo_opcao">
             <button onclick="tocarSomClique(); mostrarAba('aba_mapas')">

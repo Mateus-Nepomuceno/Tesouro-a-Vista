@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Pirata+One&display=swap');
 
-
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -22,25 +22,35 @@ button {
 
 .esconder {
     display: none;
-} 
+}
 
 .conteudo {
     background-image: url(../../game_assets/index/fundo.webp);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;       
+    background-position: center;  
+    min-height: 100vh;            
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
+
+/* - CABEÇALHO DESKTOP (ORIGINAL)*/
 
 .conteudo_cabecalho {
     display: flex;
     justify-content: center;
+    padding-top: 1rem;
 }
 
 .conteudo_cabecalho_logo {
-    width: 35%;
+    width: 35%;  
 }
 
+/* - CONFIGS DESKTOP (ORIGINAL)*/
+
 .conteudo_opcao {
-    width: 18%;
+    width: 18%;  /* NÃO alterei */
     transition: transform 0.3s ease;
     justify-self: center;
 }
@@ -56,7 +66,7 @@ button {
 
 .conteudo_opcao_imagem img {
     display: block;
-    width: 100%;
+    width: 100%; 
 }
 
 .conteudo_opcao_imagem_texto {
@@ -64,8 +74,7 @@ button {
     top: 41%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    font-size: 3rem;
+    font-size: 2.5rem; 
     text-align: center;
     font-family: var(--font-primaria);
     text-decoration: none;
@@ -74,4 +83,74 @@ button {
 
 .conteudo_opcao_imagem_texto:hover {
     color: var(--cor-hover);
+}
+
+/* - RESPONSIVIDADE PARA CELULARES */
+
+@media (max-width: 600px) { 
+
+   .conteudo_cabecalho_logo {
+        width: 15%;
+    }
+
+    .conteudo_opcoes_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+
+    .conteudo_opcao {
+        width: 12%;
+        margin: 0 auto;
+    }
+
+    .conteudo_opcao_imagem_texto {
+        font-size: 1.2rem;
+    }
+}
+
+/* - RESPONSIVIDADE TABLET */
+
+@media (min-width: 481px) and (max-width: 992px) {
+
+    .conteudo_cabecalho_logo {
+        width: 45%;
+    }
+
+    .conteudo_opcoes_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+
+    .conteudo_opcao {
+        width: 32%;
+        margin: 0 auto;
+    }
+
+    .conteudo_opcao_imagem_texto {
+        font-size: 2.2rem;
+    }
+}
+
+/* - TELAS GRANDES */
+
+@media (min-width: 1600px) {
+    .conteudo {
+        background-size: cover;
+    }
+
+    .conteudo_opcao {
+        width: 14%;
+    }
+
+    .conteudo_opcao_imagem_texto {
+        font-size: 3.5rem;
+    }
 }

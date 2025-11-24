@@ -42,6 +42,7 @@
     align-items: center; 
     justify-content: flex-start;
     gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .opcoes_conteudo_principal_texto button {
@@ -49,10 +50,7 @@
     align-items: center;
 }
 
-.opcoes_conteudo_principal_texto_imagem {
-    width: 25%;
-    transition: transform 0.3s ease;
-}
+
 
 .opcoes_conteudo_principal_texto_imagem:hover {
     transform: scale(1.1);
@@ -98,4 +96,30 @@
 
 .opcoes_conteudo_espacamento_cabecalho_imagem_texto:hover {
     color: var(--cor-hover);
+}
+
+.opcoes_conteudo_principal_texto_imagem {
+    width: 25%;
+    transition: transform 0.3s ease;
+}
+
+/* Telas médias (ex: tablets) */
+@media (max-width: 1200px) {
+    .opcoes_conteudo_principal_texto_imagem {
+        width: 40%;
+    }
+}
+
+/* Telas pequenas (ex: celulares grandes) */
+@media (max-width: 768px) {
+    .opcoes_conteudo_principal_texto_imagem {
+        width: 60%;
+    }
+}
+
+/* Telas muito pequenas (ex: celulares pequenos) */
+@media (max-width: 480px) {
+    .opcoes_conteudo_principal_texto_imagem {
+        width: 80%;
+    }
 }
