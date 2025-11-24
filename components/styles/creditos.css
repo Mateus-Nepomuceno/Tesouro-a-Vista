@@ -59,7 +59,7 @@ button.botao_voltar span {
     position: absolute;
     color: var(--cor-texto, white);
     font-family: var(--font-primaria, sans-serif);
-    font-size: clamp(1.5rem, 4.5vw, 2.5rem);
+    font-size: clamp(1.3rem, 3.7vw, 2.5rem);
     pointer-events: none;
     text-align: center;
 }
@@ -90,7 +90,7 @@ button.botao_voltar:hover span {
 
 .creditos_conteudo_principal_texto li {
     font-family: var(--font-primaria, sans-serif);
-    font-size: clamp(1.5rem, 3vw, 3rem);
+    font-size: clamp(1.3rem, 2.8vw, 3rem);
 }
 
 @media (max-width: 600px) {
@@ -103,7 +103,7 @@ button.botao_voltar:hover span {
     }
 
     button.botao_voltar span {
-        font-size: clamp(1.2rem, 4.5vw, 1.8rem);
+        font-size: clamp(1.3rem, 3.7vw, 2.5rem);
     }
 
     .creditos_conteudo_principal {

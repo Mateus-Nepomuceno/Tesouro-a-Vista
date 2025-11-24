@@ -1,97 +1,93 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100dvh;
+    overflow: hidden;
+}
+
 .jogar_conteudo {
     background-image: url(../../game_assets/jogar/fundoescuro.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100dvh;
     z-index: 100;
+    overflow: hidden;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
     flex-direction: column;
-    overflow-y: auto;
-}
-
-.jogar_conteudo::-webkit-scrollbar {
-    width: 10px;
-}
-
-.jogar_conteudo::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-.jogar_conteudo::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px;
-}
-
-.jogar_conteudo::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-.jogar_conteudo_cabecalho {
-    font-size: 2.5rem;
-    font-family: var(--font-primaria);
-    color: var(--cor-texto);
-    align-self: center;
+    box-sizing: border-box;
 }
 
 .jogar_conteudo_espacamento {
-    padding: 2rem 3rem 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2vh 3vw;
+    width: auto;
+    z-index: 200;
 }
 
 .jogar_conteudo_espacamento_cabecalho {
-    width: 40%;
+    width: clamp(70px, 12vw, 180px);
     transition: transform 0.3s ease;
-    justify-self: left;
 }
 
 .jogar_conteudo_espacamento_cabecalho:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .jogar_conteudo_espacamento_cabecalho_imagem {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .jogar_conteudo_espacamento_cabecalho_imagem img {
-    display: block;
     width: 100%;
+    display: block;
 }
 
 .jogar_conteudo_espacamento_cabecalho_imagem_texto {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    font-size: 2.4rem;
-    text-align: center;
+    font-size: clamp(2rem, 2vw, 3rem);
     font-family: var(--font-primaria);
-    text-decoration: none;
     color: var(--cor-texto);
     white-space: nowrap;
+    pointer-events: none;
 }
 
-.jogar_conteudo_espacamento_cabecalho_imagem_texto:hover {
+.jogar_conteudo_espacamento_cabecalho:hover .jogar_conteudo_espacamento_cabecalho_imagem_texto {
     color: var(--cor-hover);
+}
+
+.jogar_conteudo_cabecalho {
+    margin-top: 2vh;
+    font-size: clamp(3rem, 5vh, 4rem);
+    font-family: var(--font-primaria);
+    color: var(--cor-texto);
+    text-align: center;
+    width: 100%;
 }
 
 .jogar_conteudo_mapas {
     display: flex;
-    justify-content: center;
-    padding: 2rem 0 5rem 0;
     flex-wrap: wrap;
-    gap: 2rem;
+    justify-content: center;
+    align-content: flex-start;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto
+    flex: 1;
+    padding: 1vh 2vw;
+    gap: 1vh 2vw;
+    box-sizing: border-box;
 }
 
 .jogar_conteudo_mapas_ilha,
@@ -99,23 +95,28 @@
 .jogar_conteudo_mapas_deserto,
 .jogar_conteudo_mapas_oceano,
 .jogar_conteudo_mapas_floresta {
-    justify-items: center;
+    width: 30%;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.3s ease;
-
-    width: 30%; 
-    min-width: 300px;
-    margin-bottom: 1rem;
 }
 
 .jogar_conteudo_mapas_ordem_texto {
-    font-size: 2.4rem;
+    font-size: clamp(1.2rem, 2.5vw, 3rem);
     font-family: var(--font-primaria);
     color: var(--cor-texto);
+    text-align: center;
+    margin-bottom: 0.5vh;
+    white-space: nowrap;
 }
 
 .jogar_conteudo_mapas_ordem_imagem {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .jogar_conteudo_mapas_ordem_imagem_ilha,
@@ -123,35 +124,123 @@
 .jogar_conteudo_mapas_ordem_imagem_deserto,
 .jogar_conteudo_mapas_ordem_imagem_oceano,
 .jogar_conteudo_mapas_ordem_imagem_floresta {
-    width: 100%; 
-    max-width: 350px;
+    width: auto;
     height: auto;
+    max-height: 25vh;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .jogar_conteudo_mapas_ilha:hover,
 .jogar_conteudo_mapas_caverna:hover,
-.jogar_conteudo_mapas_deserto:hover, 
-.jogar_conteudo_mapas_oceano:hover, 
+.jogar_conteudo_mapas_deserto:hover,
+.jogar_conteudo_mapas_oceano:hover,
 .jogar_conteudo_mapas_floresta:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
+    z-index: 10;
 }
 
 .jogar_conteudo_mapas_ordem_imagem_ilha:hover {
     box-shadow: 0 0 15px #0f9e2ead, 0 0 20px #09db3686, 0 0 45px #b8ffaac9, 0 0 85px #beff6ace;
 }
-
 .jogar_conteudo_mapas_ordem_imagem_caverna:hover {
     box-shadow: 0 0 15px #3a3a38, 0 0 20px #5f5f5c, 0 0 45px #706e6e, 0 0 85px #919291;
 }
-
 .jogar_conteudo_mapas_ordem_imagem_deserto:hover {
     box-shadow: 0 0 15px #b8a1208e, 0 0 20px #ffbe0da6, 0 0 45px #ffad3186, 0 0 85px #f5ab3b9f;
 }
-
 .jogar_conteudo_mapas_ordem_imagem_oceano:hover {
     box-shadow: 0 0 15px #023e8ad0, 0 0 30px #0077b6d0, 0 0 50px #0096c7d0, 0 0 80px #48cae4d0;
 }
-
 .jogar_conteudo_mapas_ordem_imagem_floresta:hover {
-    box-shadow: 0 0 15px #081c15d0, 0 0 30px #1b4332d0, 0 0 50px #2d6a4fd0, 0 0 80px #40916cd0;   
+    box-shadow: 0 0 15px #081c15d0, 0 0 30px #1b4332d0, 0 0 50px #0096c7d0, 0 0 80px #40916cd0;
+}
+
+@media (max-width: 1024px) {
+    .jogar_conteudo_mapas_ilha,
+    .jogar_conteudo_mapas_caverna,
+    .jogar_conteudo_mapas_deserto,
+    .jogar_conteudo_mapas_oceano,
+    .jogar_conteudo_mapas_floresta {
+        width: 45%;
+    }
+
+    .jogar_conteudo_mapas_ordem_imagem_ilha,
+    .jogar_conteudo_mapas_ordem_imagem_caverna,
+    .jogar_conteudo_mapas_ordem_imagem_deserto,
+    .jogar_conteudo_mapas_ordem_imagem_oceano,
+    .jogar_conteudo_mapas_ordem_imagem_floresta {
+        max-height: 20vh;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .jogar_conteudo_espacamento {
+        padding: 1vh 2vw;
+    }
+
+    .jogar_conteudo_espacamento_cabecalho {
+        width: clamp(60px, 11vw, 120px);
+    }
+
+    .jogar_conteudo_espacamento_cabecalho_imagem_texto {
+        font-size: clamp(0.8rem, 1.4vw, 1.2rem);
+    }
+
+    .jogar_conteudo_cabecalho {
+        margin-top: 0.5vh;
+        font-size: clamp(1.6rem, 4.2vw, 2.3rem);
+    }
+
+    .jogar_conteudo_mapas {
+        padding: 0;
+        gap: 0.4vh 1vw;
+    }
+
+    .jogar_conteudo_mapas_ilha,
+    .jogar_conteudo_mapas_caverna,
+    .jogar_conteudo_mapas_deserto,
+    .jogar_conteudo_mapas_oceano,
+    .jogar_conteudo_mapas_floresta {
+        width: 28%;
+        min-width: 90px;
+    }
+
+    .jogar_conteudo_mapas_ordem_texto {
+        font-size: clamp(1rem, 2vw, 1.4rem);
+    }
+
+    .jogar_conteudo_mapas_ordem_imagem_ilha,
+    .jogar_conteudo_mapas_ordem_imagem_caverna,
+    .jogar_conteudo_mapas_ordem_imagem_deserto,
+    .jogar_conteudo_mapas_ordem_imagem_oceano,
+    .jogar_conteudo_mapas_ordem_imagem_floresta {
+        max-height: 20dvh;
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 700px) and (orientation: landscape) {
+    .jogar_conteudo_cabecalho {
+        font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+    }
+
+    .jogar_conteudo_mapas_ilha,
+    .jogar_conteudo_mapas_caverna,
+    .jogar_conteudo_mapas_deserto,
+    .jogar_conteudo_mapas_oceano,
+    .jogar_conteudo_mapas_floresta {
+        width: 30%;
+    }
+
+    .jogar_conteudo_mapas_ordem_imagem_ilha,
+    .jogar_conteudo_mapas_ordem_imagem_caverna,
+    .jogar_conteudo_mapas_ordem_imagem_deserto,
+    .jogar_conteudo_mapas_ordem_imagem_oceano,
+    .jogar_conteudo_mapas_ordem_imagem_floresta {
+        max-height: 18dvh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
 }

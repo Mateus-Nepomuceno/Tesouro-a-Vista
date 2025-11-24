@@ -27,15 +27,13 @@ button {
 .conteudo {
     background-image: url(../../game_assets/index/fundo.webp);
     background-repeat: no-repeat;
-    background-size: cover;       
-    background-position: center;  
-    min-height: 100vh;            
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
 }
-
-/* - CABEÇALHO DESKTOP (ORIGINAL)*/
 
 .conteudo_cabecalho {
     display: flex;
@@ -44,13 +42,11 @@ button {
 }
 
 .conteudo_cabecalho_logo {
-    width: 35%;  
+    width: 35%;
 }
 
-/* - CONFIGS DESKTOP (ORIGINAL)*/
-
 .conteudo_opcao {
-    width: 18%;  /* NÃO alterei */
+    width: 18%;
     transition: transform 0.3s ease;
     justify-self: center;
 }
@@ -66,7 +62,7 @@ button {
 
 .conteudo_opcao_imagem img {
     display: block;
-    width: 100%; 
+    width: 100%;
 }
 
 .conteudo_opcao_imagem_texto {
@@ -74,7 +70,7 @@ button {
     top: 41%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.5rem; 
+    font-size: 2.5rem;
     text-align: center;
     font-family: var(--font-primaria);
     text-decoration: none;
@@ -85,11 +81,8 @@ button {
     color: var(--cor-hover);
 }
 
-/* - RESPONSIVIDADE PARA CELULARES */
-
-@media (max-width: 600px) { 
-
-   .conteudo_cabecalho_logo {
+@media (max-width: 600px) {
+    .conteudo_cabecalho_logo {
         width: 15%;
     }
 
@@ -112,10 +105,7 @@ button {
     }
 }
 
-/* - RESPONSIVIDADE TABLET */
-
 @media (min-width: 481px) and (max-width: 992px) {
-
     .conteudo_cabecalho_logo {
         width: 45%;
     }
@@ -139,8 +129,6 @@ button {
     }
 }
 
-/* - TELAS GRANDES */
-
 @media (min-width: 1600px) {
     .conteudo {
         background-size: cover;
@@ -152,5 +140,65 @@ button {
 
     .conteudo_opcao_imagem_texto {
         font-size: 3.5rem;
+    }
+}
+
+/* ULTRA RESPONSIVIDADE: CELULARES E TABLETS DEITADOS */
+@media (orientation: landscape) and (max-height: 600px) {
+
+    .conteudo {
+        justify-content: center; /* mantém centralização vertical */
+        padding: 0.5rem 1rem;   /* reduz padding para caber */
+    }
+
+    .conteudo_cabecalho_logo {
+        width: 18%;
+    }
+
+    .conteudo_opcoes_container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center; /* mantém centralização dos cards */
+        gap: 0.5rem;           /* reduz gap vertical e horizontal */
+        margin-top: 0.5rem;
+        max-height: 80%;       /* evita que ultrapasse a tela */
+    }
+
+    .conteudo_opcao {
+        width: 18%;             /* mantém largura constante */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .conteudo_opcao_imagem img {
+        max-height: 12dvh;      /* aumenta imagem proporcional, sem vazar */
+        width: auto;
+        object-fit: contain;
+    }
+
+    .conteudo_opcao_imagem_texto {
+        font-size: clamp(0.9rem, 2vw, 1.3rem); /* se adapta à tela */
+    }
+}
+
+@media (orientation: landscape) and (max-height: 450px) {
+
+    .conteudo_cabecalho_logo {
+        width: 16%;
+    }
+
+    .conteudo_opcoes_container {
+        gap: 0.4rem;
+        max-height: 75%; 
+    }
+
+    .conteudo_opcao_imagem img {
+        max-height: 10dvh; 
+    }
+
+    .conteudo_opcao_imagem_texto {
+        font-size: clamp(0.8rem, 1.8vw, 1.2rem);
     }
 }
