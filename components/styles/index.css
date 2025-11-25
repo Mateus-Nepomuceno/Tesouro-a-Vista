@@ -83,7 +83,7 @@ button {
 
 @media (max-width: 600px) {
     .conteudo_cabecalho_logo {
-        width: 15%;
+        width: 25%;
     }
 
     .conteudo_opcoes_container {
@@ -92,16 +92,16 @@ button {
         justify-content: center;
         flex-wrap: wrap;
         gap: 2rem;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
     }
 
     .conteudo_opcao {
-        width: 12%;
+        width: 20%;
         margin: 0 auto;
     }
 
     .conteudo_opcao_imagem_texto {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
     }
 }
 
@@ -143,62 +143,59 @@ button {
     }
 }
 
-/* ULTRA RESPONSIVIDADE: CELULARES E TABLETS DEITADOS */
 @media (orientation: landscape) and (max-height: 600px) {
-
     .conteudo {
-        justify-content: center; /* mantém centralização vertical */
-        padding: 0.5rem 1rem;   /* reduz padding para caber */
+        justify-content: center;
+        padding: 0.5rem 1rem;
     }
 
     .conteudo_cabecalho_logo {
-        width: 18%;
+        width: 28%;
     }
 
     .conteudo_opcoes_container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        align-content: center; /* mantém centralização dos cards */
-        gap: 0.5rem;           /* reduz gap vertical e horizontal */
+        align-content: center;
+        gap: 0.5rem;
         margin-top: 0.5rem;
-        max-height: 80%;       /* evita que ultrapasse a tela */
+        max-height: 80%;
     }
 
     .conteudo_opcao {
-        width: 18%;             /* mantém largura constante */
+        width: 18%;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     .conteudo_opcao_imagem img {
-        max-height: 12dvh;      /* aumenta imagem proporcional, sem vazar */
+        max-height: 12dvh;
         width: auto;
         object-fit: contain;
     }
 
     .conteudo_opcao_imagem_texto {
-        font-size: clamp(0.9rem, 2vw, 1.3rem); /* se adapta à tela */
+        font-size: clamp(1.9rem, 2vw, 1.3rem);
     }
 }
 
 @media (orientation: landscape) and (max-height: 450px) {
-
     .conteudo_cabecalho_logo {
-        width: 16%;
+        width: 26%;
     }
 
     .conteudo_opcoes_container {
         gap: 0.4rem;
-        max-height: 75%; 
+        max-height: 75%;
     }
 
     .conteudo_opcao_imagem img {
-        max-height: 10dvh; 
+        max-height: 14dvh;
     }
 
     .conteudo_opcao_imagem_texto {
-        font-size: clamp(0.8rem, 1.8vw, 1.2rem);
+        font-size: clamp(1.6rem, 2.0vw, 1.4rem);
     }
 }

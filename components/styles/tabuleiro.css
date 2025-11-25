@@ -270,7 +270,9 @@
 .reiniciar_imagem {
     position: relative;
     width: 100%;
-    aspect-ratio: 3/1;
+    aspect-ratio: 3 / 1;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .reiniciar_imagem img {
@@ -286,10 +288,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 4vw, 3rem);
     font-family: var(--font-primaria);
     color: var(--cor-texto);
     pointer-events: none;
+    text-align: center;
 }
 
 .menu_imagem_texto {

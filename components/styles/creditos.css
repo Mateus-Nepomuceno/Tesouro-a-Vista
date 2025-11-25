@@ -93,24 +93,48 @@ button.botao_voltar:hover span {
     font-size: clamp(1.3rem, 2.8vw, 3rem);
 }
 
-@media (max-width: 600px) {
+@media (orientation: landscape) and (max-height: 500px) {
+
     .creditos_conteudo_espacamento_cabecalho {
-        width: 30%;
+        width: 180px;
+        max-width: 30vw;
+        position: fixed;
+        top: 1vh;
+        left: 1vw;
+        z-index: 500;
     }
 
     button.botao_voltar {
-        max-width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        background: none;
+    }
+
+    button.botao_voltar img {
+        width: 100%;
+        height: auto;
     }
 
     button.botao_voltar span {
-        font-size: clamp(1.3rem, 3.7vw, 2.5rem);
+        font-size: 1.6rem;
+        margin: 0;
+        padding: 0;
+        top: 5vh;
     }
 
     .creditos_conteudo_principal {
-        padding-bottom: 70px;
+        padding-bottom: 8vh;
+        max-height: 82%;
+        overflow-y: auto;
     }
 
     .creditos_conteudo_principal_texto li {
-        font-size: clamp(1.2rem, 4vw, 2rem);
+        font-size: clamp(1rem, 3.8vw, 1.8rem);
     }
 }
+
