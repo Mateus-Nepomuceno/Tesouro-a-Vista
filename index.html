@@ -26,8 +26,7 @@
     <script src="components/scripts/index.js" defer></script>
 </head>
 
-<body class="conteudo">
-    <!-- Sons do jogo -->
+<body>
     <audio id="musica_fundo" src="game_assets/index/tesouro à vista!.mp3" loop></audio>
     <audio id="som_clique" src="game_assets/tabuleiro/clique.mp3" preload="auto"></audio>
     <audio id="som_pergunta" src="game_assets/tabuleiro/abrirPergunta.mp3" preload="auto"></audio>
@@ -36,14 +35,8 @@
     <audio id="som_moeda" src="game_assets/tabuleiro/moedasSom.mp3" preload="auto"></audio>
     <audio id="som_vida" src="game_assets/tabuleiro/perderVidas.mp3" preload="auto"></audio>
 
-    <header class="conteudo_cabecalho">
-        <img class="conteudo_cabecalho_logo" src="game_assets/index/logo.webp">
-    </header>
-
     <main>
-        <!-- Tabuleiro -->
         <div class="esconder" id="tabuleiro">
-            <!-- Quiz -->
             <div id="quiz" class="escondido">
                 <div class="quiz_conteudo">
                     <div id="quiz_conteudo_moedas" class="quiz_conteudo_escondido">
@@ -69,7 +62,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Mapa -->
             <section class="tabuleiro_conteudo">
 
                 <section class="tabuleiro_conteudo_espacamento">
@@ -98,7 +90,7 @@
                 </section>
 
                 <div class="mapa_proporcional">
-                    
+
                     <img src="" id="protagonista">
 
                     <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="1"></button>
@@ -117,54 +109,50 @@
 
             </section>
 
-                <!-- Tela de vitória -->
-                <div id="tela_final">
-                    <div id="tela_vitoria_container" class="tela_final_imagem escondido">
-                        <div class="fundo_wrapper">
-                            <img src="game_assets/vitoria_e_derrota/Fundo_vitoria.webp" class="fundo_vitoria"
-                                loading="lazy">
-                            <div class="vitoria_conteudo">
-                                <div id="moedas_vitoria" class="moedas_final"></div>
+            <div id="tela_final">
+                <div id="tela_vitoria_container" class="tela_final_imagem escondido">
+                    <div class="fundo_wrapper">
+                        <img src="game_assets/vitoria_e_derrota/Fundo_vitoria.webp" class="fundo_vitoria"
+                            loading="lazy">
+                        <div class="vitoria_conteudo">
+                            <div id="moedas_vitoria" class="moedas_final"></div>
 
-                                <button
-                                    onclick="tocarSomClique(); fecharAba('tabuleiro'); fecharAba('aba_mapas'); esconderTelaVitoria(); reiniciarJogo()"
-                                    class="reiniciar_jogo" id="reiniciar_jogo_vitoria">
-                                    <div class="reiniciar_imagem">
-                                        <img src="game_assets/tabuleiro/iconebarra.webp" loading="lazy">
-                                        <div class="menu_imagem_texto">
-                                            Voltar ao Menu
-                                        </div>
+                            <button
+                                onclick="tocarSomClique(); fecharAba('tabuleiro'); fecharAba('aba_mapas'); esconderTelaVitoria(); reiniciarJogo()"
+                                class="reiniciar_jogo" id="reiniciar_jogo_vitoria">
+                                <div class="reiniciar_imagem">
+                                    <img src="game_assets/tabuleiro/iconebarra.webp" loading="lazy">
+                                    <div class="menu_imagem_texto">
+                                        Voltar ao Menu
                                     </div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tela de derrota -->
-                    <div id="tela_derrota_container" class="tela_final_imagem escondido">
-                        <div class="fundo_wrapper">
-                            <img class="fundo_derrota" src="game_assets/vitoria_e_derrota/Fundo_derrota.webp"
-                                loading="lazy">
-                            <div class="derrota_conteudo">
-                                <div id="moedas_derrota" class="moedas_final"></div>
-
-                                <button onclick="tocarSomClique(); esconderTelaDerrota(); reiniciarJogo()"
-                                    class="reiniciar_jogo" id="reiniciar_jogo_derrota">
-                                    <div class="reiniciar_imagem">
-                                        <img src="game_assets/tabuleiro/iconebarra.webp" loading="lazy">
-                                        <div class="reiniciar_imagem_texto">
-                                            Reiniciar
-                                        </div>
-                                    </div>
-                                </button>
-                            </div>
+                                </div>
+                            </button>
                         </div>
                     </div>
                 </div>
-            </section>
+
+                <div id="tela_derrota_container" class="tela_final_imagem escondido">
+                    <div class="fundo_wrapper">
+                        <img class="fundo_derrota" src="game_assets/vitoria_e_derrota/Fundo_derrota.webp"
+                            loading="lazy">
+                        <div class="derrota_conteudo">
+                            <div id="moedas_derrota" class="moedas_final"></div>
+
+                            <button onclick="tocarSomClique(); esconderTelaDerrota(); reiniciarJogo()"
+                                class="reiniciar_jogo" id="reiniciar_jogo_derrota">
+                                <div class="reiniciar_imagem">
+                                    <img src="game_assets/tabuleiro/iconebarra.webp" loading="lazy">
+                                    <div class="reiniciar_imagem_texto">
+                                        Reiniciar
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Aba de mapas -->
         <div class="esconder" id="aba_mapas">
             <section class="jogar_conteudo">
                 <section class="jogar_conteudo_espacamento">
@@ -182,7 +170,6 @@
                 <section class="jogar_conteudo_cabecalho">
                     <h1>Escolha o Mapa</h1>
                 </section>
-                <!-- Mapas disponíveis -->
                 <section class="jogar_conteudo_mapas">
                     <div class="jogar_conteudo_mapas_ilha">
                         <h2 class="jogar_conteudo_mapas_ordem_texto">Ilha dos Números</h2>
@@ -216,13 +203,14 @@
                         <h2 class="jogar_conteudo_mapas_ordem_texto">Floresta das Letras</h2>
                         <button onclick="tocarSomClique(); carregarMapa('floresta')"
                             class="jogar_conteudo_mapas_ordem_imagem">
-                            <img class="jogar_conteudo_mapas_ordem_imagem_floresta" src="game_assets/jogar/floresta.webp">
+                            <img class="jogar_conteudo_mapas_ordem_imagem_floresta"
+                                src="game_assets/jogar/floresta.webp">
                         </button>
                     </div>
                 </section>
+            </section>
         </div>
 
-        <!-- Aba de opções -->
         <div class="esconder" id="aba_opcoes">
             <section class="opcoes_conteudo">
                 <section class="opcoes_conteudo_espacamento">
@@ -240,7 +228,6 @@
                 <section class="opcoes_conteudo_cabecalho">
                     <h1>Opções</h1>
                 </section>
-                <!-- Configurações de som -->
                 <div class="opcoes_conteudo_principal">
                     <ul class="opcoes_conteudo_principal_texto">
                         <li>
@@ -260,19 +247,17 @@
             </section>
         </div>
 
-        <!-- Aba de créditos -->
         <div class="esconder" id="aba_creditos">
             <section class="creditos_conteudo">
-            <section class="creditos_conteudo_espacamento">
-                <div class="creditos_conteudo_espacamento_cabecalho">
-                    <button class="botao_voltar" onclick="tocarSomClique(); fecharAba('aba_creditos')">
-                        <img src="game_assets/creditos/placa2.webp" alt="Voltar">
-                        <span>Voltar</span>
-                    </button>
-                </div>
-            </section>
+                <section class="creditos_conteudo_espacamento">
+                    <div class="creditos_conteudo_espacamento_cabecalho">
+                        <button class="botao_voltar" onclick="tocarSomClique(); fecharAba('aba_creditos')">
+                            <img src="game_assets/creditos/placa2.webp" alt="Voltar">
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+                </section>
 
-        <!-- Lista de créditos -->
                 <div class="creditos_conteudo_principal">
                     <ul class="creditos_conteudo_principal_texto">
                         <li>Marta Gisele Barreto - Gestor</li>
@@ -284,40 +269,49 @@
                 </div>
             </section>
         </div>
-        <!-- Opções de jogo -->
-        <div class="conteudo_opcao">
-            <button onclick="tocarSomClique(); mostrarAba('aba_mapas')">
-                <div class="conteudo_opcao_imagem">
-                    <img src="game_assets/index/placa.webp">
-                    <div class="conteudo_opcao_imagem_texto">
-                        <p>Jogar</p>
-                    </div>
-                </div>
-            </button>
-        </div>
 
-        <div class="conteudo_opcao">
-            <button onclick="tocarSomClique(); mostrarAba('aba_opcoes')">
-                <div class="conteudo_opcao_imagem">
-                    <img src="game_assets/index/placa2.webp">
-                    <div class="conteudo_opcao_imagem_texto">
-                        <p>Opções</p>
-                    </div>
-                </div>
-            </button>
-        </div>
+        <div class="conteudo">
 
+            <div class="conteudo_cabecalho">
+                <img src="game_assets/index/logo.webp" class="conteudo_cabecalho_logo">
+            </div>
 
-        <div class="conteudo_opcao">
-            <button onclick="tocarSomClique(); mostrarAba('aba_creditos')">
-                <div class="conteudo_opcao_imagem">
-                    <img src="game_assets/index/placa.webp">
-                    <div class="conteudo_opcao_imagem_texto">
-                        <p>Créditos</p>
-                    </div>
+            <div class="conteudo_opcoes_container">
+
+                <div class="conteudo_opcao">
+                    <button onclick="tocarSomClique(); mostrarAba('aba_mapas')">
+                        <div class="conteudo_opcao_imagem">
+                            <img src="game_assets/index/placa.webp">
+                            <div class="conteudo_opcao_imagem_texto">
+                                <p>Jogar</p>
+                            </div>
+                        </div>
+                    </button>
                 </div>
-            </button>
-        </div>
+
+                <div class="conteudo_opcao">
+                    <button onclick="tocarSomClique(); mostrarAba('aba_opcoes')">
+                        <div class="conteudo_opcao_imagem">
+                            <img src="game_assets/index/placa2.webp">
+                            <div class="conteudo_opcao_imagem_texto">
+                                <p>Opções</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="conteudo_opcao">
+                    <button onclick="tocarSomClique(); mostrarAba('aba_creditos')">
+                        <div class="conteudo_opcao_imagem">
+                            <img src="game_assets/index/placa.webp">
+                            <div class="conteudo_opcao_imagem_texto">
+                                <p>Créditos</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+            </div> </div>
     </main>
 </body>
 
