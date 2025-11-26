@@ -3,30 +3,63 @@
 }
 
 .tabuleiro_conteudo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     background-image: url(../../game_assets/tabuleiro/ilha/mapa.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
 
-    position: fixed;
+.tabuleiro_conteudo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 0;
+}
+
+.mapa_proporcional {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 100vh;
+    background-image: url(../../game_assets/tabuleiro/ilha/mapa.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    z-index: 1;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+.tabuleiro_conteudo_espacamento {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 200;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-}
-
-.tabuleiro_conteudo_espacamento {
-    padding: 2rem 2rem 0 2rem;
-    display: flex; 
-    width: 100%; 
+    padding: 2rem;
     box-sizing: border-box;
+    display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.tabuleiro_conteudo_espacamento button,
+.tabuleiro_conteudo_espacamento_pontuacao {
+    pointer-events: auto;
 }
 
 .tabuleiro_conteudo_espacamento_cabecalho {
@@ -59,7 +92,6 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     font-size: clamp(1.5rem, 2.6vw, 2.5rem);
     text-align: center;
     font-family: var(--font-primaria);
@@ -121,29 +153,6 @@
     font-family: var(--font-primaria);
     font-size: 1.5rem;
     font-weight: 100;
-}
-
-#mapa-container {
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    background-color: transparent;
-}
-
-#mapa-content-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-#mapa-base {
-    display: block;
-    width: 100%;
-    height: 100%;
 }
 
 #protagonista {
@@ -211,56 +220,56 @@
     display: block;
 }
 
-.tela_final_imagem .fundo_derrota, .tela_final_imagem .fundo_vitoria {
+.tela_final_imagem .fundo_derrota,
+.tela_final_imagem .fundo_vitoria {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     z-index: 1;
 }
 
-.derrota_conteudo, .vitoria_conteudo {
+.derrota_conteudo,
+.vitoria_conteudo {
     position: absolute;
-    top: 60vh;   
-    left: 59vw; 
+    top: 60%;
+    left: 60%;
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    gap: 2vh; 
-    transform: translate(-50%, -50%); 
-    z-index: 10;
-}
-
-.moedas_final {
-    display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: clamp(0.2rem, 0.4vh, 0.6rem);
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding: 1rem;
+    text-align: center;
 }
 
+.moedas_final,
 .moedas_final_conteudo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: clamp(0.3rem, 0.5vw, 1rem);
 }
 
 .moedas_final_conteudo img {
-    width: 3rem;
-    height: 3rem;
+    width: clamp(3.3rem, 5.3vw, 4.3rem);
+    height: clamp(3.3rem, 5.3vw, 4.3rem);
     object-fit: contain;
 }
 
 .texto_barra {
-    font-size: 2.3rem;
+    font-size: clamp(2.9rem, 6vw, 3.3rem);
     font-family: var(--font-secundaria);
 }
 
 .reiniciar_jogo {
-    width: 20vw;
-    max-width: 300px;
+    width: clamp(120px, 20vw, 300px);
+    max-width: 90%;
     text-decoration: none;
     transition: transform 0.3s ease;
+    margin-top: clamp(1rem, 2vh, 2rem);
 }
 
 .reiniciar_jogo:hover {
@@ -271,8 +280,6 @@
     position: relative;
     width: 100%;
     aspect-ratio: 3 / 1;
-    max-width: 900px;
-    margin: 0 auto;
 }
 
 .reiniciar_imagem img {
@@ -282,35 +289,109 @@
     display: block;
 }
 
-.reiniciar_imagem_texto {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    font-family: var(--font-primaria);
-    color: var(--cor-texto);
-    pointer-events: none;
-    text-align: center;
-}
-
+.reiniciar_imagem_texto,
 .menu_imagem_texto {
     position: absolute;
     inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: clamp(1.4rem, 3.4vw, 2.0rem);
     font-family: var(--font-primaria);
     color: var(--cor-texto);
     pointer-events: none;
 }
 
-.reiniciar_jogo:hover .reiniciar_imagem_texto {
+.reiniciar_jogo:hover .reiniciar_imagem_texto,
+.reiniciar_jogo:hover .menu_imagem_texto {
     color: var(--cor-hover);
 }
 
-.reiniciar_jogo:hover .menu_imagem_texto {
-    color: var(--cor-hover);
+@media (max-width: 1024px) and (orientation: landscape) {
+
+    .tela_final_imagem .fundo_derrota,
+    .tela_final_imagem .fundo_vitoria {
+        width: 100%;
+        height: 100%;
+        object-fit: cover !important;
+        object-position: center;
+    }
+
+    .tela_final_imagem {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .derrota_conteudo,
+    .vitoria_conteudo {
+        top: 43%;
+        left: 14%;
+        transform: none;
+        margin: 0 auto;
+        padding: 0.2rem;
+        width: 90%;
+        gap: clamp(0.3rem, 1.2vh, 1.2rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .vitoria_conteudo {
+        top: 48%;
+    }
+
+    .reiniciar_jogo {
+        width: clamp(100px, 32vw, 170px);
+        margin-top: 0.2rem;
+    }
+
+    .reiniciar_imagem_texto,
+    .menu_imagem_texto {
+        font-size: clamp(0.7rem, 3vw, 1.6rem);
+    }
+
+    .moedas_final_conteudo img {
+        width: clamp(1.4rem, 5vw, 2.3rem);
+        height: clamp(1.4rem, 5vw, 2.3rem);
+    }
+
+    .texto_barra {
+        font-size: clamp(1.1rem, 3.5vw, 1.8rem);
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .derrota_conteudo,
+    .vitoria_conteudo {
+        top: 44%;
+        left: 12%;
+        width: 95%;
+        padding: 0.2rem;
+        gap: clamp(0.25rem, 1.2vh, 1rem);
+    }
+
+    .vitoria_conteudo {
+        top: 48%;
+    }
+
+    .reiniciar_jogo {
+        width: clamp(70px, 45vw, 130px);
+        margin-top: 0.15rem;
+    }
+
+    .reiniciar_imagem_texto,
+    .menu_imagem_texto {
+        font-size: clamp(0.7rem, 3vw, 1.6rem);
+    }
+
+    .moedas_final_conteudo img {
+        width: clamp(0.9rem, 7vw, 2.5rem);
+        height: clamp(0.9rem, 7vw, 2.5rem);
+    }
+
+    .texto_barra {
+        font-size: clamp(1.9rem, 4.5vw, 1.3rem);
+    }
 }

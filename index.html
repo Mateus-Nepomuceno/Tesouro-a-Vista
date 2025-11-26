@@ -71,8 +71,8 @@
             </div>
             <!-- Mapa -->
             <section class="tabuleiro_conteudo">
-                <section class="tabuleiro_conteudo_espacamento">
 
+                <section class="tabuleiro_conteudo_espacamento">
                     <div class="tabuleiro_conteudo_espacamento_cabecalho">
                         <button onclick="tocarSomClique(); fecharAba('tabuleiro'); mostrarAba('aba_mapas')">
                             <div class="tabuleiro_conteudo_espacamento_cabecalho_imagem">
@@ -89,32 +89,33 @@
                             <div class="tabuleiro_pontuacao_placa">
                                 <img src="game_assets/tabuleiro/iconebarra.webp">
                                 <div class="tabuleiro_pontuacao_placa_texto">
-                                    <div class="tabuleiro_pontuacao_placa_texto_info" id="valor_vida">
-                                    </div>
-                                    <div class="tabuleiro_pontuacao_placa_texto_info" id="valor_moeda">
-                                    </div>
+                                    <div class="tabuleiro_pontuacao_placa_texto_info" id="valor_vida"></div>
+                                    <div class="tabuleiro_pontuacao_placa_texto_info" id="valor_moeda"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </section>
-                <!-- Protagonista e posições -->
-                <img src="" id="protagonista">
 
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="1"></button>
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="2"></button>
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="3"></button>
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="4"></button>
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="5"></button>
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="6"></button>
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="7"></button>
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="8"></button>
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="9"></button>
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="10"></button>
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="11"></button>
-                <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="12"></button>
+                <div class="mapa_proporcional">
+                    
+                    <img src="" id="protagonista">
 
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="1"></button>
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="2"></button>
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="3"></button>
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="4"></button>
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="5"></button>
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="6"></button>
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="7"></button>
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="8"></button>
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="9"></button>
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="10"></button>
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="11"></button>
+                    <button onclick="tocarSomClique()" class="ponto_clicavel" data-casa="12"></button>
+                </div>
+
+            </section>
 
                 <!-- Tela de vitória -->
                 <div id="tela_final">

@@ -27,9 +27,10 @@
 }
 
 .creditos_conteudo_espacamento_cabecalho {
-    width: 20%;
+    width: 50%;
     position: relative;
     transition: transform 0.3s ease;
+    transform-origin: left center;
 }
 
 .creditos_conteudo_espacamento_cabecalho:hover {
@@ -49,14 +50,19 @@ button.botao_voltar {
     cursor: pointer;
 }
 
+/* imagem do botão */
 button.botao_voltar img {
     width: 100%;
     height: auto;
     display: block;
 }
 
+/* texto dentro da placa */
 button.botao_voltar span {
-    position: absolute;
+    position: absolute; /* agora dentro da placa */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: var(--cor-texto, white);
     font-family: var(--font-primaria, sans-serif);
     font-size: clamp(1.3rem, 3.7vw, 2.5rem);
@@ -93,26 +99,24 @@ button.botao_voltar:hover span {
     font-size: clamp(1.3rem, 2.8vw, 3rem);
 }
 
+/* RESPONSIVIDADE PARA TELAS PEQUENAS / LANDSCAPE */
 @media (orientation: landscape) and (max-height: 500px) {
 
     .creditos_conteudo_espacamento_cabecalho {
         width: 180px;
         max-width: 30vw;
         position: fixed;
-        top: 1vh;
-        left: 1vw;
+        top: 1rem;
+        left: 1rem;
         z-index: 500;
+        transform-origin: left center;
     }
 
     button.botao_voltar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         width: 100%;
-        padding: 1rem;
-        border: none;
+        padding: 0;
         background: none;
+        border: none;
     }
 
     button.botao_voltar img {
@@ -122,19 +126,16 @@ button.botao_voltar:hover span {
 
     button.botao_voltar span {
         font-size: 1.6rem;
-        margin: 0;
-        padding: 0;
-        top: 5vh;
     }
 
     .creditos_conteudo_principal {
         padding-bottom: 8vh;
         max-height: 82%;
         overflow-y: auto;
+
     }
 
     .creditos_conteudo_principal_texto li {
-        font-size: clamp(1rem, 3.8vw, 1.8rem);
+        font-size: clamp(0.8rem, 3.2vw, 1.6rem);
     }
 }
-
