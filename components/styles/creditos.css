@@ -99,7 +99,6 @@ button.botao_voltar:hover span {
     font-size: clamp(1.3rem, 2.8vw, 3rem);
 }
 
-/* RESPONSIVIDADE PARA TELAS PEQUENAS / LANDSCAPE */
 @media (orientation: landscape) and (max-height: 500px) {
 
     .creditos_conteudo_espacamento_cabecalho {
