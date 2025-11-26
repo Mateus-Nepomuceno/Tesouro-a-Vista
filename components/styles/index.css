@@ -29,10 +29,11 @@ button {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 .conteudo_cabecalho {
@@ -116,11 +117,13 @@ button {
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
+
     .conteudo {
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start; 
         align-items: center;
-        padding: 0.5rem;
+        padding-top: 2vh; 
+        padding-bottom: 0;
         gap: 0.5rem;
     }
 
@@ -133,7 +136,7 @@ button {
 
     .conteudo_cabecalho_logo {
         width: auto;
-        max-height: 59vh;
+        max-height: 45vh; 
         object-fit: contain;
     }
 
@@ -146,6 +149,7 @@ button {
         width: 100%;
         gap: 1rem;
         margin-top: 0;
+        margin-bottom: 2vh; 
     }
 
     .conteudo_opcao {
