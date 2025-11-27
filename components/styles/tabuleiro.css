@@ -19,15 +19,6 @@
     background-position: center;
 }
 
-.tabuleiro_conteudo::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
-    z-index: 0;
-}
-
 .mapa_proporcional {
     position: relative;
     width: 100%;

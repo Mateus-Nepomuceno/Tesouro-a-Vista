@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 '9': { top: '45%', left: '47%' },
                 '10': { top: '45%', left: '60%' },
                 '11': { top: '33%', left: '70%' },
-                '12': { top: '12%', left: '78%' },
+                '12': { top: '15%', left: '78%' },
             },
             waypoints: {
                 '1-2': [{ top: '81%', left: '32%' },],
@@ -403,13 +403,11 @@ document.addEventListener('DOMContentLoaded', () => {
         chavePerguntasAtual = config.chavePerguntas;
         imagemOpcao = config.opcoes;
 
-        // 1. Atualiza o fundo borrado/esticado
         const mapaConteudo = document.querySelector('.tabuleiro_conteudo');
         if (mapaConteudo) {
-            mapaConteudo.style.backgroundImage = `url(${config.imagemFundo})`;
+            mapaConteudo.style.backgroundImage = `url(${config.fundoPergunta})`;
         }
 
-        // 2. Atualiza o mapa nítido (Container proporcional) - IMPORTANTE!
         const mapaProporcional = document.querySelector('.mapa_proporcional');
         if (mapaProporcional) {
             mapaProporcional.style.backgroundImage = `url(${config.imagemFundo})`;

@@ -12,17 +12,6 @@
     <link rel="stylesheet" href="components/styles/opcoes.css">
     <link rel="stylesheet" href="components/styles/quiz.css">
     <link rel="stylesheet" href="components/styles/tabuleiro.css">
-    <link rel="preload" href="game_assets/quiz/ilha/fundoperguntas.webp" as="image">
-    <link rel="preload" href="game_assets/quiz/ilha/pergunta.webp" as="image">
-    <link rel="preload" href="game_assets/quiz/ilha/opcoes.webp" as="image">
-    <link rel="preload" href="game_assets/quiz/acerto.webp" as="image">
-    <link rel="preload" href="game_assets/quiz/erro1.webp" as="image">
-    <link rel="preload" href="game_assets/quiz/erro2.webp" as="image">
-    <link rel="preload" href="game_assets/creditos/creditos.webp" as="image">
-    <link rel="preload" href="game_assets/opcoes/fundoescuro.webp" as="image">
-    <link rel="preload" href="game_assets/jogar/fundoescuro.webp" as="image">
-    <link rel="preload" href="game_assets/vitoria_e_derrota/Fundo_derrota.webp" as="image">
-    <link rel="preload" href="game_assets/vitoria_e_derrota/Fundo_vitoria.webp" as="image">
     <script src="components/scripts/index.js" defer></script>
 </head>
 
@@ -40,8 +29,8 @@
             <div id="quiz" class="escondido">
                 <div class="quiz_conteudo">
                     <div id="quiz_conteudo_moedas" class="quiz_conteudo_escondido">
-                        <img src="game_assets/quiz/fundoopcao.webp" loading="lazy">
-                        <img src="game_assets/quiz/acerto.webp" class="quiz_conteudo_escondido_texto" loading="lazy">
+                        <img src="game_assets/quiz/fundoopcao.webp">
+                        <img src="game_assets/quiz/acerto.webp" class="quiz_conteudo_escondido_texto">
                     </div>
                     <div id="quiz_conteudo_vidas" class="quiz_conteudo_escondido">
                     </div>
@@ -49,7 +38,7 @@
                         <section id="texto_quiz" class="quiz_conteudo_organizacao_quiz">
                             <div class="quiz_conteudo_organizacao_quiz_pergunta">
                                 <div class="quiz_conteudo_organizacao_quiz_pergunta_imagem">
-                                    <img id="imagem_pergunta" src="" loading="lazy">
+                                    <img id="imagem_pergunta" src="">
                                     <div class="quiz_conteudo_organizacao_quiz_pergunta_texto">
                                         <p id="pergunta"></p>
                                     </div>
@@ -58,7 +47,7 @@
                             <section id="opcoes" class="quiz_conteudo_organizacao_quiz_opcoes">
                             </section>
                         </section>
-                        <img src="" class="quiz_conteudo_organizacao_imagem" loading="lazy">
+                        <img src="" class="quiz_conteudo_organizacao_imagem">
                     </div>
                 </div>
             </div>
@@ -112,8 +101,7 @@
             <div id="tela_final">
                 <div id="tela_vitoria_container" class="tela_final_imagem escondido">
                     <div class="fundo_wrapper">
-                        <img src="game_assets/vitoria_e_derrota/Fundo_vitoria.webp" class="fundo_vitoria"
-                            loading="lazy">
+                        <img src="game_assets/vitoria_e_derrota/Fundo_vitoria.webp" class="fundo_vitoria">
                         <div class="vitoria_conteudo">
                             <div id="moedas_vitoria" class="moedas_final"></div>
 
@@ -121,7 +109,7 @@
                                 onclick="tocarSomClique(); fecharAba('tabuleiro'); fecharAba('aba_mapas'); esconderTelaVitoria(); reiniciarJogo()"
                                 class="reiniciar_jogo" id="reiniciar_jogo_vitoria">
                                 <div class="reiniciar_imagem">
-                                    <img src="game_assets/tabuleiro/iconebarra.webp" loading="lazy">
+                                    <img src="game_assets/tabuleiro/iconebarra.webp">
                                     <div class="menu_imagem_texto">
                                         Voltar ao Menu
                                     </div>
@@ -133,15 +121,14 @@
 
                 <div id="tela_derrota_container" class="tela_final_imagem escondido">
                     <div class="fundo_wrapper">
-                        <img class="fundo_derrota" src="game_assets/vitoria_e_derrota/Fundo_derrota.webp"
-                            loading="lazy">
+                        <img class="fundo_derrota" src="game_assets/vitoria_e_derrota/Fundo_derrota.webp">
                         <div class="derrota_conteudo">
                             <div id="moedas_derrota" class="moedas_final"></div>
 
                             <button onclick="tocarSomClique(); esconderTelaDerrota(); reiniciarJogo()"
                                 class="reiniciar_jogo" id="reiniciar_jogo_derrota">
                                 <div class="reiniciar_imagem">
-                                    <img src="game_assets/tabuleiro/iconebarra.webp" loading="lazy">
+                                    <img src="game_assets/tabuleiro/iconebarra.webp">
                                     <div class="reiniciar_imagem_texto">
                                         Reiniciar
                                     </div>
@@ -311,7 +298,8 @@
                     </button>
                 </div>
 
-            </div> </div>
+            </div>
+        </div>
     </main>
 </body>
 

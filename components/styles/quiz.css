@@ -130,9 +130,9 @@
     min-height: 80px;
     font-size: clamp(1.5rem, 3.5vw, 3rem);
     font-family: var(--font-primaria, sans-serif);
-    color: var(--cor-texto-secundario, #3e2723);
+    color: var(--cor-texto-secundario);
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .quiz_conteudo_organizacao_quiz_opcoes {
@@ -185,10 +185,17 @@
     z-index: 1;
     font-size: clamp(1.2rem, 2vw, 2rem);
     font-family: var(--font-primaria, sans-serif);
-    color: var(--cor-texto-secundario, #3e2723);
-    font-weight: bold;
+    color: var(--cor-texto-secundario);
+    font-weight: normal;
     white-space: nowrap;
     text-align: center;
+}
+
+.quiz_tema_branco,
+.quiz_tema_branco p,
+.quiz_tema_branco button,
+.quiz_tema_branco .quiz_botao_opcao {
+    color: var(--cor-texto) !important; 
 }
 
 @media (max-width: 900px) {
