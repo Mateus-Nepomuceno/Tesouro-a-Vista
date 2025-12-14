@@ -369,11 +369,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    let tempoInicial;
+
     window.reiniciarJogo = function () {
         casaAtual = 1;
         moedas = 0;
         vidas = 3;
         indice = 0;
+        tempoInicial = Date.now();
 
         const posInicial = posicoesDasCasas[1];
         if (posInicial) {
@@ -388,7 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ativarBotoes();
     }
 
-    // --- FUNÇÃO CORRIGIDA PARA ATUALIZAR O MAPA PROPORCIONAL E O BORRADO ---
     window.carregarMapa = function (idMapa) {
         const config = CONFIG_MAPAS[idMapa];
 
@@ -674,7 +676,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function mostrarTelaVitoria() {
         const tela = document.getElementById("tela_vitoria_container");
-        mostrarMoedasFinal()
+        mostrarMoedasFinal();
+
+        // Temporizador para conquistas nos mapas
+
+        const tempoFinal = Date.now();
+        const tempoGastoSegundos = (tempoFinal - tempoInicial) / 1000; 
+
+        let qtdEstrelas = 1;
+
+        if (tempoGastoSegundos <= 120) {
+            qtdEstrelas = 3;
+        } else if (tempoGastoSegundos <= 300) {
+            qtdEstrelas = 2;
+        }
+
+        console.log(`Você recebeu ${qtdEstrelas} estrelas.`)
+
         tela.classList.remove("escondido");
         tela.classList.add("mostrar");
     }
