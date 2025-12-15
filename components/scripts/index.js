@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.reiniciarJogo = function () {
         casaAtual = 1;
         moedas = 0;
-        vidas = 3;
+        vidas = 3;  
         indice = 0;
         tempoInicial = Date.now();
 
@@ -697,6 +697,30 @@ document.addEventListener('DOMContentLoaded', () => {
         tela.classList.add("mostrar");
     }
 
+    window.comprarVida = function (qtdVidas) {
+        if(qtdVidas == 1){
+            moedas -= 4;
+        } else if(qtdVidas == 2){
+            moedas -= 8;
+        } else {
+            moedas -= 12;
+        }
+        vidas += qtdVidas;
+        esconderTelaVidas();
+        mostrarQuiz();
+        vidaMoedas();
+    }
+
+    function mostrarTelaVidas() {
+        const tela = document.getElementById("tela_vidas");
+        tela.classList.remove("escondido");
+    }
+
+    function esconderTelaVidas() {
+        const tela = document.getElementById("tela_vidas");
+        tela.classList.add("escondido");
+    }
+
     function mostrarTelaDerrota() {
         const tela = document.getElementById("tela_derrota_container");
         mostrarMoedasFinal()
@@ -774,11 +798,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             vidas -= 1;
             tocarSomVida();
-
             if (vidas <= 0) {
-                fecharQuiz();
-                mostrarTelaDerrota();
-                tocarSomDerrota()
+                fecharQuiz(); 
+                if (moedas < 4) {
+                    mostrarTelaDerrota();
+                    tocarSomDerrota();
+                } else {
+                    mostrarTelaVidas(); 
+                }
             } else {
                 let mensagemVidas = document.getElementById("quiz_conteudo_vidas");
 
