@@ -302,6 +302,43 @@
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
+    
+    .tabuleiro_conteudo_espacamento {
+        padding: 0.5rem 1rem;
+    }
+
+    .tabuleiro_conteudo_espacamento_cabecalho {
+        width: 18%; 
+        max-width: 120px;
+    }
+
+    .tabuleiro_conteudo_espacamento_cabecalho_imagem_texto {
+        font-size: 1.3rem; 
+        top: 45%;
+    }
+
+    .tabuleiro_conteudo_espacamento_pontuacao {
+        width: 30%;
+    }
+
+    .tabuleiro_pontuacao {
+        max-width: 140px;
+    }
+
+    .hud-texto {
+        font-size: 1.1rem;
+        line-height: 1;
+    }
+
+    .icone-rodape {
+        height: 1rem; 
+        max-height: 20px;
+    }
+
+    .tabuleiro_pontuacao_placa_texto {
+        gap: 5%; 
+    }
+    
     .derrota_conteudo,
     .vitoria_conteudo {
         top: 43%;
@@ -326,9 +363,6 @@
     .texto_barra {
         font-size: clamp(1.3rem, 4.5vw, 1.6rem);
     }
-}
-
-@media (max-width: 768px) and (orientation: portrait) {
     .tabuleiro_conteudo_espacamento {
         padding: 0.8rem;
     }
