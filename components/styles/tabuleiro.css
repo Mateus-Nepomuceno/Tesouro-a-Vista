@@ -308,39 +308,37 @@
     }
 
     .tabuleiro_conteudo_espacamento_cabecalho {
-        width: 180px !important; 
-        max-width: 25vw;
+        width: 130px !important;
+        max-width: 20vw;
     }
 
     .tabuleiro_conteudo_espacamento_cabecalho_imagem_texto {
-        font-size: 1.4rem !important; 
+        font-size: 1.4rem !important;
         top: 45%;
-        white-space: nowrap;
     }
 
     .tabuleiro_conteudo_espacamento_pontuacao {
-        width: auto; 
-        min-width: 180px;
+        width: auto;
+        min-width: 130px;
     }
 
     .tabuleiro_pontuacao {
-        max-width: 240px !important; 
+        max-width: 140px !important;
     }
 
     .hud-texto {
-        font-size: 1.7rem !important; 
+        font-size: 1.7rem !important;
         line-height: 1;
     }
 
     .icone-rodape {
-        height: 1.7rem !important; 
+        height: 1.7rem !important;
         max-height: 60px;
         width: auto;
     }
 
     .tabuleiro_pontuacao_placa_texto {
-        gap: 5%; 
-        width: 100%;
+        gap: 5%;
     }
 
     .tela_final_imagem {
