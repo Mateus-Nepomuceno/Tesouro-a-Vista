@@ -7,11 +7,8 @@
     top: 0;
     left: 0;
     width: 100vw;
-    
-    /* ALTERAÇÃO AQUI: */
-    height: 100vh; /* Fallback para navegadores muito antigos */
-    height: 100dvh; /* Usa a altura dinâmica real do celular */
-    
+    height: 100vh;
+    height: 100dvh;
     z-index: 200;
     display: flex;
     justify-content: center;
@@ -28,11 +25,8 @@
     width: 100%;
     max-width: 100%;
     aspect-ratio: 16 / 9;
-    
-    /* ALTERAÇÃO AQUI TAMBÉM: */
-    max-height: 100vh; /* Fallback */
-    max-height: 100dvh; /* Garante que o mapa nunca seja maior que a área visível real */
-    
+    max-height: 100vh;
+    max-height: 100dvh;
     background-image: url(../../game_assets/tabuleiro/ilha/mapa.webp);
     background-repeat: no-repeat;
     background-position: center;
@@ -40,8 +34,6 @@
     z-index: 1;
     box-shadow: 0 0 30px rgba(0,0,0,0.8);
 }
-
-/* O RESTANTE DO CÓDIGO PERMANECE IGUAL... */
 
 .tabuleiro_conteudo_espacamento {
     position: absolute;
@@ -151,9 +143,15 @@
 
 .texto_barra {
     margin: 0;
-    font-family: var(--font-primaria);
-    font-size: 2.6rem !important;
+    font-family: var(--font-secundaria);
+    font-size: clamp(2.9rem, 6vw, 3.3rem);
     font-weight: 100;
+}
+
+.hud-texto {
+    font-family: var(--font-primaria);
+    font-size: 2.2rem;
+    font-weight: 300;
 }
 
 #protagonista {
@@ -260,11 +258,6 @@
     object-fit: contain;
 }
 
-.texto_barra {
-    font-size: clamp(2.9rem, 6vw, 3.3rem);
-    font-family: var(--font-secundaria);
-}
-
 .reiniciar_jogo {
     width: clamp(120px, 20vw, 300px);
     max-width: 90%;
@@ -309,21 +302,6 @@
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
-
-    .tela_final_imagem .fundo_derrota,
-    .tela_final_imagem .fundo_vitoria {
-        width: 100%;
-        height: 100%;
-        object-fit: cover !important;
-        object-position: center;
-    }
-
-    .tela_final_imagem {
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-    }
-
     .derrota_conteudo,
     .vitoria_conteudo {
         top: 43%;
@@ -333,29 +311,10 @@
         padding: 0.2rem;
         width: 90%;
         gap: clamp(0.3rem, 1.2vh, 1.2rem);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
     }
 
     .vitoria_conteudo {
         top: 48%;
-    }
-
-    .reiniciar_jogo {
-        width: clamp(100px, 32vw, 170px);
-        margin-top: 0.2rem;
-    }
-
-    .reiniciar_imagem_texto,
-    .menu_imagem_texto {
-        font-size: clamp(0.7rem, 3vw, 1.6rem);
-    }
-
-    .moedas_final_conteudo img {
-        width: clamp(1.4rem, 5vw, 2.3rem);
-        height: clamp(1.4rem, 5vw, 2.3rem);
     }
 
     .texto_barra {
@@ -364,35 +323,40 @@
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
-    .derrota_conteudo,
-    .vitoria_conteudo {
-        top: 44%;
-        left: 12%;
-        width: 95%;
-        padding: 0.2rem;
-        gap: clamp(0.25rem, 1.2vh, 1rem);
-    }
-
-    .vitoria_conteudo {
-        top: 48%;
-    }
-
-    .reiniciar_jogo {
-        width: clamp(70px, 45vw, 130px);
-        margin-top: 0.15rem;
-    }
-
-    .reiniciar_imagem_texto,
-    .menu_imagem_texto {
-        font-size: clamp(0.7rem, 3vw, 1.6rem);
-    }
-
-    .moedas_final_conteudo img {
-        width: clamp(0.9rem, 7vw, 2.5rem);
-        height: clamp(0.9rem, 7vw, 2.5rem);
-    }
-
     .texto_barra {
-        font-size: clamp(1.9rem, 4.5vw, 1.3rem);
+        font-size: clamp(1.3rem, 4.5vw, 1.6rem);
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .tabuleiro_conteudo_espacamento {
+        padding: 0.8rem;
+    }
+
+    .tabuleiro_conteudo_espacamento_pontuacao {
+        width: 55%;
+    }
+
+    .tabuleiro_pontuacao {
+        max-width: 120px;
+    }
+
+    .hud-texto {
+        font-size: 1.1rem;
+        line-height: 1;
+    }
+
+    .icone-rodape {
+        height: 0.9rem;
+        max-height: 18px;
+        min-height: 10px;
+    }
+
+    .tabuleiro_conteudo_espacamento_cabecalho {
+        width: 24%;
+    }
+
+    .tabuleiro_conteudo_espacamento_cabecalho_imagem_texto {
+        font-size: 0.9rem;
     }
 }

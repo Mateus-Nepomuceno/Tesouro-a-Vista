@@ -741,7 +741,6 @@ document.addEventListener('DOMContentLoaded', () => {
         mostrarMoedasFinal();
 
         const tempoFinal = Date.now();
-        // Certifique-se de que tempoInicial foi definido quando o jogo começou
         const tempoGastoSegundos = (tempoFinal - tempoInicial) / 1000;
         let qtdEstrelas = 1;
 
@@ -754,11 +753,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- SALVAMENTO DO PROGRESSO ---
         if (window.mapaAtual !== "") {
             console.log(`Tentando salvar ${qtdEstrelas} estrelas para o mapa: ${window.mapaAtual}`);
-
-            // Pega o recorde antigo (converte para número, se não existir vira 0)
             const recordeAntigo = parseInt(localStorage.getItem(`estrelas_${window.mapaAtual}`)) || 0;
 
-            // Só salva se a nova pontuação for maior que a anterior
             if (qtdEstrelas > recordeAntigo) {
                 localStorage.setItem(`estrelas_${window.mapaAtual}`, qtdEstrelas);
                 console.log("Progresso salvo com sucesso!");
@@ -772,8 +768,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`Você recebeu ${qtdEstrelas} estrelas.`);
         tela.classList.remove("escondido");
         tela.classList.add("mostrar");
-
-        // Atualiza o menu visualmente agora mesmo
         if (typeof window.verificarProgressoMapas === 'function') {
             window.verificarProgressoMapas();
         }
