@@ -233,7 +233,7 @@
 .vitoria_conteudo {
     position: absolute;
     top: 60%;
-    left: 60%;
+    left: 59%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -308,22 +308,23 @@
     }
 
     .tabuleiro_conteudo_espacamento_cabecalho {
-        width: 130px !important; 
-        max-width: 20vw;
+        width: 180px !important; 
+        max-width: 25vw;
     }
 
     .tabuleiro_conteudo_espacamento_cabecalho_imagem_texto {
         font-size: 1.4rem !important; 
         top: 45%;
+        white-space: nowrap;
     }
 
     .tabuleiro_conteudo_espacamento_pontuacao {
         width: auto; 
-        min-width: 130px;
+        min-width: 180px;
     }
 
     .tabuleiro_pontuacao {
-        max-width: 140px !important;
+        max-width: 240px !important; 
     }
 
     .hud-texto {
@@ -339,21 +340,43 @@
 
     .tabuleiro_pontuacao_placa_texto {
         gap: 5%; 
+        width: 100%;
+    }
+
+    .tela_final_imagem {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
     }
     
+    .tela_final_imagem .fundo_derrota,
+    .tela_final_imagem .fundo_vitoria {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     .derrota_conteudo,
     .vitoria_conteudo {
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0;
-        padding: 0.5rem;
-        width: 80%;
-        gap: 0.5rem;
+        position: absolute;
+        top: 43%;
+        left: 14%;
+        transform: none; 
+        margin: 0; 
+        padding: 0.2rem;
+        width: 90%; 
+        gap: clamp(0.3rem, 1.2vh, 1.2rem);
+        align-items: center; 
+        text-align: center;
+    }
+
+    .vitoria_conteudo {
+        top: 40%;
+        left: 16%;
     }
 
     .texto_barra {
-        font-size: 1.5rem;
+        font-size: clamp(1.1rem, 3.5vw, 1.8rem);
     }
 }
 
