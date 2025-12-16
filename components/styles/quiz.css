@@ -315,7 +315,7 @@
     transform: scale(1.05);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px) and (orientation: landscape){
     .quiz_conteudo_organizacao {
         flex-direction: column;
         padding: 1rem;
@@ -446,7 +446,7 @@
 
     .loja_texto {
         font-size: clamp(1.2rem, 6vh, 1.8rem);
-        margin-bottom: 1.5vh;
+        margin-bottom: 6.5vh;
     }
 
     .loja_imagem {
