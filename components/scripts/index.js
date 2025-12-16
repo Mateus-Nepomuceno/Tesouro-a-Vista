@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const somMoeda = document.getElementById('som_moeda');
     const somVida = document.getElementById('som_vida');
 
+    window.mapaAtual = "";
+
     const som = [
         "game_assets/opcoes/som.webp",
         "game_assets/opcoes/som_desligado.webp"
@@ -393,6 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.carregarMapa = function (idMapa) {
         const config = CONFIG_MAPAS[idMapa];
+        window.mapaAtual = idMapa;
 
         if (!config) {
             console.error("Configuração de mapa não encontrada para:", idMapa);
@@ -458,6 +461,65 @@ document.addEventListener('DOMContentLoaded', () => {
         mostrarAba('tabuleiro');
         iniciarJogo();
     };
+
+    window.verificarProgressoMapas = function() {
+        console.log("Verificando progresso dos mapas...");
+        const mapas = ['ilha', 'caverna', 'deserto', 'oceano', 'floresta'];
+
+        mapas.forEach(nomeMapa => {
+            // Tenta pegar do localStorage (ex: "3", "2", "1" ou null)
+            const estrelasGanhas = parseInt(localStorage.getItem(`estrelas_${nomeMapa}`)) || 0;
+
+            const overlay = document.getElementById(`overlay-${nomeMapa}`);
+
+            // Seleciona as imagens individuais pelo ID
+            const bronze = document.getElementById(`bronze-${nomeMapa}`);
+            const prata = document.getElementById(`prata-${nomeMapa}`);
+            const ouro = document.getElementById(`ouro-${nomeMapa}`);
+
+            if (overlay) {
+                if (estrelasGanhas > 0) {
+                    // Se o jogador tem alguma vitória, mostra o overlay
+                    overlay.classList.remove('escondido');
+
+                    // LÓGICA DE ACUMULAÇÃO:
+
+                    // 1. Bronze: Aparece se tiver 1, 2 ou 3 estrelas
+                    if (bronze) {
+                        if (estrelasGanhas >= 1) {
+                            bronze.classList.remove('escondido');
+                        } else {
+                            bronze.classList.add('escondido');
+                        }
+                    }
+
+                    // 2. Prata: Aparece se tiver 2 ou 3 estrelas
+                    if (prata) {
+                        if (estrelasGanhas >= 2) {
+                            prata.classList.remove('escondido');
+                        } else {
+                            prata.classList.add('escondido');
+                        }
+                    }
+
+                    // 3. Ouro: Aparece apenas se tiver 3 estrelas
+                    if (ouro) {
+                        if (estrelasGanhas >= 3) {
+                            ouro.classList.remove('escondido');
+                        } else {
+                            ouro.classList.add('escondido');
+                        }
+                    }
+
+                } else {
+                    // Se não jogou ou não ganhou (0 estrelas), esconde tudo
+                    overlay.classList.add('escondido');
+                }
+            }
+        });
+    }
+
+    window.verificarProgressoMapas();
 
     function atualizarPosicoesVisuais() {
         pontos.forEach(ponto => {
@@ -678,11 +740,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const tela = document.getElementById("tela_vitoria_container");
         mostrarMoedasFinal();
 
-        // Temporizador para conquistas nos mapas
-
         const tempoFinal = Date.now();
-        const tempoGastoSegundos = (tempoFinal - tempoInicial) / 1000; 
-
+        // Certifique-se de que tempoInicial foi definido quando o jogo começou
+        const tempoGastoSegundos = (tempoFinal - tempoInicial) / 1000;
         let qtdEstrelas = 1;
 
         if (tempoGastoSegundos <= 120) {
@@ -691,11 +751,71 @@ document.addEventListener('DOMContentLoaded', () => {
             qtdEstrelas = 2;
         }
 
-        console.log(`Você recebeu ${qtdEstrelas} estrelas.`)
+        // --- SALVAMENTO DO PROGRESSO ---
+        if (window.mapaAtual !== "") {
+            console.log(`Tentando salvar ${qtdEstrelas} estrelas para o mapa: ${window.mapaAtual}`);
 
+            // Pega o recorde antigo (converte para número, se não existir vira 0)
+            const recordeAntigo = parseInt(localStorage.getItem(`estrelas_${window.mapaAtual}`)) || 0;
+
+            // Só salva se a nova pontuação for maior que a anterior
+            if (qtdEstrelas > recordeAntigo) {
+                localStorage.setItem(`estrelas_${window.mapaAtual}`, qtdEstrelas);
+                console.log("Progresso salvo com sucesso!");
+            } else {
+                console.log("Pontuação não superou o recorde anterior.");
+            }
+        } else {
+            console.error("ERRO: 'mapaAtual' está vazio. O jogo não sabe qual mapa salvar.");
+        }
+
+        console.log(`Você recebeu ${qtdEstrelas} estrelas.`);
         tela.classList.remove("escondido");
         tela.classList.add("mostrar");
+
+        // Atualiza o menu visualmente agora mesmo
+        if (typeof window.verificarProgressoMapas === 'function') {
+            window.verificarProgressoMapas();
+        }
+
+        // --- CÓDIGO DE CONFETES ---
+        function shootConfetti(angle, originX, originY, velocity, count, spread) {
+            confetti({
+                particleCount: count,
+                angle: angle,
+                spread: spread,
+                origin: { x: originX, y: originY },
+                startVelocity: velocity,
+                ticks: 400,
+                gravity: 0.8,
+                shapes: ['square', 'circle'],
+                scalar: 1.2,
+                zIndex: 99999
+            });
+        }
+
+        shootConfetti(60, 0, 0.9, 70, 150, 80);
+        shootConfetti(120, 1, 0.9, 70, 150, 80);
+
+        setTimeout(() => {
+            shootConfetti(45, 0, 0.5, 60, 100, 60);
+            shootConfetti(135, 1, 0.5, 60, 100, 60);
+        }, 200);
+
+        setTimeout(() => {
+            confetti({
+                particleCount: 300,
+                spread: 180,
+                origin: { y: -0.1, x: 0.5 },
+                angle: 270,
+                gravity: 1.1,
+                ticks: 500,
+                zIndex: 99999
+            });
+        }, 400);
     }
+
+
 
     window.comprarVida = function (qtdVidas) {
         if(qtdVidas == 1){

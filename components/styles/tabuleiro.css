@@ -7,7 +7,11 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    
+    /* ALTERAÇÃO AQUI: */
+    height: 100vh; /* Fallback para navegadores muito antigos */
+    height: 100dvh; /* Usa a altura dinâmica real do celular */
+    
     z-index: 200;
     display: flex;
     justify-content: center;
@@ -24,7 +28,11 @@
     width: 100%;
     max-width: 100%;
     aspect-ratio: 16 / 9;
-    max-height: 100vh;
+    
+    /* ALTERAÇÃO AQUI TAMBÉM: */
+    max-height: 100vh; /* Fallback */
+    max-height: 100dvh; /* Garante que o mapa nunca seja maior que a área visível real */
+    
     background-image: url(../../game_assets/tabuleiro/ilha/mapa.webp);
     background-repeat: no-repeat;
     background-position: center;
@@ -32,6 +40,8 @@
     z-index: 1;
     box-shadow: 0 0 30px rgba(0,0,0,0.8);
 }
+
+/* O RESTANTE DO CÓDIGO PERMANECE IGUAL... */
 
 .tabuleiro_conteudo_espacamento {
     position: absolute;
