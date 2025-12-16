@@ -99,14 +99,14 @@
 
 .tabuleiro_pontuacao {
     width: 100%;
-    max-width: 200px;
+    max-width: 220px;
 }
 
 .tabuleiro_pontuacao_placa {
     position: relative;
     display: flex;
     justify-content: flex-end;
-    width: 100%;
+    width: 110%;
 }
 
 .tabuleiro_pontuacao_placa img {
@@ -313,7 +313,7 @@
     }
 
     .tabuleiro_conteudo_espacamento_cabecalho_imagem_texto {
-        font-size: 1rem !important; 
+        font-size: 1.4rem !important; 
         top: 45%;
     }
 
@@ -323,17 +323,17 @@
     }
 
     .tabuleiro_pontuacao {
-        max-width: 150px !important;
+        max-width: 140px !important;
     }
 
     .hud-texto {
-        font-size: 1.1rem !important; 
+        font-size: 1.7rem !important; 
         line-height: 1;
     }
 
     .icone-rodape {
-        height: 1rem !important; 
-        max-height: 20px;
+        height: 1.7rem !important; 
+        max-height: 60px;
         width: auto;
     }
 
