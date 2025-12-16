@@ -217,18 +217,23 @@
     align-items: center;
     overflow: hidden;
     flex-direction: column;
+    padding-bottom: 2vh;
 }
 
 .loja_texto {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 8vh, 3rem);
     font-family: var(--font-primaria);
     color: var(--cor-hover);
     text-align: center;
+    margin-bottom: 2vh; 
+    margin-top: 1vh;
+    line-height: 1.1;
 }
 
 .loja_imagem {
     position: relative;
-    width: 60vw;       
+    width: 55vw;       
+    max-height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -237,6 +242,7 @@
 .loja_imagem > img:first-child {
     width: 100%;
     height: auto;
+    object-fit: contain;
     display: block;
 }
 
@@ -246,7 +252,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    
     pointer-events: none; 
 }
 
@@ -258,23 +263,39 @@
     width: 50% !important; 
     height: auto;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2rem, 4vw + 4vh, 5rem);
+    font-family: var(--font-primaria);
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.loja_opcoes_valores img {
+    height: 1.1em;
+    width: auto;
+    vertical-align: middle;
+    margin: 0 0.2em;
 }
 
 .loja_opcoes_botoes {
     display: flex;
     flex-direction: column;
-    
     position: absolute;
-    top: 50%;
+    top: 52%;
     right: 25%; 
-    transform: translateY(-45%);
-    
+    transform: translateY(-50%);
     pointer-events: auto; 
     z-index: 20;
+    gap: 1.5vh;
 }
 
 .loja_opcoes_botoes_botao {
-    width: 8.5vw;
+    width: 8vw;
+    max-width: 120px;
     border: none;
     background: none;
     cursor: pointer;
@@ -400,5 +421,27 @@
 
     .quiz_conteudo_organizacao_quiz_opcoes_resposta_texto {
         font-size: 1rem;
+    }
+
+    .loja {
+        justify-content: center; 
+    }
+
+    .loja_texto {
+        font-size: clamp(1.2rem, 6vh, 1.8rem);
+        margin-bottom: 1.5vh;
+    }
+
+    .loja_imagem {
+        width: 50vw; 
+    }
+
+    .loja_opcoes_botoes {
+        right: 22%;
+        gap: 1vh;
+    }
+    
+    .loja_opcoes_botoes_botao {
+        width: 7vw; 
     }
 }
