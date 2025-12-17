@@ -374,12 +374,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let tempoInicial;
 
     window.reiniciarJogo = function () {
-        casaAtual = 1;
+        casaAtual = 11;
         moedas = 0;
-        vidas = 1;
+        vidas = 3;
         indice = 0;
         tempoInicial = Date.now();
-
+        
         const posInicial = posicoesDasCasas[1];
         if (posInicial) {
             protagonista.style.top = posInicial.top;

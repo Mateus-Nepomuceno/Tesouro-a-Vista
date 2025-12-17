@@ -216,7 +216,6 @@
     visibility: hidden;
     pointer-events: none;
     transform: scale(0.8);
-    transition: opacity 0.3s ease-out, transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), visibility 0.3s;
 }
 
 .tela_final_imagem.escondido {
@@ -231,12 +230,12 @@
     visibility: visible;
     pointer-events: auto;
     transform: scale(1);
+    transition: opacity 0.3s ease-out, transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), visibility 0.3s;
 }
 
 .derrota_conteudo,
 .vitoria_conteudo {
     opacity: 0;
-    transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
     transform: translate(-50%, -50%);
 }
 
@@ -244,6 +243,7 @@
 .tela_final_imagem.mostrar .vitoria_conteudo {
     opacity: 1;
     transform: translate(-50%, -50%);
+    transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
 }
 
 .tela_final_imagem .fundo_derrota,
