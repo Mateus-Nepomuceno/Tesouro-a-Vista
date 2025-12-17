@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.reiniciarJogo = function () {
         casaAtual = 1;
         moedas = 0;
-        vidas = 3;  
+        vidas = 1;
         indice = 0;
         tempoInicial = Date.now();
 
@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
         iniciarJogo();
     };
 
-    window.verificarProgressoMapas = function() {
+    window.verificarProgressoMapas = function () {
         console.log("Verificando progresso dos mapas...");
         const mapas = ['ilha', 'caverna', 'deserto', 'oceano', 'floresta'];
 
@@ -780,49 +780,56 @@ document.addEventListener('DOMContentLoaded', () => {
                 spread: spread,
                 origin: { x: originX, y: originY },
                 startVelocity: velocity,
-                ticks: 400,
-                gravity: 0.8,
+                ticks: 150,
+                gravity: 1.2,
+                decay: 0.92,
                 shapes: ['square', 'circle'],
                 scalar: 1.2,
                 zIndex: 99999
             });
         }
 
-        shootConfetti(60, 0, 0.9, 70, 150, 80);
-        shootConfetti(120, 1, 0.9, 70, 150, 80);
+        shootConfetti(60, 0, 0.9, 70, 100, 80);
+        shootConfetti(120, 1, 0.9, 70, 100, 80);
 
         setTimeout(() => {
             shootConfetti(45, 0, 0.5, 60, 100, 60);
             shootConfetti(135, 1, 0.5, 60, 100, 60);
-        }, 200);
+        }, 100);
 
         setTimeout(() => {
             confetti({
-                particleCount: 300,
+                particleCount: 180,
                 spread: 180,
                 origin: { y: -0.1, x: 0.5 },
                 angle: 270,
-                gravity: 1.1,
-                ticks: 500,
+                gravity: 1.5,
+                startVelocity: 50,
+                ticks: 200,
                 zIndex: 99999
             });
-        }, 400);
+        }, 250);
     }
 
 
 
     window.comprarVida = function (qtdVidas) {
-        if(qtdVidas == 1){
-            moedas -= 4;
-        } else if(qtdVidas == 2){
-            moedas -= 8;
+        let custo = 0;
+
+        if (qtdVidas == 1) custo = 4;
+        else if (qtdVidas == 2) custo = 8;
+        else if (qtdVidas == 3) custo = 12;
+
+        if (moedas >= custo) {
+            moedas -= custo;
+            vidas += qtdVidas;
+            tocarSomMoeda();
+            vidaMoedas();
+            esconderTelaVidas();
+            mostrarQuiz();
         } else {
-            moedas -= 12;
+            tocarSomVida();
         }
-        vidas += qtdVidas;
-        esconderTelaVidas();
-        mostrarQuiz();
-        vidaMoedas();
     }
 
     function mostrarTelaVidas() {
@@ -913,12 +920,12 @@ document.addEventListener('DOMContentLoaded', () => {
             vidas -= 1;
             tocarSomVida();
             if (vidas <= 0) {
-                fecharQuiz(); 
+                fecharQuiz();
                 if (moedas < 4) {
                     mostrarTelaDerrota();
                     tocarSomDerrota();
                 } else {
-                    mostrarTelaVidas(); 
+                    mostrarTelaVidas();
                 }
             } else {
                 let mensagemVidas = document.getElementById("quiz_conteudo_vidas");

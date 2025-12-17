@@ -389,8 +389,8 @@
     }
 
     .quiz_conteudo_organizacao_imagem {
-        max-width: 40%;
-        height: 95vh;
+        max-width: 50%;
+        height: 80vh;
         justify-content: center;
         order: 2;
     }
@@ -417,12 +417,12 @@
     }
 
     .quiz_conteudo_organizacao_quiz_pergunta_imagem {
-        min-height: auto;
+        max-width: 90%;
     }
 
     .quiz_conteudo_organizacao_quiz_pergunta_texto {
         padding: 2rem 2.5rem;
-        font-size: clamp(1rem, 4vh, 1.4rem);
+        font-size: clamp(1.2rem, 4vh, 1.4rem);
         min-height: auto;
     }
 

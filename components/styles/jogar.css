@@ -392,7 +392,7 @@ html, body {
     .jogar_conteudo_mapas_ordem_imagem_deserto,
     .jogar_conteudo_mapas_ordem_imagem_oceano,
     .jogar_conteudo_mapas_ordem_imagem_floresta {
-        max-height: 46dvh;
+        max-height: 36dvh;
         max-width: 100%;
         margin: 0;
         object-fit: contain;

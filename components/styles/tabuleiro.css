@@ -216,7 +216,7 @@
     visibility: hidden;
     pointer-events: none;
     transform: scale(0.8);
-    transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), visibility 0.5s;
+    transition: opacity 0.3s ease-out, transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), visibility 0.3s;
 }
 
 .tela_final_imagem.escondido {
@@ -236,8 +236,8 @@
 .derrota_conteudo,
 .vitoria_conteudo {
     opacity: 0;
-    transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
-    transform: translate(-50%, -40%);
+    transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+    transform: translate(-50%, -50%);
 }
 
 .tela_final_imagem.mostrar .derrota_conteudo,
