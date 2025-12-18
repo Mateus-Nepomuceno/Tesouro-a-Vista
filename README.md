@@ -76,5 +76,5 @@ Se você quiser rodar o projeto no seu próprio computador:
 * [Marta Gisele Barreto](https://github.com/MartaGiseleBarreto) - **Gestão** :briefcase:
 * [Luiza Moraes](https://github.com/luizabttc) - **Designer** :pencil:
 * [Nairana dos Anjos](https://github.com/anjos536) - **Designer** :pencil:
-* [Tiago Correira](https://github.com/TiagoCorreiaB) - **Programador** :computer:
+* [Tiago Correia](https://github.com/TiagoCorreiaB) - **Programador** :computer:
 * [Mateus Nepomuceno](https://github.com/Mateus-Nepomuceno) - **Programador** :computer:

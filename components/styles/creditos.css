@@ -59,11 +59,11 @@ button.botao_voltar img {
 
 /* texto dentro da placa */
 button.botao_voltar span {
-    position: absolute; /* agora dentro da placa */
+    position: absolute;
     top: 44%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--cor-texto, white);
+    color: var(--cor-texto);
     font-family: var(--font-primaria, sans-serif);
     font-size: clamp(1.3rem, 3.7vw, 2.5rem);
     pointer-events: none;
@@ -71,7 +71,7 @@ button.botao_voltar span {
 }
 
 button.botao_voltar:hover span {
-    color: var(--cor-hover, #ffd700);
+    color: var(--cor-hover);
 }
 
 .creditos_conteudo_principal {

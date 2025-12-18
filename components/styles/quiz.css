@@ -156,6 +156,12 @@
     transition: transform 0.2s ease;
 }
 
+.quiz_conteudo_organizacao_quiz_opcoes_resposta.desativado {
+    pointer-events: none;
+    transform: none !important;
+    cursor: default;
+}
+
 .quiz_conteudo_organizacao_quiz_opcoes_resposta:hover {
     transform: scale(1.1);
 }
@@ -165,7 +171,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     width: auto;
     height: auto;
 }
@@ -198,7 +204,161 @@
     color: var(--cor-texto) !important; 
 }
 
-@media (max-width: 900px) {
+.loja {
+    background-color: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+    padding-bottom: 2vh;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.loja_texto {
+    font-size: clamp(1.5rem, 8vh, 3rem);
+    font-family: var(--font-primaria);
+    color: var(--cor-hover);
+    text-align: center;
+    margin-bottom: 2vh; 
+    margin-top: 1vh;
+    line-height: 1.1;
+}
+
+.loja_imagem {
+    position: relative;
+    width: 55vw;       
+    max-height: 65dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loja_imagem > img:first-child {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.loja_opcoes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+}
+
+.loja_opcoes_valores {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 50% !important; 
+    height: auto;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2rem, 4vw + 4vh, 5rem);
+    font-family: var(--font-primaria);
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.loja_opcoes_valores img {
+    height: 1.1em;
+    width: auto;
+    vertical-align: middle;
+    margin: 0 0.2em;
+}
+
+.loja_opcoes_botoes {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 52%;
+    right: 25%; 
+    transform: translateY(-50%);
+    pointer-events: auto; 
+    z-index: 20;
+    gap: 1.5vh;
+}
+
+.loja_opcoes_botoes_botao {
+    width: 8vw;
+    max-width: 120px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 0;
+}
+
+.loja_opcoes_botoes_botao img {
+    width: 100%;
+    display: block;
+}
+
+.loja_opcoes_botoes_botao:hover {
+    transform: scale(1.05);
+}
+
+.loja_desistir_jogo {
+    width: clamp(120px, 20vw, 300px);
+    max-width: 90%;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loja_desistir_jogo:hover {
+    transform: scale(1.1);
+}
+
+.loja_desistir_imagem {
+    position: relative;
+    width: 70%;
+    aspect-ratio: 3 / 1;
+}
+
+.loja_desistir_imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.loja_desistir_imagem_texto {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1.2rem, 3.4vw, 2.0rem);
+    font-family: var(--font-primaria);
+    color: var(--cor-texto);
+    pointer-events: none;
+}
+
+.loja_desistir_jogo:hover .loja_desistir_imagem_texto,
+.loja_desistir_jogo:hover {
+    color: var(--cor-hover);
+}
+
+@media (max-width: 900px) and (orientation: landscape){
     .quiz_conteudo_organizacao {
         flex-direction: column;
         padding: 1rem;
@@ -247,6 +407,20 @@
     .quiz_conteudo_organizacao_quiz_opcoes_resposta_texto {
         font-size: clamp(1rem, 2vw, 1.6rem);
     }
+
+    .loja_imagem {
+        width: 85vw;
+        max-height: 50dvh;
+    }
+
+    .loja_texto {
+        font-size: clamp(1.5rem, 6vh, 2.5rem);
+        margin-bottom: 5vh;
+    }
+
+    .loja_opcoes_botoes {
+        right: 15%;
+    }
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
@@ -258,16 +432,26 @@
     }
 
     .quiz_conteudo_organizacao_imagem {
-        max-width: 40%;
+        width: 55%;  
         height: 95vh;
-        justify-content: center;
+        
+        display: flex;
+        justify-content: center; 
+        align-items: center;
         order: 2;
     }
+    
 
     .quiz_conteudo_organizacao_imagem img {
-        max-height: 100%;
-        transform: scale(1.25);
-        transform-origin: right center;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        
+
+        max-height: 50vh;
+        transform: scale(1.6);
+        transform-origin: center center;
+        pointer-events: none !important;
     }
 
     .quiz_conteudo_organizacao_quiz {
@@ -286,12 +470,12 @@
     }
 
     .quiz_conteudo_organizacao_quiz_pergunta_imagem {
-        min-height: auto;
+        max-width: 90%;
     }
 
     .quiz_conteudo_organizacao_quiz_pergunta_texto {
         padding: 2rem 2.5rem;
-        font-size: clamp(1rem, 4vh, 1.4rem);
+        font-size: clamp(1.2rem, 4vh, 1.4rem);
         min-height: auto;
     }
 
@@ -307,5 +491,41 @@
 
     .quiz_conteudo_organizacao_quiz_opcoes_resposta_texto {
         font-size: 1rem;
+    }
+
+    .loja {
+        justify-content: center; 
+        overflow-y: auto;
+        gap: 1rem;
+    }
+
+    .loja_texto {
+        font-size: clamp(1.2rem, 6vh, 1.8rem);
+        margin-bottom: 6.5vh;
+    }
+
+    .loja_imagem {
+        width: 50vw; 
+    }
+
+    .loja_opcoes_botoes {
+        right: 22%;
+        gap: 1vh;
+    }
+    
+    .loja_opcoes_botoes_botao {
+        width: 7vw; 
+    }
+
+    .loja_desistir_imagem_texto {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: clamp(1.2rem, 2.4vw, 2.0rem);
+        font-family: var(--font-primaria);
+        color: var(--cor-texto);
+        pointer-events: none;
     }
 }
