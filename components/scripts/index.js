@@ -540,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const protagonista = document.getElementById('protagonista');
     const pontos = document.querySelectorAll('.ponto_clicavel');
-    const imagemMonstro = document.querySelector(".quiz_conteudo_organizacao_imagem");
+    const imagemMonstro = document.getElementById("imagem_do_monstro");
     let casaAtual = 1;
     let moedas = 0;
     let vidas = 3;

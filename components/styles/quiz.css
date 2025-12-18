@@ -432,16 +432,26 @@
     }
 
     .quiz_conteudo_organizacao_imagem {
-        max-width: 50%;
-        height: 80vh;
-        justify-content: center;
+        width: 55%;  
+        height: 95vh;
+        
+        display: flex;
+        justify-content: center; 
+        align-items: center;
         order: 2;
     }
+    
 
     .quiz_conteudo_organizacao_imagem img {
-        max-height: 100%;
-        transform: scale(1.25);
-        transform-origin: right center;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        
+
+        max-height: 50vh;
+        
+        transform: scale(1.6);
+        transform-origin: center center;
     }
 
     .quiz_conteudo_organizacao_quiz {
@@ -486,6 +496,7 @@
     .loja {
         justify-content: center; 
         overflow-y: auto;
+        gap: 1rem;
     }
 
     .loja_texto {
