@@ -449,6 +449,8 @@
         
 
         max-height: 50vh;
+        transform: scale(1.6);
+        transform-origin: center center;
         pointer-events: none !important;
     }
 
