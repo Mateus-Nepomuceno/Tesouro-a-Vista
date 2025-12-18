@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function tocarSomDerrota() {
+    window.tocarSomDerrota = function () {
         if (somAtivo && somDerrota) {
             try {
                 somDerrota.currentTime = 0;
@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let tempoInicial;
 
     window.reiniciarJogo = function () {
-        casaAtual = 11;
+        casaAtual = 1;
         moedas = 0;
         vidas = 3;
         indice = 0;
@@ -837,12 +837,12 @@ document.addEventListener('DOMContentLoaded', () => {
         tela.classList.remove("escondido");
     }
 
-    function esconderTelaVidas() {
+    window.esconderTelaVidas = function () {
         const tela = document.getElementById("tela_vidas");
         tela.classList.add("escondido");
     }
 
-    function mostrarTelaDerrota() {
+    window.mostrarTelaDerrota = function() {
         const tela = document.getElementById("tela_derrota_container");
         mostrarMoedasFinal()
         tela.classList.remove("escondido");

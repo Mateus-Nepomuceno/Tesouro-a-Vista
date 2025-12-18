@@ -122,6 +122,15 @@
                         </section>
                     </div>
                 </div>
+                <button onclick="tocarSomDerrota(); esconderTelaVidas(); mostrarTelaDerrota(); tocarSomClique();" class="loja_desistir_jogo"
+                    id="reiniciar_jogo_derrota">
+                    <div class="loja_desistir_imagem">
+                        <img src="game_assets/tabuleiro/iconebarra2.webp">
+                        <div class="loja_desistir_imagem_texto">
+                            Desistir
+                        </div>
+                    </div>
+                </button>
             </div>
 
             <div id="tela_final">
@@ -188,7 +197,8 @@
                     <div class="jogar_conteudo_mapas_ilha">
                         <h2 class="jogar_conteudo_mapas_ordem_texto">Ilha dos Números</h2>
                         <div class="mapa-wrapper-relativo">
-                            <button onclick="tocarSomClique(); carregarMapa('ilha')" class="jogar_conteudo_mapas_ordem_imagem">
+                            <button onclick="tocarSomClique(); carregarMapa('ilha')"
+                                class="jogar_conteudo_mapas_ordem_imagem">
                                 <img class="jogar_conteudo_mapas_ordem_imagem_ilha" src="game_assets/jogar/Ilha.webp">
                             </button>
 
@@ -196,14 +206,18 @@
                                 <div class="overlay-itens">
                                     <div class="pergaminho-container">
                                         <img src="game_assets/jogar/pergaminho_fundo.png" class="pergaminho-bg">
-                                        
+
                                         <div class="medalhas-wrapper">
-                                            <img id="bronze-ilha" src="game_assets/jogar/bronze.png" class="medalha medalha-bronze escondido">
-                                            <img id="prata-ilha" src="game_assets/jogar/prata.png" class="medalha medalha-prata escondido">
-                                            <img id="ouro-ilha" src="game_assets/jogar/ouro.png" class="medalha medalha-ouro escondido">
+                                            <img id="bronze-ilha" src="game_assets/jogar/bronze.png"
+                                                class="medalha medalha-bronze escondido">
+                                            <img id="prata-ilha" src="game_assets/jogar/prata.png"
+                                                class="medalha medalha-prata escondido">
+                                            <img id="ouro-ilha" src="game_assets/jogar/ouro.png"
+                                                class="medalha medalha-ouro escondido">
                                         </div>
 
-                                        <button onclick="tocarSomClique(); carregarMapa('ilha')" class="btn-reiniciar-icone">
+                                        <button onclick="tocarSomClique(); carregarMapa('ilha')"
+                                            class="btn-reiniciar-icone">
                                             <img src="game_assets/jogar/reiniciar_botao.png" alt="Reiniciar">
                                         </button>
                                     </div>
@@ -215,19 +229,25 @@
                     <div class="jogar_conteudo_mapas_caverna">
                         <h2 class="jogar_conteudo_mapas_ordem_texto">Gruta da Geografia</h2>
                         <div class="mapa-wrapper-relativo">
-                            <button onclick="tocarSomClique(); carregarMapa('caverna')" class="jogar_conteudo_mapas_ordem_imagem">
-                                <img class="jogar_conteudo_mapas_ordem_imagem_caverna" src="game_assets/jogar/caverna.webp">
+                            <button onclick="tocarSomClique(); carregarMapa('caverna')"
+                                class="jogar_conteudo_mapas_ordem_imagem">
+                                <img class="jogar_conteudo_mapas_ordem_imagem_caverna"
+                                    src="game_assets/jogar/caverna.webp">
                             </button>
                             <div id="overlay-caverna" class="overlay-vitoria escondido">
                                 <div class="overlay-itens">
                                     <div class="pergaminho-container">
                                         <img src="game_assets/jogar/pergaminho_fundo.png" class="pergaminho-bg">
                                         <div class="medalhas-wrapper">
-                                            <img id="bronze-caverna" src="game_assets/jogar/bronze.png" class="medalha medalha-bronze escondido">
-                                            <img id="prata-caverna" src="game_assets/jogar/prata.png" class="medalha medalha-prata escondido">
-                                            <img id="ouro-caverna" src="game_assets/jogar/ouro.png" class="medalha medalha-ouro escondido">
+                                            <img id="bronze-caverna" src="game_assets/jogar/bronze.png"
+                                                class="medalha medalha-bronze escondido">
+                                            <img id="prata-caverna" src="game_assets/jogar/prata.png"
+                                                class="medalha medalha-prata escondido">
+                                            <img id="ouro-caverna" src="game_assets/jogar/ouro.png"
+                                                class="medalha medalha-ouro escondido">
                                         </div>
-                                        <button onclick="tocarSomClique(); carregarMapa('caverna')" class="btn-reiniciar-icone">
+                                        <button onclick="tocarSomClique(); carregarMapa('caverna')"
+                                            class="btn-reiniciar-icone">
                                             <img src="game_assets/jogar/reiniciar_botao.png" alt="Reiniciar">
                                         </button>
                                     </div>
@@ -239,19 +259,25 @@
                     <div class="jogar_conteudo_mapas_deserto">
                         <h2 class="jogar_conteudo_mapas_ordem_texto">Deserto dos Fatos</h2>
                         <div class="mapa-wrapper-relativo">
-                            <button onclick="tocarSomClique(); carregarMapa('deserto')" class="jogar_conteudo_mapas_ordem_imagem">
-                                <img class="jogar_conteudo_mapas_ordem_imagem_deserto" src="game_assets/jogar/deserto.webp">
+                            <button onclick="tocarSomClique(); carregarMapa('deserto')"
+                                class="jogar_conteudo_mapas_ordem_imagem">
+                                <img class="jogar_conteudo_mapas_ordem_imagem_deserto"
+                                    src="game_assets/jogar/deserto.webp">
                             </button>
                             <div id="overlay-deserto" class="overlay-vitoria escondido">
                                 <div class="overlay-itens">
                                     <div class="pergaminho-container">
                                         <img src="game_assets/jogar/pergaminho_fundo.png" class="pergaminho-bg">
                                         <div class="medalhas-wrapper">
-                                            <img id="bronze-deserto" src="game_assets/jogar/bronze.png" class="medalha medalha-bronze escondido">
-                                            <img id="prata-deserto" src="game_assets/jogar/prata.png" class="medalha medalha-prata escondido">
-                                            <img id="ouro-deserto" src="game_assets/jogar/ouro.png" class="medalha medalha-ouro escondido">
+                                            <img id="bronze-deserto" src="game_assets/jogar/bronze.png"
+                                                class="medalha medalha-bronze escondido">
+                                            <img id="prata-deserto" src="game_assets/jogar/prata.png"
+                                                class="medalha medalha-prata escondido">
+                                            <img id="ouro-deserto" src="game_assets/jogar/ouro.png"
+                                                class="medalha medalha-ouro escondido">
                                         </div>
-                                        <button onclick="tocarSomClique(); carregarMapa('deserto')" class="btn-reiniciar-icone">
+                                        <button onclick="tocarSomClique(); carregarMapa('deserto')"
+                                            class="btn-reiniciar-icone">
                                             <img src="game_assets/jogar/reiniciar_botao.png" alt="Reiniciar">
                                         </button>
                                     </div>
@@ -263,19 +289,25 @@
                     <div class="jogar_conteudo_mapas_oceano">
                         <h2 class="jogar_conteudo_mapas_ordem_texto">Oceano da Ciência</h2>
                         <div class="mapa-wrapper-relativo">
-                            <button onclick="tocarSomClique(); carregarMapa('oceano')" class="jogar_conteudo_mapas_ordem_imagem">
-                                <img class="jogar_conteudo_mapas_ordem_imagem_oceano" src="game_assets/jogar/oceano.webp">
+                            <button onclick="tocarSomClique(); carregarMapa('oceano')"
+                                class="jogar_conteudo_mapas_ordem_imagem">
+                                <img class="jogar_conteudo_mapas_ordem_imagem_oceano"
+                                    src="game_assets/jogar/oceano.webp">
                             </button>
                             <div id="overlay-oceano" class="overlay-vitoria escondido">
                                 <div class="overlay-itens">
                                     <div class="pergaminho-container">
                                         <img src="game_assets/jogar/pergaminho_fundo.png" class="pergaminho-bg">
                                         <div class="medalhas-wrapper">
-                                            <img id="bronze-oceano" src="game_assets/jogar/bronze.png" class="medalha medalha-bronze escondido">
-                                            <img id="prata-oceano" src="game_assets/jogar/prata.png" class="medalha medalha-prata escondido">
-                                            <img id="ouro-oceano" src="game_assets/jogar/ouro.png" class="medalha medalha-ouro escondido">
+                                            <img id="bronze-oceano" src="game_assets/jogar/bronze.png"
+                                                class="medalha medalha-bronze escondido">
+                                            <img id="prata-oceano" src="game_assets/jogar/prata.png"
+                                                class="medalha medalha-prata escondido">
+                                            <img id="ouro-oceano" src="game_assets/jogar/ouro.png"
+                                                class="medalha medalha-ouro escondido">
                                         </div>
-                                        <button onclick="tocarSomClique(); carregarMapa('oceano')" class="btn-reiniciar-icone">
+                                        <button onclick="tocarSomClique(); carregarMapa('oceano')"
+                                            class="btn-reiniciar-icone">
                                             <img src="game_assets/jogar/reiniciar_botao.png" alt="Reiniciar">
                                         </button>
                                     </div>
@@ -287,19 +319,25 @@
                     <div class="jogar_conteudo_mapas_floresta">
                         <h2 class="jogar_conteudo_mapas_ordem_texto">Floresta das Letras</h2>
                         <div class="mapa-wrapper-relativo">
-                            <button onclick="tocarSomClique(); carregarMapa('floresta')" class="jogar_conteudo_mapas_ordem_imagem">
-                                <img class="jogar_conteudo_mapas_ordem_imagem_floresta" src="game_assets/jogar/floresta.webp">
+                            <button onclick="tocarSomClique(); carregarMapa('floresta')"
+                                class="jogar_conteudo_mapas_ordem_imagem">
+                                <img class="jogar_conteudo_mapas_ordem_imagem_floresta"
+                                    src="game_assets/jogar/floresta.webp">
                             </button>
                             <div id="overlay-floresta" class="overlay-vitoria escondido">
                                 <div class="overlay-itens">
                                     <div class="pergaminho-container">
                                         <img src="game_assets/jogar/pergaminho_fundo.png" class="pergaminho-bg">
                                         <div class="medalhas-wrapper">
-                                            <img id="bronze-floresta" src="game_assets/jogar/bronze.png" class="medalha medalha-bronze escondido">
-                                            <img id="prata-floresta" src="game_assets/jogar/prata.png" class="medalha medalha-prata escondido">
-                                            <img id="ouro-floresta" src="game_assets/jogar/ouro.png" class="medalha medalha-ouro escondido">
+                                            <img id="bronze-floresta" src="game_assets/jogar/bronze.png"
+                                                class="medalha medalha-bronze escondido">
+                                            <img id="prata-floresta" src="game_assets/jogar/prata.png"
+                                                class="medalha medalha-prata escondido">
+                                            <img id="ouro-floresta" src="game_assets/jogar/ouro.png"
+                                                class="medalha medalha-ouro escondido">
                                         </div>
-                                        <button onclick="tocarSomClique(); carregarMapa('floresta')" class="btn-reiniciar-icone">
+                                        <button onclick="tocarSomClique(); carregarMapa('floresta')"
+                                            class="btn-reiniciar-icone">
                                             <img src="game_assets/jogar/reiniciar_botao.png" alt="Reiniciar">
                                         </button>
                                     </div>

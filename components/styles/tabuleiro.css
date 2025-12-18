@@ -193,7 +193,7 @@
 }
 
 .ponto_clicavel.proxima-casa.ponto-gradiente {
-    box-shadow: 0 0 15px #0f9e2ead, 0 0 20px #09db3686, 0 0 45px #b8ffaac9, 0 0 85px #beff6ace;
+    box-shadow: 0 0 15px #ff5c5cad, 0 0 20px #ff757586, 0 0 45px #ff9e9ec9, 0 0 85px #ffc2c2ce;
 }
 
 .ponto_clicavel[data-casa="1"] {
