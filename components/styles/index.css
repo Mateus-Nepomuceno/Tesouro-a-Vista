@@ -176,3 +176,29 @@ button {
         width: 100%;
     }
 }
+
+#aviso-orientacao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh; 
+    z-index: 99999;
+    background-color: #0a1621;
+    display: none; 
+}
+
+#aviso-orientacao img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center;
+}
+
+@media screen and (orientation: portrait) {
+    #aviso-orientacao {
+        display: block; 
+    }
+}

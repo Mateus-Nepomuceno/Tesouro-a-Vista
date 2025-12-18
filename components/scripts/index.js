@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const somMoeda = document.getElementById('som_moeda');
     const somVida = document.getElementById('som_vida');
 
+    window.mapaAtual = "";
+
     const som = [
         "game_assets/opcoes/som.webp",
         "game_assets/opcoes/som_desligado.webp"
@@ -95,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function tocarSomDerrota() {
+    window.tocarSomDerrota = function () {
         if (somAtivo && somDerrota) {
             try {
                 somDerrota.currentTime = 0;
@@ -369,12 +371,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    let tempoInicial;
+
     window.reiniciarJogo = function () {
         casaAtual = 1;
         moedas = 0;
         vidas = 3;
         indice = 0;
-
+        tempoInicial = Date.now();
+        
         const posInicial = posicoesDasCasas[1];
         if (posInicial) {
             protagonista.style.top = posInicial.top;
@@ -388,9 +393,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ativarBotoes();
     }
 
-    // --- FUNÇÃO CORRIGIDA PARA ATUALIZAR O MAPA PROPORCIONAL E O BORRADO ---
     window.carregarMapa = function (idMapa) {
         const config = CONFIG_MAPAS[idMapa];
+        window.mapaAtual = idMapa;
 
         if (!config) {
             console.error("Configuração de mapa não encontrada para:", idMapa);
@@ -457,6 +462,65 @@ document.addEventListener('DOMContentLoaded', () => {
         iniciarJogo();
     };
 
+    window.verificarProgressoMapas = function () {
+        console.log("Verificando progresso dos mapas...");
+        const mapas = ['ilha', 'caverna', 'deserto', 'oceano', 'floresta'];
+
+        mapas.forEach(nomeMapa => {
+            // Tenta pegar do localStorage (ex: "3", "2", "1" ou null)
+            const estrelasGanhas = parseInt(localStorage.getItem(`estrelas_${nomeMapa}`)) || 0;
+
+            const overlay = document.getElementById(`overlay-${nomeMapa}`);
+
+            // Seleciona as imagens individuais pelo ID
+            const bronze = document.getElementById(`bronze-${nomeMapa}`);
+            const prata = document.getElementById(`prata-${nomeMapa}`);
+            const ouro = document.getElementById(`ouro-${nomeMapa}`);
+
+            if (overlay) {
+                if (estrelasGanhas > 0) {
+                    // Se o jogador tem alguma vitória, mostra o overlay
+                    overlay.classList.remove('escondido');
+
+                    // LÓGICA DE ACUMULAÇÃO:
+
+                    // 1. Bronze: Aparece se tiver 1, 2 ou 3 estrelas
+                    if (bronze) {
+                        if (estrelasGanhas >= 1) {
+                            bronze.classList.remove('escondido');
+                        } else {
+                            bronze.classList.add('escondido');
+                        }
+                    }
+
+                    // 2. Prata: Aparece se tiver 2 ou 3 estrelas
+                    if (prata) {
+                        if (estrelasGanhas >= 2) {
+                            prata.classList.remove('escondido');
+                        } else {
+                            prata.classList.add('escondido');
+                        }
+                    }
+
+                    // 3. Ouro: Aparece apenas se tiver 3 estrelas
+                    if (ouro) {
+                        if (estrelasGanhas >= 3) {
+                            ouro.classList.remove('escondido');
+                        } else {
+                            ouro.classList.add('escondido');
+                        }
+                    }
+
+                } else {
+                    // Se não jogou ou não ganhou (0 estrelas), esconde tudo
+                    overlay.classList.add('escondido');
+                }
+            }
+        });
+    }
+
+    window.verificarProgressoMapas();
+
     function atualizarPosicoesVisuais() {
         pontos.forEach(ponto => {
             const casaNumero = parseInt(ponto.getAttribute('data-casa'));
@@ -476,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const protagonista = document.getElementById('protagonista');
     const pontos = document.querySelectorAll('.ponto_clicavel');
-    const imagemMonstro = document.querySelector(".quiz_conteudo_organizacao_imagem");
+    const imagemMonstro = document.getElementById("imagem_do_monstro");
     let casaAtual = 1;
     let moedas = 0;
     let vidas = 3;
@@ -674,12 +738,111 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function mostrarTelaVitoria() {
         const tela = document.getElementById("tela_vitoria_container");
-        mostrarMoedasFinal()
+        mostrarMoedasFinal();
+
+        const tempoFinal = Date.now();
+        const tempoGastoSegundos = (tempoFinal - tempoInicial) / 1000;
+        let qtdEstrelas = 1;
+
+        if (tempoGastoSegundos <= 120) {
+            qtdEstrelas = 3;
+        } else if (tempoGastoSegundos <= 300) {
+            qtdEstrelas = 2;
+        }
+
+        // --- SALVAMENTO DO PROGRESSO ---
+        if (window.mapaAtual !== "") {
+            console.log(`Tentando salvar ${qtdEstrelas} estrelas para o mapa: ${window.mapaAtual}`);
+            const recordeAntigo = parseInt(localStorage.getItem(`estrelas_${window.mapaAtual}`)) || 0;
+
+            if (qtdEstrelas > recordeAntigo) {
+                localStorage.setItem(`estrelas_${window.mapaAtual}`, qtdEstrelas);
+                console.log("Progresso salvo com sucesso!");
+            } else {
+                console.log("Pontuação não superou o recorde anterior.");
+            }
+        } else {
+            console.error("ERRO: 'mapaAtual' está vazio. O jogo não sabe qual mapa salvar.");
+        }
+
+        console.log(`Você recebeu ${qtdEstrelas} estrelas.`);
         tela.classList.remove("escondido");
         tela.classList.add("mostrar");
+        if (typeof window.verificarProgressoMapas === 'function') {
+            window.verificarProgressoMapas();
+        }
+
+        // --- CÓDIGO DE CONFETES ---
+        function shootConfetti(angle, originX, originY, velocity, count, spread) {
+            confetti({
+                particleCount: count,
+                angle: angle,
+                spread: spread,
+                origin: { x: originX, y: originY },
+                startVelocity: velocity,
+                ticks: 150,
+                gravity: 1.2,
+                decay: 0.92,
+                shapes: ['square', 'circle'],
+                scalar: 1.2,
+                zIndex: 99999
+            });
+        }
+
+        shootConfetti(60, 0, 0.9, 70, 100, 80);
+        shootConfetti(120, 1, 0.9, 70, 100, 80);
+
+        setTimeout(() => {
+            shootConfetti(45, 0, 0.5, 60, 100, 60);
+            shootConfetti(135, 1, 0.5, 60, 100, 60);
+        }, 100);
+
+        setTimeout(() => {
+            confetti({
+                particleCount: 180,
+                spread: 180,
+                origin: { y: -0.1, x: 0.5 },
+                angle: 270,
+                gravity: 1.5,
+                startVelocity: 50,
+                ticks: 200,
+                zIndex: 99999
+            });
+        }, 250);
     }
 
-    function mostrarTelaDerrota() {
+
+
+    window.comprarVida = function (qtdVidas) {
+        let custo = 0;
+
+        if (qtdVidas == 1) custo = 4;
+        else if (qtdVidas == 2) custo = 8;
+        else if (qtdVidas == 3) custo = 12;
+
+        if (moedas >= custo) {
+            moedas -= custo;
+            vidas += qtdVidas;
+            tocarSomMoeda();
+            vidaMoedas();
+            esconderTelaVidas();
+            mostrarQuiz();
+        } else {
+            tocarSomVida();
+        }
+    }
+
+    function mostrarTelaVidas() {
+        const tela = document.getElementById("tela_vidas");
+        tela.classList.remove("escondido");
+    }
+
+    window.esconderTelaVidas = function () {
+        const tela = document.getElementById("tela_vidas");
+        tela.classList.add("escondido");
+    }
+
+    window.mostrarTelaDerrota = function() {
         const tela = document.getElementById("tela_derrota_container");
         mostrarMoedasFinal()
         tela.classList.remove("escondido");
@@ -756,11 +919,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             vidas -= 1;
             tocarSomVida();
-
             if (vidas <= 0) {
                 fecharQuiz();
-                mostrarTelaDerrota();
-                tocarSomDerrota()
+                if (moedas < 4) {
+                    mostrarTelaDerrota();
+                    tocarSomDerrota();
+                } else {
+                    mostrarTelaVidas();
+                }
             } else {
                 let mensagemVidas = document.getElementById("quiz_conteudo_vidas");
 

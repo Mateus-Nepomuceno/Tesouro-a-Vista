@@ -8,6 +8,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     z-index: 200;
     display: flex;
     justify-content: center;
@@ -25,6 +26,7 @@
     max-width: 100%;
     aspect-ratio: 16 / 9;
     max-height: 100vh;
+    max-height: 100dvh;
     background-image: url(../../game_assets/tabuleiro/ilha/mapa.webp);
     background-repeat: no-repeat;
     background-position: center;
@@ -97,14 +99,14 @@
 
 .tabuleiro_pontuacao {
     width: 100%;
-    max-width: 200px;
+    max-width: 220px;
 }
 
 .tabuleiro_pontuacao_placa {
     position: relative;
     display: flex;
     justify-content: flex-end;
-    width: 100%;
+    width: 110%;
 }
 
 .tabuleiro_pontuacao_placa img {
@@ -141,9 +143,15 @@
 
 .texto_barra {
     margin: 0;
-    font-family: var(--font-primaria);
-    font-size: 1.5rem;
+    font-family: var(--font-secundaria);
+    font-size: clamp(2.9rem, 6vw, 3.3rem);
     font-weight: 100;
+}
+
+.hud-texto {
+    font-family: var(--font-primaria);
+    font-size: 2.2rem;
+    font-weight: 300;
 }
 
 #protagonista {
@@ -185,7 +193,7 @@
 }
 
 .ponto_clicavel.proxima-casa.ponto-gradiente {
-    box-shadow: 0 0 15px #0f9e2ead, 0 0 20px #09db3686, 0 0 45px #b8ffaac9, 0 0 85px #beff6ace;
+    box-shadow: 0 0 15px #ff5c5cad, 0 0 20px #ff757586, 0 0 45px #ff9e9ec9, 0 0 85px #ffc2c2ce;
 }
 
 .ponto_clicavel[data-casa="1"] {
@@ -200,15 +208,42 @@
 }
 
 .tela_final_imagem {
-    transition: opacity 1.5s ease-in-out;
-    display: none;
     position: fixed;
     inset: 0;
     z-index: 1000;
+    display: block !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.8);
+}
+
+.tela_final_imagem.escondido {
+    display: block !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .tela_final_imagem.mostrar {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: opacity 0.3s ease-out, transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), visibility 0.3s;
+}
+
+.derrota_conteudo,
+.vitoria_conteudo {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+}
+
+.tela_final_imagem.mostrar .derrota_conteudo,
+.tela_final_imagem.mostrar .vitoria_conteudo {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
 }
 
 .tela_final_imagem .fundo_derrota,
@@ -225,13 +260,12 @@
 .vitoria_conteudo {
     position: absolute;
     top: 60%;
-    left: 60%;
+    left: 59%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: clamp(0.2rem, 0.4vh, 0.6rem);
-    transform: translate(-50%, -50%);
     z-index: 10;
     padding: 1rem;
     text-align: center;
@@ -248,11 +282,6 @@
     width: clamp(3.3rem, 5.3vw, 4.3rem);
     height: clamp(3.3rem, 5.3vw, 4.3rem);
     object-fit: contain;
-}
-
-.texto_barra {
-    font-size: clamp(2.9rem, 6vw, 3.3rem);
-    font-family: var(--font-secundaria);
 }
 
 .reiniciar_jogo {
@@ -299,90 +328,83 @@
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
+    
+    .tabuleiro_conteudo_espacamento {
+        padding: 0.5rem 1rem;
+    }
 
-    .tela_final_imagem .fundo_derrota,
-    .tela_final_imagem .fundo_vitoria {
-        width: 100%;
-        height: 100%;
-        object-fit: cover !important;
-        object-position: center;
+    .tabuleiro_conteudo_espacamento_cabecalho {
+        width: 130px !important;
+        max-width: 20vw;
+    }
+
+    .tabuleiro_conteudo_espacamento_cabecalho_imagem_texto {
+        font-size: 1.4rem !important;
+        top: 45%;
+    }
+
+    .tabuleiro_conteudo_espacamento_pontuacao {
+        width: auto;
+        min-width: 130px;
+    }
+
+    .tabuleiro_pontuacao {
+        max-width: 140px !important;
+    }
+
+    .hud-texto {
+        font-size: 1.7rem !important;
+        line-height: 1;
+    }
+
+    .icone-rodape {
+        height: 1.7rem !important;
+        max-height: 60px;
+        width: auto;
+    }
+
+    .tabuleiro_pontuacao_placa_texto {
+        gap: 5%;
     }
 
     .tela_final_imagem {
         width: 100vw;
         height: 100vh;
-        overflow: hidden;
+        height: 100dvh;
+    }
+    
+    .tela_final_imagem .fundo_derrota,
+    .tela_final_imagem .fundo_vitoria {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .derrota_conteudo,
     .vitoria_conteudo {
+        position: absolute;
         top: 43%;
         left: 14%;
-        transform: none;
-        margin: 0 auto;
+        transform: translate(0, 0); 
+        margin: 0; 
         padding: 0.2rem;
-        width: 90%;
+        width: 90%; 
         gap: clamp(0.3rem, 1.2vh, 1.2rem);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: center; 
+        text-align: center;
+    }
+
+    .tela_final_imagem.mostrar .derrota_conteudo,
+    .tela_final_imagem.mostrar .vitoria_conteudo {
+        transform: translate(0, 0);
     }
 
     .vitoria_conteudo {
-        top: 48%;
-    }
-
-    .reiniciar_jogo {
-        width: clamp(100px, 32vw, 170px);
-        margin-top: 0.2rem;
-    }
-
-    .reiniciar_imagem_texto,
-    .menu_imagem_texto {
-        font-size: clamp(0.7rem, 3vw, 1.6rem);
-    }
-
-    .moedas_final_conteudo img {
-        width: clamp(1.4rem, 5vw, 2.3rem);
-        height: clamp(1.4rem, 5vw, 2.3rem);
+        top: 40%;
+        left: 16%;
     }
 
     .texto_barra {
         font-size: clamp(1.1rem, 3.5vw, 1.8rem);
-    }
-}
-
-@media (max-width: 768px) and (orientation: landscape) {
-    .derrota_conteudo,
-    .vitoria_conteudo {
-        top: 44%;
-        left: 12%;
-        width: 95%;
-        padding: 0.2rem;
-        gap: clamp(0.25rem, 1.2vh, 1rem);
-    }
-
-    .vitoria_conteudo {
-        top: 48%;
-    }
-
-    .reiniciar_jogo {
-        width: clamp(70px, 45vw, 130px);
-        margin-top: 0.15rem;
-    }
-
-    .reiniciar_imagem_texto,
-    .menu_imagem_texto {
-        font-size: clamp(0.7rem, 3vw, 1.6rem);
-    }
-
-    .moedas_final_conteudo img {
-        width: clamp(0.9rem, 7vw, 2.5rem);
-        height: clamp(0.9rem, 7vw, 2.5rem);
-    }
-
-    .texto_barra {
-        font-size: clamp(1.9rem, 4.5vw, 1.3rem);
     }
 }
